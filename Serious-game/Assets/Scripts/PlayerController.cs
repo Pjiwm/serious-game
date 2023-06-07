@@ -1,42 +1,80 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 7f;
+    [SerializeField] private float speed;
     [SerializeField] private GameInput gameInput;
+    
+    public event EventHandler<SelectedInteractableChangedEventArgs> OnSelectedInteractableChanged;
+    
+    private Rigidbody2D _rigidBody2D;
+    private Vector2 _lastInteractDir;
+    private Vector2 _moveDir;
+    private IInteractable _selectedInteractable;
     private float MoveDistance => speed * Time.deltaTime;
-    private bool _isWalking = false;
-    void Update()
+
+    public class SelectedInteractableChangedEventArgs : EventArgs
     {
-        HandleMovement();
+        public IInteractable SelectedInteractable { get; set; }
     }
     
-    private void HandleMovement()
+    private void Start()
     {
-        var inputVector = gameInput.GetMovementVectorNormalized();
-        var moveDir = new Vector2(inputVector.x, inputVector.y);
-        if (!CanMove(moveDir))
+        _rigidBody2D = GetComponent<Rigidbody2D>();
+        gameInput.OnInteract += OnInteract;
+    }
+    
+    void Update()
+    {
+        
+        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        _moveDir = inputVector;
+        if (inputVector != Vector2.zero)
         {
-            var moveDirX = new Vector2(moveDir.x, 0).normalized;
-            var moveDirY = new Vector2(0, 0).normalized;
-            
-            if (CanMove(moveDirX)) moveDir = moveDirX;
-            if (CanMove(moveDirY)) moveDir = moveDirY;
+            _lastInteractDir = _moveDir;
+            HandleMovement();
         }
-        if (CanMove(moveDir))
+        HandleSelections();
+    }
+    
+    private void OnInteract(object sender, EventArgs e)
+    {
+        _selectedInteractable?.Interact();
+    }
+
+    private void HandleSelections()
+    {
+        var interactDistance = 2f;
+        IInteractable currentlySelectedCounter = null;
+        var raycanon =
+            Physics2D.Raycast(transform.position,
+                _lastInteractDir, interactDistance);
+        if(raycanon)
         {
-            transform.position += (moveDir * MoveDistance).ToVector3();
+            if (raycanon.transform.TryGetComponent(out IInteractable interactable))
+            {
+                currentlySelectedCounter = interactable;
+            }
         }
 
-        _isWalking = moveDir != Vector2.zero;
+        if (currentlySelectedCounter != _selectedInteractable)
+        {
+            SetSelectedInteractable(currentlySelectedCounter);
+        }
     }
-    private bool CanMove(Vector2 moveDirection)
+    
+    private void SetSelectedInteractable(IInteractable selectedInteractable)
     {
-        var playerSize = new Vector2(1, 1);
-        var rotatedAngle = 0f;
-        var moveDistance = speed * Time.deltaTime;
-        return !Physics2D.BoxCast(transform.position, playerSize, rotatedAngle, moveDirection, moveDistance);
+        _selectedInteractable = selectedInteractable;
+        OnSelectedInteractableChanged?.Invoke(this, new SelectedInteractableChangedEventArgs { SelectedInteractable = _selectedInteractable });
+    }
+
+    private void HandleMovement()
+    {
+        _rigidBody2D.MovePosition(_rigidBody2D.position + _moveDir * MoveDistance);
     }
 }
