@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4680747216511653326}
   - component: {fileID: 9141104102998192697}
   m_Layer: 0
-  m_Name: NPC
+  m_Name: Malon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
