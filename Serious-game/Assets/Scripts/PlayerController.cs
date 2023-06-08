@@ -1,13 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private GameInput gameInput;
+    [SerializeField] private MoveInput moveInput;
     
     public event EventHandler<SelectedInteractableChangedEventArgs> OnSelectedInteractableChanged;
     
@@ -25,13 +23,23 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        gameInput.OnInteract += OnInteract;
+        moveInput.OnInteract += OnInteract;
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
-    
-    private void Update()
+
+    public void ActivateMovement()
     {
-        Vector2 inputVector = gameInput.GetMovementVectorNormalized();
+        moveInput.OnInteract += OnInteract;
+    }
+
+    public void DeActivateMovement()
+    {
+        moveInput.OnInteract -= OnInteract;
+    }
+    
+    public void HandleUpdate()
+    {
+        Vector2 inputVector = moveInput.GetMovementVectorNormalized();
         _moveDir = inputVector;
         if (inputVector != Vector2.zero)
         {
