@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using DefaultNamespace;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour, IInteractable
 {
+    [SerializeField] private Dialog interactDialog;
     private Animator animator;
-
+    
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     
     private void Start()
@@ -22,6 +21,7 @@ public class NPCController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Hello! I am looking for my dog. Have you seen him?");
+        Debug.Log(DialogManager.Instance);
+        StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
     }
 }

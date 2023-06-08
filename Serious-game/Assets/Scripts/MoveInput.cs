@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class GameInput : MonoBehaviour
+public class MoveInput : MonoBehaviour
 {
     private PlayerInputActions _playerInputActions;
     public event EventHandler OnInteract;
