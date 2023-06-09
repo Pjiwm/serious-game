@@ -1,0 +1,1526 @@
+fileFormatVersion: 2
+guid: 605405023f2c7f04a9539d41ba696558
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_0
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 283
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d0127308b8ec654ea39904256245c35
+      internalID: -1508989906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_1
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 285
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac18737e976aafc40a55a93526a0d379
+      internalID: 316433841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 283
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5368dce74d8ace344ac6a36ccd09be75
+      internalID: -868492899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_3
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 284
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322559813bc1dd740b5c0156226304b4
+      internalID: 565696998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 285
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02364cd16612584d9c0571508a2bfd1
+      internalID: -1072738673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_5
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 284
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 191eb246a27000d46aa893dd1b384126
+      internalID: 2047662328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_6
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 254
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35140b6097b228546a092ceefa8309d6
+      internalID: 1075946303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_7
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 256
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e53ea66a62ff954d9dd7c6a1ec2ec70
+      internalID: -465514914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_8
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 254
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb24bc6c6c58644bb58ff4f54678c9b
+      internalID: -1098143374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_9
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 255
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b89ebe8d9ffacf746a6fa88e8864342d
+      internalID: -1074630160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_10
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 256
+        width: 18
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a7700d238d0d148ab8c709738d5bed
+      internalID: -966541913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 255
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 850f9afc849c7f94da5ad32e3c397365
+      internalID: 621380474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_12
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 227
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75318027e678eb945a34ff5edf450226
+      internalID: -849142679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_13
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 227
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e78df97c8dfef824999d297299b593b3
+      internalID: -1901944022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_14
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 227
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 544ed3d206492894a86a84919cbbbe9a
+      internalID: 173938418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_15
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 227
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51d4f59199e29c44e951a6f16f8d09a7
+      internalID: -984760440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_16
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 227
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6500fcacf66fdb42a4644d5eac8949e
+      internalID: -771760108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_17
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 198
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8c7f0c2abafb44790fd0f8988625ea
+      internalID: 366926997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_18
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 198
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4140182a9078ba4bbead3cc8b397440
+      internalID: -109171622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_19
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 198
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538ced1d6e80cba46aea75b49161954e
+      internalID: -136825616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_20
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 198
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 022574ff0df7447489d65421d8a318ee
+      internalID: -831782779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_21
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 198
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31d7f4f2bdc84c6459db6b219f643c92
+      internalID: 1970473580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_22
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 198
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28d2c1a93d1281b4c9e764b28be9a448
+      internalID: 399809197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_23
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 168
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c68b83c76a7295448740ff5ff01d905
+      internalID: 498608809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_24
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 168
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0393e59b0e2a9f743842da7617f4c8e4
+      internalID: 1259523142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_25
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 168
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d625d9f49d3c74d94d5e72d2568922
+      internalID: -1324474212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_26
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 168
+        width: 18
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e61530ef5b608804ea16f27a621b5272
+      internalID: -1820077453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_27
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 168
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7af3b3b204436c419d9b8c7adce79ea
+      internalID: 1110350903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_28
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 168
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7d49398be7cec245b48b02e1562ef45
+      internalID: 1140239842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_29
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 138
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df4db664e46ffe34bb0ce523669c27c6
+      internalID: 2094080182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_30
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 138
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c763141c5f298314eba3ff199547679e
+      internalID: 947345734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_31
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 824c35808235f964ab4675f5f8831b27
+      internalID: -1357258019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_32
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9efcf8a6079aa8a41a7d231c36f2a77d
+      internalID: -1195237981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_33
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7ef82114d12664da3d4e9bea51b4df
+      internalID: -1856146613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_34
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 138
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dce8cd77e6f453a429b5b16b77743630
+      internalID: -1594342718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_35
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 138
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51bd29e3a3e013c438122e4d6474a284
+      internalID: -909688070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_36
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8cd958c6bb3d945bdf4da458473541
+      internalID: 507187354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_37
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0041232016b92434185b02b943b93452
+      internalID: 1522713288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_38
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 138
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f766146919aee4fb884e5a1f11cb51
+      internalID: -239028285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_39
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 107
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c8a62be3ba7714cb4840745a1d8356
+      internalID: 1858686659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_40
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 107
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03410f1871c7ea44e994b015052983c1
+      internalID: 306023217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_41
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 105
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a8e95a438b10c4787cc1dc6b7ccc4e
+      internalID: -1872517575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_42
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 107
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70b9c4ffb3593c84cb4627cc1792fb94
+      internalID: 1576080733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_43
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 107
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e741d295e3eb82f4998cdf698ab5dd81
+      internalID: -1163123131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_44
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 105
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85086cd3787ed0d45b48f9dac0034011
+      internalID: -1193548542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_45
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 72
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba7f8669e51d994ebbd8805aa10ed3a
+      internalID: 1219853135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_46
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 72
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1432cc86371799e4c9724ca8be6e8ea3
+      internalID: 2104920601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_47
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 72
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c12b80f28a8d7e4591f484f8001660d
+      internalID: 737578563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_48
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 72
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56e3b15c4077bb4d952507fba1b9ee6
+      internalID: 17852980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_49
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 72
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543cc88c028e708409b0e13f47708ca8
+      internalID: 331971693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_50
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 72
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c81e93fad9959f44984ca679d1de1730
+      internalID: -1340951895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_51
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 40
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 039a670b0ac3d424ab62a82c9cf54ccf
+      internalID: -1246250005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_52
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 39
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7069974398184e542a3ce1642f71c5fe
+      internalID: -2097075686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_53
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 38
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9312d321b281084a9f62b72d73965f8
+      internalID: 487744119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_54
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 40
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41cfcb2c1e286754db6b1069985391ec
+      internalID: -1327820187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_55
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 39
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66c5e4d5a4a96ce4b99ba3c880b7bf41
+      internalID: -364364597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_56
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 38
+        width: 20
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5ba303e5020864ba2574377c6e1b4a
+      internalID: 2134199145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_57
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 5
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2897c9de45d2b834b9f83fcb3fc5d2ec
+      internalID: -1128015750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_58
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 5
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668b2484bf778644cb204076308d8f0c
+      internalID: 1199937674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_59
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 5
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32567824855de75498ff2380cae67e1c
+      internalID: -1405292162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_60
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 5
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d3eec16e4b4fe4baf4cf7467129d6c
+      internalID: -754525561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_61
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 5
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19dda7b10dc00d409e86baaec452606
+      internalID: -1936783691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Malon Talon Epona Gorman_62
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 5
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf621b3d64355345a6b49768ffcc131
+      internalID: 1356570528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Malon Talon Epona Gorman_0: -1508989906
+      Malon Talon Epona Gorman_1: 316433841
+      Malon Talon Epona Gorman_10: -966541913
+      Malon Talon Epona Gorman_11: 621380474
+      Malon Talon Epona Gorman_12: -849142679
+      Malon Talon Epona Gorman_13: -1901944022
+      Malon Talon Epona Gorman_14: 173938418
+      Malon Talon Epona Gorman_15: -984760440
+      Malon Talon Epona Gorman_16: -771760108
+      Malon Talon Epona Gorman_17: 366926997
+      Malon Talon Epona Gorman_18: -109171622
+      Malon Talon Epona Gorman_19: -136825616
+      Malon Talon Epona Gorman_2: -868492899
+      Malon Talon Epona Gorman_20: -831782779
+      Malon Talon Epona Gorman_21: 1970473580
+      Malon Talon Epona Gorman_22: 399809197
+      Malon Talon Epona Gorman_23: 498608809
+      Malon Talon Epona Gorman_24: 1259523142
+      Malon Talon Epona Gorman_25: -1324474212
+      Malon Talon Epona Gorman_26: -1820077453
+      Malon Talon Epona Gorman_27: 1110350903
+      Malon Talon Epona Gorman_28: 1140239842
+      Malon Talon Epona Gorman_29: 2094080182
+      Malon Talon Epona Gorman_3: 565696998
+      Malon Talon Epona Gorman_30: 947345734
+      Malon Talon Epona Gorman_31: -1357258019
+      Malon Talon Epona Gorman_32: -1195237981
+      Malon Talon Epona Gorman_33: -1856146613
+      Malon Talon Epona Gorman_34: -1594342718
+      Malon Talon Epona Gorman_35: -909688070
+      Malon Talon Epona Gorman_36: 507187354
+      Malon Talon Epona Gorman_37: 1522713288
+      Malon Talon Epona Gorman_38: -239028285
+      Malon Talon Epona Gorman_39: 1858686659
+      Malon Talon Epona Gorman_4: -1072738673
+      Malon Talon Epona Gorman_40: 306023217
+      Malon Talon Epona Gorman_41: -1872517575
+      Malon Talon Epona Gorman_42: 1576080733
+      Malon Talon Epona Gorman_43: -1163123131
+      Malon Talon Epona Gorman_44: -1193548542
+      Malon Talon Epona Gorman_45: 1219853135
+      Malon Talon Epona Gorman_46: 2104920601
+      Malon Talon Epona Gorman_47: 737578563
+      Malon Talon Epona Gorman_48: 17852980
+      Malon Talon Epona Gorman_49: 331971693
+      Malon Talon Epona Gorman_5: 2047662328
+      Malon Talon Epona Gorman_50: -1340951895
+      Malon Talon Epona Gorman_51: -1246250005
+      Malon Talon Epona Gorman_52: -2097075686
+      Malon Talon Epona Gorman_53: 487744119
+      Malon Talon Epona Gorman_54: -1327820187
+      Malon Talon Epona Gorman_55: -364364597
+      Malon Talon Epona Gorman_56: 2134199145
+      Malon Talon Epona Gorman_57: -1128015750
+      Malon Talon Epona Gorman_58: 1199937674
+      Malon Talon Epona Gorman_59: -1405292162
+      Malon Talon Epona Gorman_6: 1075946303
+      Malon Talon Epona Gorman_60: -754525561
+      Malon Talon Epona Gorman_61: -1936783691
+      Malon Talon Epona Gorman_62: 1356570528
+      Malon Talon Epona Gorman_7: -465514914
+      Malon Talon Epona Gorman_8: -1098143374
+      Malon Talon Epona Gorman_9: -1074630160
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
