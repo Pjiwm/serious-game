@@ -137,7 +137,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: movement
-    m_EventTreshold: 6
+    m_EventTreshold: 7
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1780184018331913571}
   m_Solo: 0
@@ -240,7 +240,7 @@ AnimatorController:
   - m_Name: movement
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 8
+    m_DefaultInt: 7
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
