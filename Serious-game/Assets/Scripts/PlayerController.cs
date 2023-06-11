@@ -7,16 +7,21 @@ using UnityEngine.Serialization;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private MoveInput moveInput;
+    private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
     private Vector2 _moveDir;
     private IInteractable[] _selectedInteractables;
     private int _interactablesLayer;
+    private Animator _animator;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _moveController = GetComponent<MoveController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         
         moveInput.OnInteract += OnInteract;
 
@@ -39,8 +44,21 @@ public class PlayerController : MonoBehaviour
         if (inputVector != Vector2.zero)
         {
             _moveDir = inputVector;
+            if (inputVector.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+            else if (inputVector.x > 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+
+            _animator.SetBool(IsMoving, true);
             _moveController.HandleMovement(_moveDir);
+        } else {
+            _animator.SetBool(IsMoving, false);
         }
+        
 
         HandleSelections();
     }
@@ -78,5 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             interactable?.Select();
         } 
+    }
+
+    private void OnDestroy()
+    {
+        moveInput.OnInteract -= OnInteract;
     }
 }
