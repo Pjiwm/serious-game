@@ -1,18 +1,12 @@
+using System;
 using DefaultNamespace;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour, IInteractable
 {
     [SerializeField] private Dialog interactDialog;
-    private Animator animator;
-    
-    private static readonly int IsWalking = Animator.StringToHash("isWalking");
-    
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-        animator.SetBool(IsWalking, true);
-    }
+
+    public Action OnDialogFinishedAction { get; set; }
 
     public void Select()
     {
@@ -22,6 +16,13 @@ public class NPCController : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log(DialogManager.Instance);
+        DialogManager.Instance.OnCloseDialog += OnDialogFinished;
         StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+    }
+
+    private void OnDialogFinished()
+    {
+        DialogManager.Instance.OnCloseDialog -= OnDialogFinished;
+        OnDialogFinishedAction?.Invoke();
     }
 }
