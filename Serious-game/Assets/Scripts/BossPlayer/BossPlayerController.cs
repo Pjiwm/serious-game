@@ -17,6 +17,9 @@ public class BossPlayerController : MonoBehaviour
     public float movespeed = 1f;
     public ContactFilter2D movementFilter;
     public SwordAttack swordAttack;
+    public Healthbar healthbar;
+    public float maxHealth = 100;
+    private float currentHealth;
     
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,9 @@ public class BossPlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        healthbar.SetMaxHealth((int)maxHealth);
+        currentHealth = maxHealth;
+        
     }
     
 
@@ -120,4 +126,23 @@ public class BossPlayerController : MonoBehaviour
     {
         canMove = true;
     }
+
+    public void OnHit(float damage)
+    {
+        animator.SetTrigger("Hit");
+        currentHealth -= damage;
+        healthbar.SetHealth((int)currentHealth);
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("IsAlive", false);
+            healthbar.bar.gameObject.SetActive(false);
+        }
+    }
+
+    public void RemovePlayer()
+    {
+        Destroy(gameObject);
+    }
+
+    
 }

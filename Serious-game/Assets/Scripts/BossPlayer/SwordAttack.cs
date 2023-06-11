@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
+    public float knockBackForce = 3f;
     public Collider2D swordCollider;
     public float damage = 3;
     private Vector2 rightAttackOffset;
@@ -39,11 +40,20 @@ public class SwordAttack : MonoBehaviour
         if (other.tag == "Enemy")
         { 
             EnemyController enemy = other.GetComponent<EnemyController>();
-
+            
             if (enemy != null)
             {
-                enemy.Health -= damage;
+                enemy.OnHit(damage);
+                enemy.OnKnockBack(KnockBack(other));
             }
         }
+    }
+
+    private Vector2 KnockBack(Collider2D other)
+    {
+        Vector3 positionPlayer = gameObject.GetComponentInParent<Transform>().position;
+        Vector2 direction = (Vector2)(other.gameObject.transform.position - positionPlayer).normalized;
+        Vector2 knockback = direction * knockBackForce;
+        return knockback;
     }
 }
