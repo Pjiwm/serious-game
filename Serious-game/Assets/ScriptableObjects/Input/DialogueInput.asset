@@ -9,11 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c744cda8b90ffb499f45aa3000e4cfa, type: 3}
-  m_Name: FishManager
+  m_Script: {fileID: 11500000, guid: ac6695a487ff1d579b76879ae112b4aa, type: 3}
+  m_Name: DialogueInput
   m_EditorClassIdentifier: 
-  allFish:
-  - name: Henk
-    spriteID: fish_1
-    baseCost: 1
-    spokeWeight: 1

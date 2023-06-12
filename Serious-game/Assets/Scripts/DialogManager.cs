@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class DialogManager : Singleton<DialogManager>
 {
     [SerializeField] GameObject dialogBox;
-    [SerializeField] TMPro.TextMeshProUGUI dialogText;
+    private TMPro.TextMeshProUGUI _dialogText;
     [SerializeField] private DialogueInput dialogueInput;
     [SerializeField] int lettersPerSecond;
     public Action OnShowDialog;
@@ -17,6 +17,11 @@ public class DialogManager : Singleton<DialogManager>
     private Dialog _dialog;
     private int _currentLine = 0;
     private bool _isTyping;
+
+    private void Start()
+    {
+        _dialogText = dialogBox.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+    }
 
     private void OnSkip(object sender, EventArgs e)
     {
@@ -58,10 +63,10 @@ public class DialogManager : Singleton<DialogManager>
     {
         _isTyping = true;
         
-        dialogText.text = "";
+        _dialogText.text = "";
         foreach (var letter in text.ToCharArray())
         {
-            dialogText.text += letter;
+            _dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
         
@@ -72,7 +77,7 @@ public class DialogManager : Singleton<DialogManager>
     {
         _isTyping = true;
         
-        dialogText.text = text;
+        _dialogText.text = text;
         
         _isTyping = false;
     }
@@ -89,7 +94,7 @@ public class DialogManager : Singleton<DialogManager>
         OnCloseDialog?.Invoke();
         dialogBox.SetActive(false);
         
-        dialogText.text = "";
+        _dialogText.text = "";
         _currentLine = 0;
     }
 }

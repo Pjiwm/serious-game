@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private MoveInput moveInput;
+    [SerializeField] private PlayerInput playerInput;
     private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
@@ -23,24 +23,24 @@ public class PlayerController : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         
-        moveInput.OnInteract += OnInteract;
+        playerInput.OnInteract += OnInteract;
 
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
     public void ActivatePlayerInputs()
     {
-        moveInput.OnInteract += OnInteract;
+        playerInput.OnInteract += OnInteract;
     }
 
     public void DeActivatePlayerInputs()
     {
-        moveInput.OnInteract -= OnInteract;
+        playerInput.OnInteract -= OnInteract;
     }
 
     public void HandleUpdate()
     {
-        var inputVector = moveInput.GetMovementVectorNormalized();
+        var inputVector = playerInput.GetMovementVectorNormalized();
         if (inputVector != Vector2.zero)
         {
             _moveDir = inputVector;
@@ -100,6 +100,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnDestroy()
     {
-        moveInput.OnInteract -= OnInteract;
+        playerInput.OnInteract -= OnInteract;
     }
 }

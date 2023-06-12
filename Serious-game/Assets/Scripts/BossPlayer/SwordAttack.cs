@@ -7,31 +7,32 @@ using UnityEngine;
 public class SwordAttack : MonoBehaviour
 {
     [SerializeField] private float knockBackForce = 3f;
-    [SerializeField] private Collider2D swordCollider;
+    private Collider2D _swordCollider;
     [SerializeField] private float damage = 3;
     
     private Vector2 _rightAttackOffset;
     private const string EnemyTag = "Enemy";
     private void Start()
     {
-        _rightAttackOffset = transform.position;
+        _rightAttackOffset = transform.localPosition;
+        _swordCollider = GetComponent<Collider2D>();
     }
 
     public void AttackRight()
     {
-        swordCollider.enabled = true;
+        _swordCollider.enabled = true;
         transform.localPosition= _rightAttackOffset;
     }
 
     public void AttackLeft()
     {
-        swordCollider.enabled = true;
+        _swordCollider.enabled = true;
         transform.localPosition = new Vector3(_rightAttackOffset.x * -1, _rightAttackOffset.y);
     }
 
     public void StopAttack()
     {
-        swordCollider.enabled = false;
+        _swordCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
