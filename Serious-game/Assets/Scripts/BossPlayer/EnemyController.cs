@@ -22,45 +22,57 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    public float maxHealth = 100;
-    public Healthbar healthbar;
-    private Animator animator;
-    private Rigidbody2D rb;
-    public DetectionZone detectionZone;
-    public float moveSpeed = 0.7f;
-    private bool canMove = true;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private Healthbar healthbar;
+    
+    private Animator _animator;
+    private Rigidbody2D _rb;
+    private MoveController _moveController;
+    private bool _canMove = true;
+    private int _playersLayer;
+    
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    private static readonly int IsAlive = Animator.StringToHash("IsAlive");
+    private static readonly int Hit = Animator.StringToHash("Hit");
 
     private void Start()
     {
         Health = maxHealth;
         healthbar.SetMaxHealth((int)maxHealth);
-        animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        detectionZone = GetComponentInChildren<DetectionZone>();
+        _animator = GetComponent<Animator>();
+        _rb = GetComponent<Rigidbody2D>();
+        _moveController = GetComponent<MoveController>();
+        _playersLayer = LayerMask.GetMask("Player");
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (canMove)
+        const float interactDistance = 10f;
+        
+        var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
+        if (!collidedObject) return;
+        
+        var nextToPlayerPosition = collidedObject.gameObject.transform.position;
+        var direction = nextToPlayerPosition - gameObject.transform.position;
+        var nextToPlayerDistance = 0.25;
+        //Debug.Log(Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance);
+        if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
+
+        if (collidedObject && _canMove)
         {
-            if (detectionZone.detectedObjects.Count > 0)
-            {
-                animator.SetBool("IsMoving", true);
-                Vector2 direction = detectionZone.detectedObjects[0].transform.position - transform.position;
-                direction.Normalize();
-                rb.velocity = direction * moveSpeed;
-            }
-            else
-            {
-                animator.SetBool("IsMoving", false);
-                rb.velocity = Vector2.zero;
-            }   
+            if (!_animator.GetBool(IsMoving)) _animator.SetBool(IsMoving, true);
+        
+            
+            
+            _moveController.HandleMovement(direction.normalized);
+            return;
         }
+        _animator.SetBool(IsMoving, false);
     }
 
     public void Defeated()
     {
-        animator.SetBool("IsAlive", false);
+        _animator.SetBool(IsAlive, false);
         healthbar.bar.gameObject.SetActive(false);
     }
 
@@ -72,14 +84,13 @@ public class EnemyController : MonoBehaviour
     public void OnHit(float damage)
     {
         LockMovement();
-        animator.SetTrigger("Hit");
+        _animator.SetTrigger(Hit);
         Health -= damage;
-        Debug.Log(_health);
     }
 
     public void OnKnockBack(Vector2 direction)
     {
-        rb.AddForce(direction);
+        _rb.AddForce(direction);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -90,15 +101,16 @@ public class EnemyController : MonoBehaviour
             player.OnHit(10);
         }
     }
+    
 
     public void LockMovement()
     {
-        canMove = false;
+        _canMove = false;
     }
 
     public void UnlockMovement()
     {
-        canMove = true;
+        _canMove = true;
     }
 }
 

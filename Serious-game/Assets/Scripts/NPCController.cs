@@ -10,12 +10,11 @@ public class NPCController : MonoBehaviour, IInteractable
 
     public void Select()
     {
-        Debug.Log("Could you help me?");
+        // Debug.Log("Could you help me?");
     }
 
     public void Interact()
     {
-        Debug.Log(DialogManager.Instance);
         DialogManager.Instance.OnCloseDialog += OnDialogFinished;
         StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
     }

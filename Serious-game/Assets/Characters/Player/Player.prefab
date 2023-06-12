@@ -90,7 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c89bfeb08952f4e83bd309b1b150b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDirection: 0
+  knockBackForce: 3
+  swordCollider: {fileID: 0}
+  damage: 3
 --- !u!1 &8158902939818462205
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +103,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6605146068080111986}
   - component: {fileID: 9025835638983310944}
-  - component: {fileID: 2675853668031356681}
   - component: {fileID: 1193319181920795005}
   - component: {fileID: -2617743693458668889}
   - component: {fileID: -2444407232708386100}
@@ -181,36 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2675853668031356681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8158902939818462205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: 
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!50 &1193319181920795005
 Rigidbody2D:
   serializedVersion: 4
@@ -312,6 +283,8 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   swordAttack: {fileID: 6134785867770279160}
+  healthbar: {fileID: 0}
+  maxHealth: 100
 --- !u!95 &3596714945743412525
 Animator:
   serializedVersion: 5

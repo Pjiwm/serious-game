@@ -6,41 +6,59 @@ using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private MoveInput moveInput;
+    [SerializeField] private PlayerInput playerInput;
+    private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
     private Vector2 _moveDir;
     private IInteractable[] _selectedInteractables;
     private int _interactablesLayer;
+    private Animator _animator;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
         _moveController = GetComponent<MoveController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
         
-        moveInput.OnInteract += OnInteract;
+        playerInput.OnInteract += OnInteract;
 
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
     public void ActivatePlayerInputs()
     {
-        moveInput.OnInteract += OnInteract;
+        playerInput.OnInteract += OnInteract;
     }
 
     public void DeActivatePlayerInputs()
     {
-        moveInput.OnInteract -= OnInteract;
+        playerInput.OnInteract -= OnInteract;
     }
 
     public void HandleUpdate()
     {
-        var inputVector = moveInput.GetMovementVectorNormalized();
+        var inputVector = playerInput.GetMovementVectorNormalized();
         if (inputVector != Vector2.zero)
         {
             _moveDir = inputVector;
+            if (inputVector.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+            else if (inputVector.x > 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+
+            _animator.SetBool(IsMoving, true);
             _moveController.HandleMovement(_moveDir);
+        } else {
+            _animator.SetBool(IsMoving, false);
         }
+        
 
         HandleSelections();
     }
@@ -78,5 +96,10 @@ public class PlayerController : MonoBehaviour
         {
             interactable?.Select();
         } 
+    }
+
+    private void OnDestroy()
+    {
+        playerInput.OnInteract -= OnInteract;
     }
 }

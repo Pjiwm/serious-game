@@ -4,6 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - CatchingBar
   - Enemy
   layers:
   - Default
@@ -15,6 +16,7 @@ TagManager:
   - Player
   - Interactables
   - Solid objects
+  - Enemies
   - 
   - 
   - 
@@ -53,4 +55,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4136605747
+    locked: 0
+  - name: Enemies
+    uniqueID: 4106478517
     locked: 0

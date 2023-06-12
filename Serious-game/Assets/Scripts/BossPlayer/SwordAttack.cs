@@ -6,54 +6,52 @@ using UnityEngine;
 
 public class SwordAttack : MonoBehaviour
 {
-    public float knockBackForce = 3f;
-    public Collider2D swordCollider;
-    public float damage = 3;
-    private Vector2 rightAttackOffset;
-
+    [SerializeField] private float knockBackForce = 3f;
+    private Collider2D _swordCollider;
+    [SerializeField] private float damage = 3;
+    
+    private Vector2 _rightAttackOffset;
+    private const string EnemyTag = "Enemy";
     private void Start()
     {
-        rightAttackOffset = transform.position;
+        _rightAttackOffset = transform.localPosition;
+        _swordCollider = GetComponent<Collider2D>();
     }
 
     public void AttackRight()
     {
-        Debug.Log("Attacking right");
-        swordCollider.enabled = true;
-        transform.localPosition= rightAttackOffset;
+        _swordCollider.enabled = true;
+        transform.localPosition= _rightAttackOffset;
     }
 
     public void AttackLeft()
     {
-        Debug.Log("Attacking left");
-        swordCollider.enabled = true;
-        transform.localPosition = new Vector3(rightAttackOffset.x * -1, rightAttackOffset.y);
+        _swordCollider.enabled = true;
+        transform.localPosition = new Vector3(_rightAttackOffset.x * -1, _rightAttackOffset.y);
     }
 
     public void StopAttack()
     {
-        swordCollider.enabled = false;
+        _swordCollider.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Enemy")
+        if (other.CompareTag(EnemyTag))
         { 
-            EnemyController enemy = other.GetComponent<EnemyController>();
-            
-            if (enemy != null)
-            {
-                enemy.OnHit(damage);
-                enemy.OnKnockBack(KnockBack(other));
-            }
+            var enemy = other.GetComponent<EnemyController>();
+
+            if (enemy == null) return;
+            enemy.OnHit(damage);
+            enemy.OnKnockBack(KnockBack(other));
         }
     }
 
     private Vector2 KnockBack(Collider2D other)
     {
-        Vector3 positionPlayer = gameObject.GetComponentInParent<Transform>().position;
-        Vector2 direction = (Vector2)(other.gameObject.transform.position - positionPlayer).normalized;
-        Vector2 knockback = direction * knockBackForce;
+        var positionPlayer = gameObject.GetComponentInParent<Transform>().position;
+        var direction = (Vector2)(other.gameObject.transform.position - positionPlayer).normalized;
+        var knockback = direction * knockBackForce;
         return knockback;
     }
 }
