@@ -50,11 +50,12 @@ public class EnemyController : MonoBehaviour
         const float interactDistance = 10f;
         
         var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
+        if (!collidedObject) return;
         
         var nextToPlayerPosition = collidedObject.gameObject.transform.position;
         var direction = nextToPlayerPosition - gameObject.transform.position;
-        var nextToPlayerDistance = 0.4;
-        Debug.Log(Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance);
+        var nextToPlayerDistance = 0.2;
+        //Debug.Log(Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance);
         if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
 
         if (collidedObject && _canMove)
@@ -97,7 +98,7 @@ public class EnemyController : MonoBehaviour
         BossPlayerController player = other.gameObject.GetComponent<BossPlayerController>();
         if (player != null)
         {
-            player.OnHit(1);
+            player.OnHit(10);
         }
     }
     
