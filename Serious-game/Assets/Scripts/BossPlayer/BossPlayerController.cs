@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class BossPlayerController : MonoBehaviour
 {
-    [SerializeField] private AttackInput attackInput;
-    [SerializeField] private SwordAttack swordAttack;
+    [SerializeField] private PlayerInput attackInput;
+    private SwordAttack swordAttack;
     [SerializeField] private Healthbar healthbar;
     [SerializeField] private float maxHealth = 100;
     
@@ -27,6 +27,7 @@ public class BossPlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _playerController = GetComponent<PlayerController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        swordAttack = GetComponentInChildren<SwordAttack>();
         
         healthbar.SetMaxHealth((int)maxHealth);
         _currentHealth = maxHealth;

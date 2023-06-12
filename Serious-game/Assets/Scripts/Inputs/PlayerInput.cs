@@ -1,23 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MoveInput : MonoBehaviour
+[CreateAssetMenu(fileName = "PlayerInput", menuName = "ScriptableObjects/PlayerInput", order = 1)]
+public class PlayerInput : ScriptableObject
 {
     private PlayerInputActions _playerInputActions;
     public event EventHandler OnInteract;
-    private void Awake()
+    public event EventHandler OnAttack; 
+    private void OnEnable()
     {
         _playerInputActions = new PlayerInputActions();
         _playerInputActions.Player.Enable();
+        
+        _playerInputActions.Player.Attack.performed += OnAttackPerformed;
         _playerInputActions.Player.Interact.performed += OnInteractPerformed;
     }
 
     private void OnInteractPerformed(InputAction.CallbackContext obj)
     {
         OnInteract?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnAttackPerformed(InputAction.CallbackContext obj)
+    {
+        OnAttack?.Invoke(this, EventArgs.Empty);
     }
 
     public Vector2 GetMovementVectorNormalized()
