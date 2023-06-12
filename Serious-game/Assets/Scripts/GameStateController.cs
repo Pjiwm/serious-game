@@ -1,10 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum GameState { Roaming, InDialogue}
 public class GameStateController : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
+    public UnityEvent OnRoaming;
+    public UnityEvent OnInDialogue;
+    
     private GameState state = GameState.Roaming;
 
     private void Start()
@@ -24,10 +28,10 @@ public class GameStateController : MonoBehaviour
         switch (newState)
         {
             case GameState.InDialogue:
-                playerController.DeActivateMovement();
+                OnInDialogue?.Invoke();
                 break;
             case GameState.Roaming:
-                playerController.ActivateMovement();
+                OnRoaming?.Invoke();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -39,7 +43,11 @@ public class GameStateController : MonoBehaviour
     {
         if (state == GameState.Roaming)
         {
-            playerController.HandleUpdate();
+            if (playerController != null)
+            {
+                playerController.HandleUpdate();
+            }
+                
         }
     }
 }

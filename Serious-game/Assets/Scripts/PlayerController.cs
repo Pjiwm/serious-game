@@ -1,82 +1,105 @@
 using System;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
     [SerializeField] private MoveInput moveInput;
-    
-    public event EventHandler<SelectedInteractableChangedEventArgs> OnSelectedInteractableChanged;
-    
+    private SpriteRenderer _spriteRenderer;
+    private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
     private Vector2 _moveDir;
-    private IInteractable _selectedInteractable;
-    private float MoveDistance => speed * Time.deltaTime;
+    private IInteractable[] _selectedInteractables;
     private int _interactablesLayer;
+    private Animator _animator;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
-    public class SelectedInteractableChangedEventArgs : EventArgs
-    {
-        public IInteractable SelectedInteractable { get; set; }
-    }
-    
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
+        _moveController = GetComponent<MoveController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        
         moveInput.OnInteract += OnInteract;
+
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
-    public void ActivateMovement()
+    public void ActivatePlayerInputs()
     {
         moveInput.OnInteract += OnInteract;
     }
 
-    public void DeActivateMovement()
+    public void DeActivatePlayerInputs()
     {
         moveInput.OnInteract -= OnInteract;
     }
-    
+
     public void HandleUpdate()
     {
-        Vector2 inputVector = moveInput.GetMovementVectorNormalized();
-        _moveDir = inputVector;
+        var inputVector = moveInput.GetMovementVectorNormalized();
         if (inputVector != Vector2.zero)
         {
-            HandleMovement();
+            _moveDir = inputVector;
+            if (inputVector.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+            else if (inputVector.x > 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+
+            _animator.SetBool(IsMoving, true);
+            _moveController.HandleMovement(_moveDir);
+        } else {
+            _animator.SetBool(IsMoving, false);
         }
+        
+
         HandleSelections();
     }
-    
+
     private void OnInteract(object sender, EventArgs e)
     {
-        _selectedInteractable?.Interact();
+        foreach (var interactable in _selectedInteractables)
+        {
+            interactable.Interact();
+        }
     }
 
     private void HandleSelections()
     {
         const float interactDistance = 2f;
-        IInteractable currentlySelectedInteractable = null;
+        IInteractable[] currentlySelectedInteractables = null;
 
         var collidedObject = Physics2D.OverlapCircle(_rigidBody2D.position, interactDistance, _interactablesLayer);
         
-        if (collidedObject) currentlySelectedInteractable = collidedObject.GetComponent<IInteractable>();
+        if (collidedObject) currentlySelectedInteractables = collidedObject.GetComponents<IInteractable>();
         
-        if (currentlySelectedInteractable != _selectedInteractable)
+        if (currentlySelectedInteractables != _selectedInteractables)
         {
-            SetSelectedInteractable(currentlySelectedInteractable);
+            SetSelectedInteractables(currentlySelectedInteractables);
         }
     }
     
-    private void SetSelectedInteractable(IInteractable selectedInteractable)
+    private void SetSelectedInteractables(IInteractable[] selectedInteractables)
     {
-        _selectedInteractable = selectedInteractable;
-        _selectedInteractable?.Select();
-        OnSelectedInteractableChanged?.Invoke(this, new SelectedInteractableChangedEventArgs { SelectedInteractable = _selectedInteractable });
+        _selectedInteractables = selectedInteractables;
+        
+        if (selectedInteractables == null) return;
+        
+        foreach (var interactable in _selectedInteractables)
+        {
+            interactable?.Select();
+        } 
     }
 
-    private void HandleMovement()
+    private void OnDestroy()
     {
-        _rigidBody2D.MovePosition(_rigidBody2D.position + _moveDir * MoveDistance);
+        moveInput.OnInteract -= OnInteract;
     }
 }

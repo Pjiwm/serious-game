@@ -41,6 +41,11 @@ public class DialogManager : Singleton<DialogManager>
 
     public IEnumerator ShowDialog(Dialog dialog)
     {
+        if (dialog.Lines == null || dialog.Lines.Count <= 0)
+        {
+            Debug.LogError("Dialog manager error: Dialog has no lines");
+            yield break;
+        }
         yield return new WaitForEndOfFrame();
         
         _dialog = dialog;
