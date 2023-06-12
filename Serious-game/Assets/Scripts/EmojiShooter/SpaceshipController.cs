@@ -16,6 +16,7 @@ public class SpaceshipController : MonoBehaviour
     public short health = 3;
 
     public GameObject destroyedObject;
+    public GameObject gameOverCanvas;
 
 
     public float invincibilityDuration = 2f; // Duration of invincibility frames
@@ -59,6 +60,7 @@ public class SpaceshipController : MonoBehaviour
             Destroy(gameObject);
             GameObject instantiatedObject = Instantiate(destroyedObject, transform.position, Quaternion.identity);
             instantiatedObject.transform.localScale = new Vector3(4f, 4f, 1f);
+            gameOverCanvas.SetActive(true);
         }
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);

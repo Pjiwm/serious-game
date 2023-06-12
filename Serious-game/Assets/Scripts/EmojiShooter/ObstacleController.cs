@@ -39,6 +39,7 @@ public class ObstacleController : MonoBehaviour
             Destroy(other.gameObject);
             Instantiate(destroyedObject, transform.position, Quaternion.identity);
             // ScoreManager.score += 1;
+            ScoreManager.AddScore();
         }
     }
 
