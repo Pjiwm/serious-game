@@ -14,7 +14,7 @@ public class SwordAttack : MonoBehaviour
     private const string EnemyTag = "Enemy";
     private void Start()
     {
-        _rightAttackOffset = transform.position;
+        _rightAttackOffset = transform.localPosition;
         _swordCollider = GetComponent<Collider2D>();
     }
 
