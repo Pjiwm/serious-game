@@ -43,6 +43,7 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] private InputAction action;
     [SerializeField] private float catchMultiplier = 10f; //Higher means catch fish faster x
     [SerializeField] private float catchingForce; //How much force to push the catchingbar up by
+    [SerializeField] private FishManager fishManager;
     
     private void Start() {
 	    catchingBarRB = catchingbar.GetComponent<Rigidbody2D>(); //Get reference to the Rigidbody on the catchingbar
@@ -115,7 +116,7 @@ public class FishingMinigame : MonoBehaviour
 	    lineCast = false;
 	    
 	    //Set up the fish we are catching
-	    currentFishOnLine = FishManager.GetRandomFishWeighted();
+	    currentFishOnLine = fishManager.GetRandomFishWeighted();
 	    var tempSprite = Resources.Load<Sprite>($"FishSprites/{currentFishOnLine.spriteID}"); //Get fish sprite from our resources file
 	    fishBar.GetComponent<Image>().sprite = tempSprite;
 
@@ -153,7 +154,7 @@ public class FishingMinigame : MonoBehaviour
     //Called when the catchpercentage hits 100
     public void FishCaught() {
 	    if (currentFishOnLine == null) { //This picks a new fish if the old one is lost by chance
-		    currentFishOnLine = FishManager.GetRandomFish();
+		    currentFishOnLine = fishManager.GetRandomFish();
 	    }
 	    Debug.Log($"Caught a: {currentFishOnLine.name}");
 	    reelingFish = false; //No longer reeling in a fish
