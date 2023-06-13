@@ -4,7 +4,7 @@ public class MoveController : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D _rigidBody2D;
-    private float MoveDistance => speed * Time.deltaTime;
+    private float MoveDistance => speed * Time.fixedDeltaTime;
 
     private void Start()
     {

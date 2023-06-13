@@ -39,7 +39,7 @@ public class GameStateController : MonoBehaviour
         state = newState;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (state == GameState.Roaming)
         {
