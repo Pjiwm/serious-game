@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingMinigame_FishTrigger : MonoBehaviour
+public class FishingMinigameFishTrigger : MonoBehaviour
 {
    /// <summary>
    /// We use this to detect whether or not the fish is in the catching bar
@@ -11,17 +11,17 @@ public class FishingMinigame_FishTrigger : MonoBehaviour
    /// </summary>
    
    public bool beingCaught = false;
-   private FishingMinigame minigameController;
+   private FishingMinigame _minigameController;
 
    private void Start() {
-      minigameController = FindObjectOfType<FishingMinigame>();
+      _minigameController = FindObjectOfType<FishingMinigame>();
    }
 
    private void OnTriggerEnter2D(Collider2D other) {
-      if (minigameController.reelingFish) {
+      if (_minigameController.ReelingFishState) {
          if (other.CompareTag("CatchingBar") && !beingCaught) {
             beingCaught = true;
-            minigameController.FishInBar();
+            _minigameController.FishInBar();
          }
       }
    }
@@ -29,7 +29,7 @@ public class FishingMinigame_FishTrigger : MonoBehaviour
    private void OnTriggerExit2D(Collider2D other) {
       if (other.CompareTag("CatchingBar") && beingCaught) {
          beingCaught = false;
-         minigameController.FishOutOfBar();
+         _minigameController.FishOutOfBar();
       }
    }
 }

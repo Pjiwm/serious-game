@@ -13,7 +13,23 @@ MonoBehaviour:
   m_Name: FishManager
   m_EditorClassIdentifier: 
   allFish:
-  - name: Henk
+  - name: Karper
     spriteID: fish_1
+    baseCost: 1
+    spokeWeight: 1
+  - name: Snoek
+    spriteID: fish_2
+    baseCost: 1
+    spokeWeight: 1
+  - name: Brasem
+    spriteID: fish_5
+    baseCost: 1
+    spokeWeight: 1
+  - name: Steur
+    spriteID: fish_4
+    baseCost: 1
+    spokeWeight: 1
+  - name: Snoekbaars
+    spriteID: fish_3
     baseCost: 1
     spokeWeight: 1

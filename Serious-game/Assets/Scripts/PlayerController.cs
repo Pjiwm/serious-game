@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         
         playerInput.OnInteract += OnInteract;
-
+        GameStateController.Instance.OnRoaming += ActivatePlayerInputs;
+        GameStateController.Instance.OnInDialogue += DeActivatePlayerInputs;
+        GameStateController.Instance.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
@@ -36,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public void DeActivatePlayerInputs()
     {
         playerInput.OnInteract -= OnInteract;
+        _animator.SetBool(IsMoving, false);
     }
 
     public void HandleUpdate()

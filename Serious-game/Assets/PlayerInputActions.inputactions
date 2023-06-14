@@ -24,18 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Fish",
+                    "name": "Attack",
                     "type": "Button",
-                    "id": "0adfbbdf-7397-4d48-9ea4-1658dbd17303",
+                    "id": "ef99a8c4-a378-4ffb-8d9d-25c8df22ba50",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Fishing",
                     "type": "Button",
-                    "id": "ef99a8c4-a378-4ffb-8d9d-25c8df22ba50",
+                    "id": "6f8ec5fa-5658-4add-a3b4-f0b1f1403fb4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -166,23 +166,23 @@
                 },
                 {
                     "name": "",
-                    "id": "ce385cce-7549-48b9-b4be-305f58f9a7cf",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fish",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "d9403fdb-1434-4f6d-bcf1-4dd32146f358",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "deb07226-4f28-4e9c-a3b1-4714a2151bce",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fishing",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

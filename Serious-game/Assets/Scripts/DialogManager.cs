@@ -28,15 +28,15 @@ public class DialogManager : Singleton<DialogManager>
         if (_isTyping)
         {
             StopAllCoroutines();
-            TypeDialogInstant(_dialog.Lines[_currentLine]);
+            TypeDialogInstant(_dialog.lines[_currentLine]);
             return;
         }
         
         _currentLine++;
         
-        if (_currentLine < _dialog.Lines.Count)
+        if (_currentLine < _dialog.lines.Count)
         {
-            StartCoroutine(TypeDialog(_dialog.Lines[_currentLine]));
+            StartCoroutine(TypeDialog(_dialog.lines[_currentLine]));
         }
         else
         {
@@ -46,7 +46,7 @@ public class DialogManager : Singleton<DialogManager>
 
     public IEnumerator ShowDialog(Dialog dialog)
     {
-        if (dialog.Lines == null || dialog.Lines.Count <= 0)
+        if (dialog.lines == null || dialog.lines.Count <= 0)
         {
             Debug.LogError("Dialog manager error: Dialog has no lines");
             yield break;
@@ -56,7 +56,7 @@ public class DialogManager : Singleton<DialogManager>
         _dialog = dialog;
         ActivateDialog();
        
-        StartCoroutine(TypeDialog(_dialog.Lines[_currentLine]));
+        StartCoroutine(TypeDialog(_dialog.lines[_currentLine]));
     }
 
     private IEnumerator TypeDialog(string text)

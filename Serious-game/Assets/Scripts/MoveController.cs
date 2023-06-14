@@ -15,7 +15,7 @@ public class MoveController : MonoBehaviour
     {
         if (inputVector != Vector2.zero)
         {
-            _rigidBody2D.MovePosition(_rigidBody2D.position + inputVector * MoveDistance);
+            _rigidBody2D.MovePosition(_rigidBody2D.position + inputVector * (speed * Time.fixedDeltaTime));
         }
     }
 }
