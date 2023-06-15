@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6456295725325074466}
   - component: {fileID: 5117312140684986509}
   m_Layer: 5
-  m_Name: CatchingBar
+  m_Name: CatchingAreaBox
   m_TagString: CatchingBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +214,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 10
   m_Material: {fileID: 6200000, guid: cb930842962091a4084ccad14d3cad8b, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -569,7 +569,7 @@ GameObject:
   - component: {fileID: 6799387179016480973}
   - component: {fileID: 2918133465249501389}
   m_Layer: 5
-  m_Name: CatchPercentage
+  m_Name: CatchProgressBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

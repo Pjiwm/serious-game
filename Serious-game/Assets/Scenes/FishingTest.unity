@@ -11641,10 +11641,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2993229991076062987, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
-      propertyPath: m_Name
-      value: CatchingAreaBox
-      objectReference: {fileID: 0}
     - target: {fileID: 3998636647567727179, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -11688,14 +11684,6 @@ PrefabInstance:
     - target: {fileID: 3998636647567727179, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5117312140684986509, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
-      propertyPath: m_GravityScale
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5769937887509477339, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
-      propertyPath: m_Name
-      value: CatchProgressBar
       objectReference: {fileID: 0}
     - target: {fileID: 8105173309577325365, guid: e01845100407ea50e849612ed19bb6ec, type: 3}
       propertyPath: m_Name
