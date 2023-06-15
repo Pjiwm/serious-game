@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             {
                 closestObject = 
                     collidedObjects.Select(
-                    ob => (GetDistanceToPlayer(gameObject.transform.position, ob.transform.position), ob)
+                    ob => (HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position), ob)
                     ).Min().Item2;
             }
             currentlySelectedInteractables = closestObject.GetComponents<IInteractable>();
@@ -105,11 +105,7 @@ public class PlayerController : MonoBehaviour
             SetSelectedInteractables(currentlySelectedInteractables);
         }
     }
-    private float GetDistanceToPlayer(Vector2 playerPosition, Vector2 objectPosition)
-    {
-        return Math.Abs((playerPosition - objectPosition).magnitude);
-    }
-    
+
     private void SetSelectedInteractables(IInteractable[] selectedInteractables)
     {
         _selectedInteractables = selectedInteractables;
