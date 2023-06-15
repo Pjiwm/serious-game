@@ -13,11 +13,11 @@ public class SpaceshipController : MonoBehaviour
     public float maxUp = 3.5f;
     public float maxDown = -3.5f;
 
-    public short health = 3;
+    public short health = 2;
+
+    public GameManager gameManager;
 
     public GameObject destroyedObject;
-    public GameObject gameOverCanvas;
-
 
     public float invincibilityDuration = 2f; // Duration of invincibility frames
     private bool isInvincible = false; // Flag to indicate if the spaceship is invincible
@@ -57,10 +57,10 @@ public class SpaceshipController : MonoBehaviour
         {
             // ScoreManager.score = 0;
             // gameOverCanvas.SetActive(true);
+            gameManager.GameOver();
             Destroy(gameObject);
             GameObject instantiatedObject = Instantiate(destroyedObject, transform.position, Quaternion.identity);
             instantiatedObject.transform.localScale = new Vector3(4f, 4f, 1f);
-            gameOverCanvas.SetActive(true);
         }
 
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
