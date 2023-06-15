@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: malon_walk_left
+  m_Name: Player_AttackDown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,23 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1062705539, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - time: 0.25
-      value: {fileID: 1882069304, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - time: 0.5
-      value: {fileID: -2056892205, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - time: 0.75
-      value: {fileID: 947768186, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - time: 1
-      value: {fileID: -1083434651, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - time: 1.25
-      value: {fileID: -956916771, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
+      value: {fileID: -1315333752, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - time: 0.1
+      value: {fileID: 737280779, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - time: 0.2
+      value: {fileID: -467047622, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - time: 0.3
+      value: {fileID: -73188394, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 4
+  m_SampleRate: 10
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -54,18 +50,16 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1062705539, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - {fileID: 1882069304, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - {fileID: -2056892205, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - {fileID: 947768186, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - {fileID: -1083434651, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
-    - {fileID: -956916771, guid: 4886cf5fc380fb7499049ff32aaf23cc, type: 3}
+    - {fileID: -1315333752, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - {fileID: 737280779, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - {fileID: -467047622, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
+    - {fileID: -73188394, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.5
+    m_StopTime: 0.4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -84,4 +78,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SwordAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.4
+    functionName: EndSwordAttack
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

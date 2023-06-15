@@ -11,6 +11,9 @@ public class FollowingNPCController : MonoBehaviour
     private bool _isFollowingPlayer;
     private Animator animator;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
+    private static readonly int IsWalkingDown = Animator.StringToHash("isWalkingDown");
+    private static readonly int IsWalkingLeft = Animator.StringToHash("isWalkingLeft");
+    private static readonly int IsWalkingRight = Animator.StringToHash("isWalkingRight");
     private int _playersLayer;
     
     private void Start()
@@ -30,7 +33,10 @@ public class FollowingNPCController : MonoBehaviour
     }
     private void Update()
     {
-        if (_isFollowingPlayer) FollowPlayer();
+        if (_isFollowingPlayer)
+        {
+            FollowPlayer();
+        }
     }
     private void FollowPlayer()
     {
@@ -50,5 +56,39 @@ public class FollowingNPCController : MonoBehaviour
         var direction = nextToPlayerPosition - _npcController.transform.position;
         Debug.Log(direction.normalized);
         _moveController.HandleMovement(direction.normalized);
+        HandleAnimation(direction.normalized);
+    }
+
+    private void HandleAnimation(Vector2 inputVector)
+    {
+        if (inputVector != Vector2.zero)
+        {
+            animator.SetBool(IsWalking, false);
+            animator.SetBool(IsWalkingRight, false);
+            animator.SetBool(IsWalkingLeft, false);
+            animator.SetBool(IsWalkingDown, false);
+        }
+        else
+        {
+            animator.SetBool(IsWalking, true);
+            if (inputVector.x > 0)
+            {
+                animator.SetBool(IsWalkingRight, true);
+                animator.SetBool(IsWalkingLeft, false);
+                animator.SetBool(IsWalkingDown, false);
+            }
+            if (inputVector.x < 0)
+            {
+                animator.SetBool(IsWalkingRight, false);
+                animator.SetBool(IsWalkingLeft, true);
+                animator.SetBool(IsWalkingDown, false);
+            }
+            if (inputVector.y < 0)
+            {
+                animator.SetBool(IsWalkingRight, false);
+                animator.SetBool(IsWalkingLeft, false);
+                animator.SetBool(IsWalkingDown, true);
+            }
+        }
     }
 }

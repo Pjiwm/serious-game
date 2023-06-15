@@ -15,7 +15,11 @@ public class PlayerController : MonoBehaviour
     private IInteractable[] _selectedInteractables;
     private int _interactablesLayer;
     private Animator _animator;
+    private bool _isMovingUp;
+    private bool _isMovingDown;
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    private static readonly int IsFacingUp = Animator.StringToHash("IsFacingUp");
+    private static readonly int IsFacingDown = Animator.StringToHash("IsFacingDown");
 
     private void Start()
     {
@@ -57,6 +61,23 @@ public class PlayerController : MonoBehaviour
                 _spriteRenderer.flipX = false;
             }
 
+            if (inputVector.y > 0 && inputVector.x == 0)
+            {
+                _isMovingUp = true;
+                _isMovingDown = false;
+            }
+            else if (inputVector.y < 0 && inputVector.x == 0)
+            {
+                _isMovingDown = true;
+                _isMovingUp = false;
+            }
+            else
+            {
+                _isMovingUp = false;
+                _isMovingDown = false;
+            }
+            _animator.SetBool(IsFacingUp, _isMovingUp);
+            _animator.SetBool(IsFacingDown, _isMovingDown);
             _animator.SetBool(IsMoving, true);
             _moveController.HandleMovement(_moveDir);
         } else {

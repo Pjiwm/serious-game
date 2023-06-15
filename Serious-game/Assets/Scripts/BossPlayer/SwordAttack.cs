@@ -30,6 +30,16 @@ public class SwordAttack : MonoBehaviour
         transform.localPosition = new Vector3(_rightAttackOffset.x * -1, _rightAttackOffset.y);
     }
 
+    public void AttackUp()
+    {
+        
+    }
+    
+    public void AttackDown()
+    {
+        
+    }
+
     public void StopAttack()
     {
         _swordCollider.enabled = false;
