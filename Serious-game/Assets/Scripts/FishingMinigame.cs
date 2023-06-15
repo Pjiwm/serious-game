@@ -161,13 +161,17 @@ public class FishingMinigame : MonoBehaviour
     //This breaks the line if we are waiting for a response too long
     private IEnumerator LineBreak(float lineBreakTime) {
 	    yield return new WaitForSeconds(lineBreakTime);
-	    Debug.Log("Line Broke!");
-	    
+	    var LineBrokeDialog = new Dialog()
+	    {
+		    lines = new List<string> { "Lijn gebroken! Probeer het opnieuw!" }
+	    };
+
 	    //Disable thought bubbles
 	    ResetThoughtBubbles();
 	    
 	    _lineCast = false;
 	    _nibbleEvent = false;
+	    StartCoroutine(DialogManager.Instance.ShowDialog(LineBrokeDialog));
     }
     
     //Called from the FishingMinigame_FishTrigger script

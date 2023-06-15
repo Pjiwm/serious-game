@@ -14,7 +14,12 @@ public class FishingMinigameFishTrigger : MonoBehaviour
    private FishingMinigame _minigameController;
 
    private void Start() {
-      _minigameController = FindObjectOfType<FishingMinigame>();
+      var _minigameControllers = FindObjectsOfType<FishingMinigame>();
+      foreach (var minigameController in _minigameControllers) {
+         if (minigameController.ReelingFishState) {
+            _minigameController = minigameController;
+         }
+      }
    }
 
    private void OnTriggerEnter2D(Collider2D other) {

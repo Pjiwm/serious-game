@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4421243740824640837
 RectTransform:
   m_ObjectHideFlags: 0
@@ -240,8 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. tempor
+  m_text: Laten we gaan vissen!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
   m_sharedMaterial: {fileID: 5049610720230828591, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
