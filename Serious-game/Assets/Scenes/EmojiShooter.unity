@@ -379,7 +379,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -151.8, y: 101}
+  m_AnchoredPosition: {x: -124, y: 101}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923499865
@@ -404,7 +404,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: '      Emoji shooter
 
-    Press [SPACE] to play'
+    Start met [SPATIE]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
   m_sharedMaterial: {fileID: 5049610720230828591, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
@@ -431,8 +431,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -467,7 +467,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -388.0521, w: 0}
+  m_margin: {x: 45.96113, y: -54.16853, z: -361.78857, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1323,7 +1323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -124, y: 103}
+  m_AnchoredPosition: {x: -124, y: 134}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508725380
@@ -1348,7 +1348,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: '      Game over
 
-    Press [R] to restart'
+    [R] Opnieuw beginnen
+
+    [ESC] Stoppen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
   m_sharedMaterial: {fileID: 5049610720230828591, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
@@ -1648,7 +1650,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -101, y: -90}
+  m_AnchoredPosition: {x: -76, y: -80}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636564988
@@ -1671,14 +1673,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[ARROW UP] Move up
+  m_text: '[PIJLTJE /\] Beweeg omhoog
 
-    [ARROW DOWN ] Move down
+    [PIJLTJE \/] Beweeg naar beneden
 
-    [SPACE] Shoot!
+    [SPATIE]
+    Schiet!
 
-    [ESC]
-    to quit'
+    [ESC] Stoppen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
   m_sharedMaterial: {fileID: 5049610720230828591, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
@@ -1741,7 +1743,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -388.0521, w: 0}
+  m_margin: {x: 0, y: -100.129616, z: -388.0521, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

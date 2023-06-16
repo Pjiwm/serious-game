@@ -31106,15 +31106,15 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.0011025359
+    y: 0.00243309
+    width: 0.9966924
+    height: 0.9927007
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 0.9
+  orthographic size: 1.02
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -42195,10 +42195,6 @@ PrefabInstance:
       propertyPath: dialogBox
       value: 
       objectReference: {fileID: 281342682}
-    - target: {fileID: 5945639941254045818, guid: 4df07871dfec4e42399e420fc004c388, type: 3}
-      propertyPath: dialogueInput
-      value: 
-      objectReference: {fileID: 11400000, guid: fed46e563497af26e8f6118bcc2cbb6b, type: 2}
     - target: {fileID: 6932467532596043967, guid: 4df07871dfec4e42399e420fc004c388, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -42225,6 +42221,14 @@ PrefabInstance:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 710394656}
+    - target: {fileID: 1909662027038518282, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
+      propertyPath: winDialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909662027038518282, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
+      propertyPath: winDialog.lines.Array.data[0]
+      value: Je hebt het Eenzaamheidsmonster verslagen!
+      objectReference: {fileID: 0}
     - target: {fileID: 7021906088948442302, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: m_RootOrder
       value: 2
