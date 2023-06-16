@@ -55,7 +55,7 @@ public class EnemyController : MonoBehaviour
         var nextToPlayerPosition = collidedObject.gameObject.transform.position;
         var direction = nextToPlayerPosition - gameObject.transform.position;
         var nextToPlayerDistance = 0.25;
-        //Debug.Log(Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance);
+        
         if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
 
         if (collidedObject && _canMove)

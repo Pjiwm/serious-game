@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_LocalPosition.x
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4fd81245a84a5988461a27c4091113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerLocation: {fileID: 0}
+  playerLocation: {fileID: 0}
+  interactDistance: 0.6
 --- !u!114 &9201822642106678404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,4 +116,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbe5b154b584d0682732d78953d45e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 0.5
