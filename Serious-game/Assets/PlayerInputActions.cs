@@ -422,7 +422,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             AddCallbacks(instance);
         }
     }
-    public DialogueActions @Dialogue => new DialogueActions(this);
+    public DialogueActions Dialog => new DialogueActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);

@@ -6,7 +6,7 @@ public enum GameState { Roaming, InDialogue, OnMinigame}
 public class GameStateManager : ScriptableObject
 {
     public Action OnRoaming;
-    public Action OnInDialogue;
+    public Action OnInDialog;
     public Action OnMinigame;
     public GameState State { get; private set; }
 
@@ -20,7 +20,7 @@ public class GameStateManager : ScriptableObject
         switch (newState)
         {
             case GameState.InDialogue:
-                OnInDialogue?.Invoke();
+                OnInDialog?.Invoke();
                 break;
             case GameState.Roaming:
                 OnRoaming?.Invoke();
