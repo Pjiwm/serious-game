@@ -14,8 +14,11 @@ public class BeamSpawner : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && spawnTimeLeft <= 0)
         {
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
             Instantiate(beam, new Vector2(spaceshipController.transform.position.x + beamStart, spaceshipController.transform.position.y), Quaternion.identity);
             spawnTimeLeft = spawnTime;
+
         }
 
         spawnTimeLeft -= Time.deltaTime;
