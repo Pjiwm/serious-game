@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 public class DialogManager : Singleton<DialogManager>
 {
     [SerializeField] GameObject dialogBox;
-    [SerializeField] TMPro.TextMeshProUGUI dialogText;
+    private TMPro.TextMeshProUGUI _dialogText;
     [SerializeField] private DialogueInput dialogueInput;
     [SerializeField] int lettersPerSecond;
     public Action OnShowDialog;
@@ -18,20 +18,25 @@ public class DialogManager : Singleton<DialogManager>
     private int _currentLine = 0;
     private bool _isTyping;
 
+    private void Start()
+    {
+        _dialogText = dialogBox.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+    }
+
     private void OnSkip(object sender, EventArgs e)
     {
         if (_isTyping)
         {
             StopAllCoroutines();
-            TypeDialogInstant(_dialog.Lines[_currentLine]);
+            TypeDialogInstant(_dialog.lines[_currentLine]);
             return;
         }
         
         _currentLine++;
         
-        if (_currentLine < _dialog.Lines.Count)
+        if (_currentLine < _dialog.lines.Count)
         {
-            StartCoroutine(TypeDialog(_dialog.Lines[_currentLine]));
+            StartCoroutine(TypeDialog(_dialog.lines[_currentLine]));
         }
         else
         {
@@ -41,22 +46,27 @@ public class DialogManager : Singleton<DialogManager>
 
     public IEnumerator ShowDialog(Dialog dialog)
     {
+        if (dialog.lines == null || dialog.lines.Count <= 0)
+        {
+            Debug.LogError("Dialog manager error: Dialog has no lines");
+            yield break;
+        }
         yield return new WaitForEndOfFrame();
         
         _dialog = dialog;
         ActivateDialog();
        
-        StartCoroutine(TypeDialog(_dialog.Lines[_currentLine]));
+        StartCoroutine(TypeDialog(_dialog.lines[_currentLine]));
     }
 
     private IEnumerator TypeDialog(string text)
     {
         _isTyping = true;
         
-        dialogText.text = "";
+        _dialogText.text = "";
         foreach (var letter in text.ToCharArray())
         {
-            dialogText.text += letter;
+            _dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
         
@@ -67,7 +77,7 @@ public class DialogManager : Singleton<DialogManager>
     {
         _isTyping = true;
         
-        dialogText.text = text;
+        _dialogText.text = text;
         
         _isTyping = false;
     }
@@ -84,7 +94,7 @@ public class DialogManager : Singleton<DialogManager>
         OnCloseDialog?.Invoke();
         dialogBox.SetActive(false);
         
-        dialogText.text = "";
+        _dialogText.text = "";
         _currentLine = 0;
     }
 }

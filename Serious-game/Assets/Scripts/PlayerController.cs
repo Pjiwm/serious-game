@@ -1,82 +1,146 @@
 using System;
+using System.Linq;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    [SerializeField] private MoveInput moveInput;
-    
-    public event EventHandler<SelectedInteractableChangedEventArgs> OnSelectedInteractableChanged;
-    
+    [SerializeField] private PlayerInput playerInput;
+    [SerializeField] private float interactDistance;
+    private SpriteRenderer _spriteRenderer;
+    private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
     private Vector2 _moveDir;
-    private IInteractable _selectedInteractable;
-    private float MoveDistance => speed * Time.deltaTime;
+    private IInteractable[] _selectedInteractables;
     private int _interactablesLayer;
+    private Animator _animator;
+    private bool _isMovingUp;
+    private bool _isMovingDown;
+    private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+    private static readonly int IsFacingUp = Animator.StringToHash("IsFacingUp");
+    private static readonly int IsFacingDown = Animator.StringToHash("IsFacingDown");
 
-    public class SelectedInteractableChangedEventArgs : EventArgs
-    {
-        public IInteractable SelectedInteractable { get; set; }
-    }
-    
     private void Start()
     {
         _rigidBody2D = GetComponent<Rigidbody2D>();
-        moveInput.OnInteract += OnInteract;
+        _moveController = GetComponent<MoveController>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        
+        playerInput.OnInteract += OnInteract;
+        GameStateController.Instance.OnRoaming += ActivatePlayerInputs;
+        GameStateController.Instance.OnInDialogue += DeActivatePlayerInputs;
+        GameStateController.Instance.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
-    public void ActivateMovement()
+    public void ActivatePlayerInputs()
     {
-        moveInput.OnInteract += OnInteract;
+        playerInput.OnInteract += OnInteract;
     }
 
-    public void DeActivateMovement()
+    public void DeActivatePlayerInputs()
     {
-        moveInput.OnInteract -= OnInteract;
+        playerInput.OnInteract -= OnInteract;
+        _animator.SetBool(IsMoving, false);
     }
-    
+
     public void HandleUpdate()
     {
-        Vector2 inputVector = moveInput.GetMovementVectorNormalized();
-        _moveDir = inputVector;
+        var inputVector = playerInput.GetMovementVectorNormalized();
         if (inputVector != Vector2.zero)
         {
-            HandleMovement();
+            _moveDir = inputVector;
+            if (inputVector.x < 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
+            else if (inputVector.x > 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+
+            if (inputVector.y > 0 && inputVector.x == 0)
+            {
+                _isMovingUp = true;
+                _isMovingDown = false;
+            }
+            else if (inputVector.y < 0 && inputVector.x == 0)
+            {
+                _isMovingDown = true;
+                _isMovingUp = false;
+            }
+            else
+            {
+                _isMovingUp = false;
+                _isMovingDown = false;
+            }
+            _animator.SetBool(IsFacingUp, _isMovingUp);
+            _animator.SetBool(IsFacingDown, _isMovingDown);
+            _animator.SetBool(IsMoving, true);
+            _moveController.HandleMovement(_moveDir);
+        } else {
+            _animator.SetBool(IsMoving, false);
         }
+        
+
         HandleSelections();
     }
-    
+
     private void OnInteract(object sender, EventArgs e)
     {
-        _selectedInteractable?.Interact();
+        if (_selectedInteractables == null) return;
+        foreach (var interactable in _selectedInteractables)
+        {
+            interactable.Interact();
+        }
     }
 
     private void HandleSelections()
     {
-        const float interactDistance = 2f;
-        IInteractable currentlySelectedInteractable = null;
+        IInteractable[] currentlySelectedInteractables = null;
 
-        var collidedObject = Physics2D.OverlapCircle(_rigidBody2D.position, interactDistance, _interactablesLayer);
-        
-        if (collidedObject) currentlySelectedInteractable = collidedObject.GetComponent<IInteractable>();
-        
-        if (currentlySelectedInteractable != _selectedInteractable)
+
+        var collidedObjects = Physics2D.OverlapCircleAll(_rigidBody2D.position, interactDistance, _interactablesLayer);
+        if (collidedObjects.Length != 0)
         {
-            SetSelectedInteractable(currentlySelectedInteractable);
+            //https://stackoverflow.com/questions/914109/how-to-use-linq-to-select-object-with-minimum-or-maximum-property-value
+            Collider2D closestObject;
+            if (collidedObjects.Length == 1)
+            {
+                closestObject = collidedObjects.First();
+            }
+            else
+            {
+                closestObject = 
+                    collidedObjects.Select(
+                    ob => (HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position), ob)
+                    ).Min().Item2;
+            }
+            currentlySelectedInteractables = closestObject.GetComponents<IInteractable>();
+        }
+        
+        if (currentlySelectedInteractables != _selectedInteractables)
+        {
+            SetSelectedInteractables(currentlySelectedInteractables);
         }
     }
-    
-    private void SetSelectedInteractable(IInteractable selectedInteractable)
+
+    private void SetSelectedInteractables(IInteractable[] selectedInteractables)
     {
-        _selectedInteractable = selectedInteractable;
-        _selectedInteractable?.Select();
-        OnSelectedInteractableChanged?.Invoke(this, new SelectedInteractableChangedEventArgs { SelectedInteractable = _selectedInteractable });
+        _selectedInteractables = selectedInteractables;
+        
+        if (selectedInteractables == null) return;
+        
+        foreach (var interactable in _selectedInteractables)
+        {
+            interactable?.Select();
+        } 
     }
 
-    private void HandleMovement()
+    private void OnDestroy()
     {
-        _rigidBody2D.MovePosition(_rigidBody2D.position + _moveDir * MoveDistance);
+        playerInput.OnInteract -= OnInteract;
     }
 }
