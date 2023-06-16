@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerLocation: {fileID: 0}
-  interactDistance: 0.6
+  stopFollowingAtDistance: 0.5
 --- !u!114 &9201822642106678404
 MonoBehaviour:
   m_ObjectHideFlags: 0

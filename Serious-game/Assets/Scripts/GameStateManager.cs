@@ -8,8 +8,13 @@ public class GameStateManager : ScriptableObject
     public Action OnRoaming;
     public Action OnInDialogue;
     public Action OnMinigame;
-    public GameState State { get; private set; } = GameState.Roaming;
-    
+    public GameState State { get; private set; }
+
+    private void OnEnable()
+    {
+        State = GameState.Roaming;
+    }
+
     public void ChangeToState(GameState newState)
     {
         switch (newState)
