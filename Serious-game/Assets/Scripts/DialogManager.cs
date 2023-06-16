@@ -8,8 +8,12 @@ using UnityEngine.Serialization;
 
 public class DialogManager : Singleton<DialogManager>
 {
+    /// <summary>
+    /// The dialogmanager, the gameobject and its children is a singleton. This means that there will always be one instance
+    /// of it and the canvas with the dialogbox
+    /// </summary>
     [SerializeField] private GameObject dialogBox;
-    [SerializeField] private DialogueInput dialogueInput;
+    [SerializeField] private DialogInput dialogInput;
     [SerializeField] private int lettersPerSecond;
     [SerializeField] private GameStateManager gameStateManager;
     
@@ -98,13 +102,13 @@ public class DialogManager : Singleton<DialogManager>
     
     private void ActivateDialog()
     {
-        dialogueInput.OnSkip += OnSkip;
+        dialogInput.OnSkip += OnSkip;
         OnShowDialog?.Invoke();
         dialogBox.SetActive(true);
     }
     private void CloseDialog()
     {
-        dialogueInput.OnSkip -= OnSkip;
+        dialogInput.OnSkip -= OnSkip;
         OnCloseDialog?.Invoke();
         dialogBox.SetActive(false);
         

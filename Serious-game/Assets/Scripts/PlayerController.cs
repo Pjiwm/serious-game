@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         
         playerInput.OnInteract += OnInteract;
         gameStateManager.OnRoaming += ActivatePlayerInputs;
-        gameStateManager.OnInDialogue += DeActivatePlayerInputs;
+        gameStateManager.OnInDialog += DeActivatePlayerInputs;
         gameStateManager.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
@@ -146,5 +146,8 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         playerInput.OnInteract -= OnInteract;
+        gameStateManager.OnRoaming -= ActivatePlayerInputs;
+        gameStateManager.OnInDialog -= DeActivatePlayerInputs;
+        gameStateManager.OnMinigame -= DeActivatePlayerInputs;
     }
 }
