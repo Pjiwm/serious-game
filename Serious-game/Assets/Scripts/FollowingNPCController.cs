@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FollowingNPCController : MonoBehaviour
 {
-    [SerializeField] private Transform _playerLocation;
-
+    [SerializeField] private Transform playerLocation;
+    [SerializeField] private float interactDistance;
     private NPCController _npcController;
     private MoveController _moveController;
     private Rigidbody2D _rb;
@@ -40,8 +41,6 @@ public class FollowingNPCController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        const float interactDistance = 0.6f;
-
         var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
 
         if (collidedObject)
@@ -52,7 +51,7 @@ public class FollowingNPCController : MonoBehaviour
 
         if (!animator.GetBool(IsWalking)) animator.SetBool(IsWalking, true);
 
-        var nextToPlayerPosition = _playerLocation.position;
+        var nextToPlayerPosition = playerLocation.position;
 
         var normalizedDirection = nextToPlayerPosition - _npcController.transform.position;
 
