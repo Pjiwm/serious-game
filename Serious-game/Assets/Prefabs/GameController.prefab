@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogBox: {fileID: 0}
-  dialogueInput: {fileID: 0}
+  dialogueInput: {fileID: 11400000, guid: fed46e563497af26e8f6118bcc2cbb6b, type: 2}
   lettersPerSecond: 50
   gameStateManager: {fileID: 11400000, guid: 4328b86e61df7cc7c97d944127f4bdf8, type: 2}

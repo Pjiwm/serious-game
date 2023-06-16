@@ -1,13 +1,14 @@
+using System;
 using UnityEngine;
 
 public class FollowingNPCController : MonoBehaviour
 {
     [SerializeField] private Transform _playerLocation;
-    
+
     private NPCController _npcController;
     private MoveController _moveController;
     private Rigidbody2D _rb;
-    
+
     private bool _isFollowingPlayer;
     private Animator animator;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
@@ -15,22 +16,20 @@ public class FollowingNPCController : MonoBehaviour
     private static readonly int IsWalkingLeft = Animator.StringToHash("isWalkingLeft");
     private static readonly int IsWalkingRight = Animator.StringToHash("isWalkingRight");
     private int _playersLayer;
-    
+
     private void Start()
     {
         _npcController = GetComponent<NPCController>();
         _moveController = GetComponent<MoveController>();
         animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-        
+
         _playersLayer = LayerMask.GetMask("Player");
-        
+
         animator.SetBool(IsWalking, false);
-        _npcController.OnDialogFinishedAction += () =>
-        {
-            _isFollowingPlayer = true;
-        };
+        _npcController.OnDialogFinishedAction += () => { _isFollowingPlayer = true; };
     }
+
     private void Update()
     {
         if (_isFollowingPlayer)
@@ -38,9 +37,10 @@ public class FollowingNPCController : MonoBehaviour
             FollowPlayer();
         }
     }
+
     private void FollowPlayer()
     {
-        const float interactDistance = 3f;
+        const float interactDistance = 0.6f;
 
         var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
 
@@ -49,46 +49,40 @@ public class FollowingNPCController : MonoBehaviour
             animator.SetBool(IsWalking, false);
             return;
         }
+
         if (!animator.GetBool(IsWalking)) animator.SetBool(IsWalking, true);
-        
+
         var nextToPlayerPosition = _playerLocation.position;
 
-        var direction = nextToPlayerPosition - _npcController.transform.position;
-        Debug.Log(direction.normalized);
-        _moveController.HandleMovement(direction.normalized);
-        HandleAnimation(direction.normalized);
+        var normalizedDirection = nextToPlayerPosition - _npcController.transform.position;
+
+        HandleAnimation(normalizedDirection);
+        _moveController.HandleMovement(normalizedDirection);
     }
 
     private void HandleAnimation(Vector2 inputVector)
     {
-        if (inputVector != Vector2.zero)
+        if (inputVector == Vector2.zero)
         {
             animator.SetBool(IsWalking, false);
             animator.SetBool(IsWalkingRight, false);
             animator.SetBool(IsWalkingLeft, false);
             animator.SetBool(IsWalkingDown, false);
+            return;
         }
-        else
-        {
-            animator.SetBool(IsWalking, true);
-            if (inputVector.x > 0)
-            {
-                animator.SetBool(IsWalkingRight, true);
-                animator.SetBool(IsWalkingLeft, false);
-                animator.SetBool(IsWalkingDown, false);
-            }
-            if (inputVector.x < 0)
-            {
-                animator.SetBool(IsWalkingRight, false);
-                animator.SetBool(IsWalkingLeft, true);
-                animator.SetBool(IsWalkingDown, false);
-            }
-            if (inputVector.y < 0)
-            {
-                animator.SetBool(IsWalkingRight, false);
-                animator.SetBool(IsWalkingLeft, false);
-                animator.SetBool(IsWalkingDown, true);
-            }
-        }
+
+        animator.SetBool(IsWalking, true);
+
+        var walkRight = false;
+        var walkLeft = false;
+        var walkDown = false;
+
+        if (inputVector.x > 0 && Math.Abs(inputVector.x) > Math.Abs(inputVector.y)) walkRight = true;
+        if (inputVector.x < 0 && Math.Abs(inputVector.x) > Math.Abs(inputVector.y)) walkLeft = true;
+        if (inputVector.y < 0 && Math.Abs(inputVector.y) > Math.Abs(inputVector.x)) walkDown = true;
+        
+        animator.SetBool(IsWalkingRight, walkRight);
+        animator.SetBool(IsWalkingLeft, walkLeft);
+        animator.SetBool(IsWalkingDown, walkDown);
     }
 }

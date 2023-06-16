@@ -289,7 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11400000, guid: 626e43a327f28c0f683b3baeeb2d06d0, type: 2}
-  interactDistance: 0
+  interactDistance: 0.5
   gameStateManager: {fileID: 11400000, guid: 4328b86e61df7cc7c97d944127f4bdf8, type: 2}
 --- !u!114 &-2582898274585024973
 MonoBehaviour:

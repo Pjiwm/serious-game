@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_LocalPosition.x
@@ -115,4 +115,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbe5b154b584d0682732d78953d45e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 0
