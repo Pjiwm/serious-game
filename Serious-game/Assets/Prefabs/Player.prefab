@@ -170,7 +170,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -158361549
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1065018233, guid: 102be84ed02f4e24faa6b5f795746fca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 11400000, guid: 626e43a327f28c0f683b3baeeb2d06d0, type: 2}
+  interactDistance: 0.5
+  gameStateManager: {fileID: 11400000, guid: 4328b86e61df7cc7c97d944127f4bdf8, type: 2}
 --- !u!114 &-2582898274585024973
 MonoBehaviour:
   m_ObjectHideFlags: 0

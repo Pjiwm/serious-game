@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -9,22 +10,23 @@ public class EnemyController : MonoBehaviour
 
     public float Health
     {
-        get { return _health; }
+        get => _health;
         set
         {
+            if (_health <= 0f) return;
+
             _health = value;
             healthbar.SetHealth((int)_health);
-            if (_health <= 0)
+            if (_health <= 0f)
             {
                 Defeated();
             }
         }
-
     }
 
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private Healthbar healthbar;
-    
+    [SerializeField] private Dialog winDialog;
     private Animator _animator;
     private Rigidbody2D _rb;
     private MoveController _moveController;
@@ -37,7 +39,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        Health = maxHealth;
+        _health = maxHealth;
         healthbar.SetMaxHealth((int)maxHealth);
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
@@ -55,7 +57,7 @@ public class EnemyController : MonoBehaviour
         var nextToPlayerPosition = collidedObject.gameObject.transform.position;
         var direction = nextToPlayerPosition - gameObject.transform.position;
         var nextToPlayerDistance = 0.25;
-        //Debug.Log(Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance);
+        
         if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
 
         if (collidedObject && _canMove)
@@ -74,6 +76,7 @@ public class EnemyController : MonoBehaviour
     {
         _animator.SetBool(IsAlive, false);
         healthbar.bar.gameObject.SetActive(false);
+        StartCoroutine(DialogManager.Instance.ShowDialog(winDialog));
     }
 
     public void RemoveEnemy()

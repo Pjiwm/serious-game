@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas startMenuCanvas;
     public ObstacleSpawner obstacleSpawner;
-    private bool isMenu = true;
+    private bool _isMenu = true;
 
 
     public void Start()
@@ -17,14 +17,14 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isMenu)
+        if (Input.GetKeyDown(KeyCode.Space) && _isMenu)
         {
             StartGame();
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("Loading computer scene");
-            SceneManager.LoadScene("Level3map");
+            SceneLoader.LoadScene(SceneLoader.Scenes.Level3);
         }
     }
 
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         // Disable the start menu canvas and enable the obstacle spawner
         startMenuCanvas.enabled = false;
         obstacleSpawner.enabled = true;
-        isMenu = false;
+        _isMenu = false;
         ScoreManager.ResetScore();
     }
 
@@ -45,7 +45,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         gameOverCanvas.enabled = true;
         obstacleSpawner.enabled = false;
-        isMenu = true;
+        _isMenu = true;
+
+        // Play death sound
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
 }

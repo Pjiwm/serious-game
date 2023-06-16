@@ -15,7 +15,6 @@ public class NPCController : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Interacting with NPC");
         DialogManager.Instance.OnCloseDialog += OnDialogFinished;
         StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
     }

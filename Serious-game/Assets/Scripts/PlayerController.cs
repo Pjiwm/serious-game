@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private float interactDistance;
+    [SerializeField] private GameStateManager gameStateManager;
+    
     private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
@@ -29,9 +31,9 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         
         playerInput.OnInteract += OnInteract;
-        GameStateController.Instance.OnRoaming += ActivatePlayerInputs;
-        GameStateController.Instance.OnInDialogue += DeActivatePlayerInputs;
-        GameStateController.Instance.OnMinigame += DeActivatePlayerInputs;
+        gameStateManager.OnRoaming += ActivatePlayerInputs;
+        gameStateManager.OnInDialogue += DeActivatePlayerInputs;
+        gameStateManager.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
     }
 
@@ -46,8 +48,10 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool(IsMoving, false);
     }
 
-    public void HandleUpdate()
+    public void FixedUpdate()
     {
+        if (gameStateManager.State != GameState.Roaming) return;
+        
         var inputVector = playerInput.GetMovementVectorNormalized();
         if (inputVector != Vector2.zero)
         {

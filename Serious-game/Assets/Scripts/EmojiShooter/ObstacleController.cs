@@ -35,6 +35,10 @@ public class ObstacleController : MonoBehaviour
         Debug.Log("Triggered");
         if (other.CompareTag("Beam"))
         {
+            Debug.Log("Beam hit");
+            // Play death sound
+            AudioSource audioSource = GetComponent<AudioSource>();
+            audioSource.Play();
             Destroy(gameObject);
             Destroy(other.gameObject);
             Instantiate(destroyedObject, transform.position, Quaternion.identity);
