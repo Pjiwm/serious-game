@@ -3,9 +3,8 @@ using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoaderController : MonoBehaviour, IInteractable
+public class EmojiShooterLoaderInteractable : MonoBehaviour, IInteractable
 {
-    public string sceneName;
 
     public void Select()
     {
@@ -15,6 +14,6 @@ public class SceneLoaderController : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Loading computer scene");
-        SceneManager.LoadScene(sceneName);
+        SceneLoader.LoadScene(SceneLoader.Scenes.EmojiShooter);
     }
 }

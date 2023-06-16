@@ -320,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogBox
       objectReference: {fileID: 0}
+    - target: {fileID: 521879259004693559, guid: f7c64b1568b7717a58762abd53464ba4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4421243740824640837, guid: f7c64b1568b7717a58762abd53464ba4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -737,7 +741,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Het EenzaamheidsMonster
+  m_text: Het Eenzaamheidsmonster
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
   m_sharedMaterial: {fileID: 5049610720230828591, guid: ae3519aad99484f26a007c5ce00088ac, type: 2}
@@ -42199,7 +42203,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1222283156463398184, guid: 4df07871dfec4e42399e420fc004c388, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

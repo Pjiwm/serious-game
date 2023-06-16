@@ -8,12 +8,15 @@ using UnityEngine.Serialization;
 
 public class DialogManager : Singleton<DialogManager>
 {
-    [SerializeField] GameObject dialogBox;
-    private TMPro.TextMeshProUGUI _dialogText;
+    [SerializeField] private GameObject dialogBox;
     [SerializeField] private DialogueInput dialogueInput;
-    [SerializeField] int lettersPerSecond;
+    [SerializeField] private int lettersPerSecond;
+    [SerializeField] private GameStateManager gameStateManager;
+    
     public Action OnShowDialog;
     public Action OnCloseDialog;
+    
+    private TMPro.TextMeshProUGUI _dialogText;
     private Dialog _dialog;
     private int _currentLine = 0;
     private bool _isTyping;
@@ -21,6 +24,17 @@ public class DialogManager : Singleton<DialogManager>
     private void Start()
     {
         _dialogText = dialogBox.GetComponentInChildren<TMPro.TextMeshProUGUI>();
+        
+        OnShowDialog += () =>
+        {
+            gameStateManager.ChangeToState(GameState.InDialogue);
+            
+        };
+        
+        OnCloseDialog += () =>
+        {
+            gameStateManager.ChangeToState(GameState.Roaming);
+        };
     }
 
     private void OnSkip(object sender, EventArgs e)

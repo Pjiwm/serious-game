@@ -27,7 +27,7 @@ public class FishingMinigame : MonoBehaviour
     [SerializeField] private GameObject thoughtBubbles;
 
     [SerializeField] private GameObject parentGameObject;
-    [SerializeField] private GameStateController GameStateController;
+    [FormerlySerializedAs("GameStateController")] [SerializeField] private GameStateManager gameStateManager;
     [Header("Scriptable Objects")]
     [SerializeField] private FishManager fishManager;
     [SerializeField] private PlayerInput playerInput;
@@ -71,7 +71,7 @@ public class FishingMinigame : MonoBehaviour
 
     public void StartMinigame()
     {
-	    GameStateController.ChangeToState(GameState.OnMinigame);
+	    gameStateManager.ChangeToState(GameState.OnMinigame);
 	    CastLine();
     }
 
@@ -204,7 +204,7 @@ public class FishingMinigame : MonoBehaviour
     }
     
     private void EndGame() {
-	    GameStateController.ChangeToState(GameState.Roaming);
+	    gameStateManager.ChangeToState(GameState.Roaming);
     }
 
     //Classic mapping script x

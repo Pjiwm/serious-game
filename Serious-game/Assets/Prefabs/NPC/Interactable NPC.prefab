@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,9 +54,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8182275797453475618, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_Name
-      value: NPC Variant
+      value: Interactable NPC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9141104102998192697, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
