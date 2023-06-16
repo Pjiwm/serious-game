@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
         gameOverCanvas.enabled = true;
         obstacleSpawner.enabled = false;
         _isMenu = true;
+
+        // Play death sound
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
 }
