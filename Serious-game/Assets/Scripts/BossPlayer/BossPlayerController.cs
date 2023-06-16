@@ -74,7 +74,6 @@ public class BossPlayerController : MonoBehaviour
 
     public void RemovePlayer()
     {
-        
         Destroy(gameObject);
     }
 

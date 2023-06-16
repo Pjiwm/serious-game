@@ -5,13 +5,13 @@ using UnityEngine.Serialization;
 public class FollowingNPCController : MonoBehaviour
 {
     [SerializeField] private Transform playerLocation;
-    [SerializeField] private float interactDistance;
+    [SerializeField] private float stopFollowingAtDistance;
     private NPCController _npcController;
     private MoveController _moveController;
     private Rigidbody2D _rb;
 
     private bool _isFollowingPlayer;
-    private Animator animator;
+    private Animator _animator;
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     private static readonly int IsWalkingDown = Animator.StringToHash("isWalkingDown");
     private static readonly int IsWalkingLeft = Animator.StringToHash("isWalkingLeft");
@@ -22,12 +22,12 @@ public class FollowingNPCController : MonoBehaviour
     {
         _npcController = GetComponent<NPCController>();
         _moveController = GetComponent<MoveController>();
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
 
         _playersLayer = LayerMask.GetMask("Player");
 
-        animator.SetBool(IsWalking, false);
+        _animator.SetBool(IsWalking, false);
         _npcController.OnDialogFinishedAction += () => { _isFollowingPlayer = true; };
     }
 
@@ -41,15 +41,15 @@ public class FollowingNPCController : MonoBehaviour
 
     private void FollowPlayer()
     {
-        var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
+        var collidedObject = Physics2D.OverlapCircle(_rb.position, stopFollowingAtDistance, _playersLayer);
 
         if (collidedObject)
         {
-            animator.SetBool(IsWalking, false);
+            _animator.SetBool(IsWalking, false);
             return;
         }
 
-        if (!animator.GetBool(IsWalking)) animator.SetBool(IsWalking, true);
+        if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
 
         var nextToPlayerPosition = playerLocation.position;
 
@@ -63,14 +63,14 @@ public class FollowingNPCController : MonoBehaviour
     {
         if (inputVector == Vector2.zero)
         {
-            animator.SetBool(IsWalking, false);
-            animator.SetBool(IsWalkingRight, false);
-            animator.SetBool(IsWalkingLeft, false);
-            animator.SetBool(IsWalkingDown, false);
+            _animator.SetBool(IsWalking, false);
+            _animator.SetBool(IsWalkingRight, false);
+            _animator.SetBool(IsWalkingLeft, false);
+            _animator.SetBool(IsWalkingDown, false);
             return;
         }
 
-        animator.SetBool(IsWalking, true);
+        _animator.SetBool(IsWalking, true);
 
         var walkRight = false;
         var walkLeft = false;
@@ -80,8 +80,8 @@ public class FollowingNPCController : MonoBehaviour
         if (inputVector.x < 0 && Math.Abs(inputVector.x) > Math.Abs(inputVector.y)) walkLeft = true;
         if (inputVector.y < 0 && Math.Abs(inputVector.y) > Math.Abs(inputVector.x)) walkDown = true;
         
-        animator.SetBool(IsWalkingRight, walkRight);
-        animator.SetBool(IsWalkingLeft, walkLeft);
-        animator.SetBool(IsWalkingDown, walkDown);
+        _animator.SetBool(IsWalkingRight, walkRight);
+        _animator.SetBool(IsWalkingLeft, walkLeft);
+        _animator.SetBool(IsWalkingDown, walkDown);
     }
 }
