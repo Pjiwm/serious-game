@@ -12,6 +12,8 @@ public class BossPlayerController : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private AudioSource swingSound;
     [SerializeField] private AudioSource hitSound;
+    [SerializeField] private float cooldownSeconds = 0.5f;
+    private bool _canAttack = true;
     
     private Vector2 _movementInput;
     private Animator _animator;
@@ -41,21 +43,29 @@ public class BossPlayerController : MonoBehaviour
 
     private void OnAttack(object sender, EventArgs eventArgs)
     {
-        _animator.SetTrigger(Attack);
+        if (_canAttack){
+            _animator.SetTrigger(Attack);
+        }
     }
     
     public void SwordAttack()
     {
-        swingSound.Play();
-        _playerController.DeActivatePlayerInputs();
-        if (_spriteRenderer.flipX == true)
+        Debug.Log(_canAttack);
+        if (_canAttack)
         {
-            swordAttack.AttackLeft();
+            swingSound.Play();
+            _playerController.DeActivatePlayerInputs();
+            if (_spriteRenderer.flipX == true)
+            {
+                swordAttack.AttackLeft();
+            }
+            else
+            {
+                swordAttack.AttackRight();
+            } 
+            Cooldown();
         }
-        else
-        {
-            swordAttack.AttackRight();
-        }
+        
 
     }
     
@@ -86,5 +96,17 @@ public class BossPlayerController : MonoBehaviour
     public void RemovePlayer()
     {
         Destroy(gameObject);
+    }
+    
+    private void Cooldown()
+    {
+        _canAttack = false;
+        StartCoroutine(CooldownCoroutine());
+    }
+    
+    private IEnumerator CooldownCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        _canAttack = true;
     }
 }

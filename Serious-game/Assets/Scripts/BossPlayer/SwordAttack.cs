@@ -10,6 +10,7 @@ public class SwordAttack : MonoBehaviour
     private Collider2D _swordCollider;
     [SerializeField] private float damage = 3;
     
+    
     private Vector2 _rightAttackOffset;
     private const string EnemyTag = "Enemy";
     private void Start()
@@ -28,16 +29,6 @@ public class SwordAttack : MonoBehaviour
     {
         _swordCollider.enabled = true;
         transform.localPosition = new Vector3(_rightAttackOffset.x * -1, _rightAttackOffset.y);
-    }
-
-    public void AttackUp()
-    {
-        
-    }
-    
-    public void AttackDown()
-    {
-        
     }
 
     public void StopAttack()
@@ -64,4 +55,6 @@ public class SwordAttack : MonoBehaviour
         var knockback = direction * knockBackForce;
         return knockback;
     }
+
+  
 }
