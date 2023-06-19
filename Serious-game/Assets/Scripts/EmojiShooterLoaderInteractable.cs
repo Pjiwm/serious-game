@@ -11,6 +11,11 @@ public class EmojiShooterLoaderInteractable : MonoBehaviour, IInteractable
         // Debug.Log("Could you help me?");
     }
 
+    public void Deselect()
+    {
+        //throw new NotImplementedException();
+    }
+
     public void Interact()
     {
         Debug.Log("Loading computer scene");

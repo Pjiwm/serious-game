@@ -11,6 +11,11 @@ public class LoadBossLevel : MonoBehaviour,IInteractable
         //
     }
 
+    public void Deselect()
+    {
+        //throw new System.NotImplementedException();
+    }
+
     public void Interact()
     {
         SceneLoader.LoadScene(SceneLoader.Scenes.EndBoss);

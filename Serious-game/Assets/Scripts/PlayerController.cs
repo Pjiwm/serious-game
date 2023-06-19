@@ -133,14 +133,24 @@ public class PlayerController : MonoBehaviour
 
     private void SetSelectedInteractables(IInteractable[] selectedInteractables)
     {
-        _selectedInteractables = selectedInteractables;
         
-        if (selectedInteractables == null) return;
+        if (selectedInteractables == null)
+        {
+            foreach (var interactable in _selectedInteractables)
+            {
+                interactable?.Deselect();
+            }
+
+            return;
+        };
         
-        foreach (var interactable in _selectedInteractables)
+        foreach (var interactable in selectedInteractables)
         {
             interactable?.Select();
         } 
+        
+        _selectedInteractables = selectedInteractables;
+
     }
 
     private void OnDestroy()

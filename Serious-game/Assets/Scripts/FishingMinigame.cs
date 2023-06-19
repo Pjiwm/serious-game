@@ -53,14 +53,13 @@ public class FishingMinigame : MonoBehaviour
     private bool _lineCast;
     private bool _nibbleEvent;
     private bool _freezeInputs;
-    
-    
+
+
     private void Start()
     {
 	    _catchingBarRb = catchAreaBox.GetComponent<Rigidbody2D>();
-	    _catchingBarResetPosition = catchAreaBox.GetComponent<RectTransform>().localPosition; 
-	    
-	    
+	    _catchingBarResetPosition = catchAreaBox.GetComponent<RectTransform>().localPosition;
+
 	    playerInput.OnFishing += PlayerInputOnOnFishing;
 	    playerInput.OnFishingStarted += (sender, args) =>
 	    {
@@ -187,11 +186,12 @@ public class FishingMinigame : MonoBehaviour
     public void FishCaught()
     {
 	    ResetThoughtBubbles();
-	    
+
 	    _catchPercentage = 0;
+	    catchProgressBar.value = 0;
 	    parentGameObject.SetActive(false);
 	    catchAreaBox.transform.localPosition = _catchingBarResetPosition;
-	    
+
 	    ReelingFishState = false;
 	    
 	    var fishCaughtDialog = new Dialog()
@@ -199,8 +199,9 @@ public class FishingMinigame : MonoBehaviour
 		    lines = new List<string> { "Je hebt een " + _currentFishOnLine.name + " gevangen!" }
 	    };
 	    EndGame();
-	    
 	    StartCoroutine(DialogManager.Instance.ShowDialog(fishCaughtDialog));
+
+	    gameObject.SetActive(false);
     }
     
     private void EndGame() {

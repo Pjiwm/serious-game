@@ -5,12 +5,18 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, IInteractable
 {
     [SerializeField] private Dialog interactDialog;
+    [SerializeField] private GameObject interactionText;
 
     public Action OnDialogFinishedAction { get; set; }
 
     public void Select()
     {
-        // Debug.Log("Could you help me?");
+        interactionText.SetActive(true);
+    }
+
+    public void Deselect()
+    {
+        interactionText.SetActive(false);
     }
 
     public void Interact()
