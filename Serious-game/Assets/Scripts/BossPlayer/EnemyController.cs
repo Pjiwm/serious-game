@@ -27,6 +27,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private Healthbar healthbar;
     [SerializeField] private Dialog winDialog;
+    [SerializeField] private float knockBackForce = 3f;
+    [SerializeField] private AudioSource hitSound;
     private Animator _animator;
     private Rigidbody2D _rb;
     private MoveController _moveController;
@@ -56,7 +58,7 @@ public class EnemyController : MonoBehaviour
         
         var nextToPlayerPosition = collidedObject.gameObject.transform.position;
         var direction = nextToPlayerPosition - gameObject.transform.position;
-        var nextToPlayerDistance = 0.25;
+        var nextToPlayerDistance = 0.15;
         
         if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
 
@@ -88,6 +90,7 @@ public class EnemyController : MonoBehaviour
     {
         LockMovement();
         _animator.SetTrigger(Hit);
+        hitSound.Play();
         Health -= damage;
     }
 
@@ -102,10 +105,10 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             player.OnHit(10);
+            player.OnKnockBack(KnockBack(other));
         }
     }
     
-
     public void LockMovement()
     {
         _canMove = false;
@@ -114,6 +117,14 @@ public class EnemyController : MonoBehaviour
     public void UnlockMovement()
     {
         _canMove = true;
+    }
+    
+    private Vector2 KnockBack(Collider2D other)
+    {
+        var positionPlayer = gameObject.GetComponentInParent<Transform>().position;
+        var direction = (Vector2)(other.gameObject.transform.position - positionPlayer).normalized;
+        var knockback = direction * knockBackForce;
+        return knockback;
     }
 }
 

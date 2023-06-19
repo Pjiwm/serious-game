@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private float interactDistance;
     [SerializeField] private GameStateManager gameStateManager;
-    
+    [SerializeField] private GameObject footstepAudio;
+
     private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private bool _isMovingUp;
     private bool _isMovingDown;
+    private bool _canMove = true;
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int IsFacingUp = Animator.StringToHash("IsFacingUp");
     private static readonly int IsFacingDown = Animator.StringToHash("IsFacingDown");
@@ -29,12 +31,13 @@ public class PlayerController : MonoBehaviour
         _moveController = GetComponent<MoveController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        
+
         playerInput.OnInteract += OnInteract;
         gameStateManager.OnRoaming += ActivatePlayerInputs;
         gameStateManager.OnInDialog += DeActivatePlayerInputs;
         gameStateManager.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
+        StopFoodsteps();
     }
 
     public void ActivatePlayerInputs()
@@ -53,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (gameStateManager.State != GameState.Roaming) return;
         
         var inputVector = playerInput.GetMovementVectorNormalized();
-        if (inputVector != Vector2.zero)
+        if (inputVector != Vector2.zero && _canMove)
         {
             _moveDir = inputVector;
             if (inputVector.x < 0)
@@ -84,11 +87,12 @@ public class PlayerController : MonoBehaviour
             _animator.SetBool(IsFacingDown, _isMovingDown);
             _animator.SetBool(IsMoving, true);
             _moveController.HandleMovement(_moveDir);
+            StartFoodsteps();
         } else {
             _animator.SetBool(IsMoving, false);
+            StopFoodsteps();
         }
         
-
         HandleSelections();
     }
 
@@ -160,4 +164,25 @@ public class PlayerController : MonoBehaviour
         gameStateManager.OnInDialog -= DeActivatePlayerInputs;
         gameStateManager.OnMinigame -= DeActivatePlayerInputs;
     }
+    
+    private void StartFoodsteps()
+    {
+        footstepAudio.SetActive(true);
+    }
+    
+    private void StopFoodsteps()
+    {
+        footstepAudio.SetActive(false);
+    }
+    
+    public void LockMovement()
+    {
+        _canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        _canMove = true;
+    }
+    
 }
