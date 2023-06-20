@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -54,9 +52,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (!checkIfAlreadyWon())
         {
-            int completedMissions = PlayerPrefs.GetInt("CompletedMissions", 0);
+            int completedMissions = PlayerPrefs.GetInt(StatsManager.FRIENDPREF, 0);
             completedMissions++;
-            PlayerPrefs.SetInt("CompletedMissions", completedMissions);
+            StatsManager.updatePref(StatsManager.FRIENDPREF, completedMissions);
             PlayerPrefs.SetInt("EmojiShooter", 1);
             PlayerPrefs.Save();
         }

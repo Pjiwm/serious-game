@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 public class EmojiShooterLoaderInteractable : MonoBehaviour, IInteractable
 {
 
+    [SerializeField] private GameObject interactionText;
+
+
     public void Select()
     {
-        // Debug.Log("Could you help me?");
+        interactionText.SetActive(true);
     }
 
     public void Deselect()
     {
-        //throw new NotImplementedException();
+        interactionText.SetActive(false);
     }
 
     public void Interact()
