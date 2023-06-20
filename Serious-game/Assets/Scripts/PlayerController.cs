@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         gameStateManager.OnInDialog += DeActivatePlayerInputs;
         gameStateManager.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
-        StopFoodsteps();
+        StopFootsteps();
     }
 
     public void ActivatePlayerInputs()
@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
         if (inputVector != Vector2.zero && _canMove)
         {
             _moveDir = inputVector;
+            _isMovingDown = false;
+            _isMovingUp = false;
+            
             if (inputVector.x < 0)
             {
                 _spriteRenderer.flipX = true;
@@ -71,26 +74,21 @@ public class PlayerController : MonoBehaviour
             if (inputVector.y > 0 && inputVector.x == 0)
             {
                 _isMovingUp = true;
-                _isMovingDown = false;
             }
             else if (inputVector.y < 0 && inputVector.x == 0)
             {
                 _isMovingDown = true;
-                _isMovingUp = false;
             }
-            else
-            {
-                _isMovingUp = false;
-                _isMovingDown = false;
-            }
+            
             _animator.SetBool(IsFacingUp, _isMovingUp);
             _animator.SetBool(IsFacingDown, _isMovingDown);
             _animator.SetBool(IsMoving, true);
+            
             _moveController.HandleMovement(_moveDir);
-            StartFoodsteps();
+            StartFootsteps();
         } else {
             _animator.SetBool(IsMoving, false);
-            StopFoodsteps();
+            StopFootsteps();
         }
         
         HandleSelections();
@@ -128,7 +126,7 @@ public class PlayerController : MonoBehaviour
             }
             currentlySelectedInteractables = closestObject.GetComponents<IInteractable>();
         }
-        
+
         if (currentlySelectedInteractables != _selectedInteractables)
         {
             SetSelectedInteractables(currentlySelectedInteractables);
@@ -144,15 +142,16 @@ public class PlayerController : MonoBehaviour
             {
                 interactable?.Deselect();
             }
+        }
 
-            return;
-        };
-        
-        foreach (var interactable in selectedInteractables)
+        if (selectedInteractables != null)
         {
-            interactable?.Select();
-        } 
-        
+            foreach (var interactable in selectedInteractables)
+            {
+                interactable?.Select();
+            }
+        }
+
         _selectedInteractables = selectedInteractables;
 
     }
@@ -165,12 +164,12 @@ public class PlayerController : MonoBehaviour
         gameStateManager.OnMinigame -= DeActivatePlayerInputs;
     }
     
-    private void StartFoodsteps()
+    private void StartFootsteps()
     {
         footstepAudio.SetActive(true);
     }
     
-    private void StopFoodsteps()
+    private void StopFootsteps()
     {
         footstepAudio.SetActive(false);
     }
