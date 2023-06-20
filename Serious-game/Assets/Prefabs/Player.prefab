@@ -293,7 +293,7 @@ MonoBehaviour:
   playerInput: {fileID: 11400000, guid: 626e43a327f28c0f683b3baeeb2d06d0, type: 2}
   interactDistance: 0.5
   gameStateManager: {fileID: 11400000, guid: 4328b86e61df7cc7c97d944127f4bdf8, type: 2}
-  footstepAudio: {fileID: 0}
+  footstepAudio: {fileID: 8969501842639352824}
 --- !u!114 &-2582898274585024973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 1237803283805646430}
   - component: {fileID: 766888724693170228}
   m_Layer: 6
-  m_Name: Foodsteps
+  m_Name: Footsteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

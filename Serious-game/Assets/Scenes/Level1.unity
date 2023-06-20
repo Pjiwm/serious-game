@@ -65270,11 +65270,6 @@ MonoBehaviour:
     lines:
     - 'Bord: Internetcafe (Geopend)'
   interactionText: {fileID: 1840536557}
---- !u!1 &1277154094 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8969501842639352824, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-  m_PrefabInstance: {fileID: 2044039894}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1406973699
 GameObject:
   m_ObjectHideFlags: 0
@@ -86635,10 +86630,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-      propertyPath: footstepAudio
-      value: 
-      objectReference: {fileID: 1277154094}
     - target: {fileID: 578152311825118890, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
       propertyPath: m_Name
       value: Player

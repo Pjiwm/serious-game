@@ -23208,6 +23208,7 @@ MonoBehaviour:
   maxHealth: 100
   swingSound: {fileID: 857690137}
   hitSound: {fileID: 857690138}
+  cooldownSeconds: 0.5
 --- !u!82 &857690137 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5545009321390665368, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
@@ -33469,11 +33470,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1594821914 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8969501842639352824, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-  m_PrefabInstance: {fileID: 1970694563}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1653819119
 GameObject:
   m_ObjectHideFlags: 0
@@ -42146,14 +42142,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-      propertyPath: playerInput
-      value: 
-      objectReference: {fileID: 11400000, guid: 626e43a327f28c0f683b3baeeb2d06d0, type: 2}
-    - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-      propertyPath: footstepAudio
-      value: 
-      objectReference: {fileID: 1594821914}
     - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
       propertyPath: _particleSystem
       value: 
