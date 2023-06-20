@@ -20,6 +20,6 @@ public class MenuController : MonoBehaviour
     private IEnumerator StartGameCoroutine()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Level1");
+        SceneLoader.LoadScene(SceneLoader.Scenes.Level1);
     }
 }
