@@ -23208,6 +23208,7 @@ MonoBehaviour:
   maxHealth: 100
   swingSound: {fileID: 857690137}
   hitSound: {fileID: 857690138}
+  cooldownSeconds: 0.5
 --- !u!82 &857690137 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5545009321390665368, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
@@ -42432,7 +42433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5011840894256144724, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: speed
-      value: 0.9
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7021906088948442302, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: m_RootOrder
