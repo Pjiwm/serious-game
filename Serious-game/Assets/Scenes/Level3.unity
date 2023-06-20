@@ -5878,11 +5878,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &765473202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8969501842639352824, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-  m_PrefabInstance: {fileID: 1630510140}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &779045399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17895,14 +17890,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-      propertyPath: footstepAudio
-      value: 
-      objectReference: {fileID: 765473202}
-    - target: {fileID: -3878656604716124427, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
-      propertyPath: interactDistance
-      value: 0.035
-      objectReference: {fileID: 0}
     - target: {fileID: 578152311825118890, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
       propertyPath: m_Name
       value: Player
