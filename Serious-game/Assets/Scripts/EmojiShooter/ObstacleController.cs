@@ -8,6 +8,8 @@ public class ObstacleController : MonoBehaviour
     public float speed = 5;
     public GameObject destroyedObject;
 
+    public float xDir = -1;
+
     void Start()
     {
         if (spriteOptions.Length > 0)
@@ -27,7 +29,7 @@ public class ObstacleController : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(-Vector2.right * speed * Time.deltaTime);
+        transform.Translate(xDir * Vector2.right * speed * Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -36,9 +38,6 @@ public class ObstacleController : MonoBehaviour
         if (other.CompareTag("Beam"))
         {
             Debug.Log("Beam hit");
-            // Play death sound
-            AudioSource audioSource = GetComponent<AudioSource>();
-            audioSource.Play();
             Destroy(gameObject);
             Destroy(other.gameObject);
             Instantiate(destroyedObject, transform.position, Quaternion.identity);

@@ -12,9 +12,16 @@ public class FishingMinigameFishTrigger : MonoBehaviour
    
    public bool beingCaught = false;
    private FishingMinigame _minigameController;
-
+   private FishingMinigame[] _minigameControllers;
    private void Start() {
-      var _minigameControllers = FindObjectsOfType<FishingMinigame>();
+      _minigameControllers = FindObjectsOfType<FishingMinigame>();
+      foreach (var minigameController in _minigameControllers) {
+         if (minigameController.ReelingFishState) {
+            _minigameController = minigameController;
+         }
+      }
+   }
+   private void Update() {
       foreach (var minigameController in _minigameControllers) {
          if (minigameController.ReelingFishState) {
             _minigameController = minigameController;

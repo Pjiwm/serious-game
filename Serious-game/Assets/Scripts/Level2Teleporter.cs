@@ -8,10 +8,17 @@ using UnityEngine.Serialization;
 public class Level2Teleporter : MonoBehaviour,IInteractable
 {
     [SerializeField] private Dialog internetCafeDialog;
+    [SerializeField] private GameObject interactionText;
+
 
     public void Select()
     {
-        // throw new System.NotImplementedException();
+        interactionText.SetActive(true);
+    }
+
+    public void Deselect()
+    {
+        interactionText.SetActive(false);
     }
 
     public void Interact()

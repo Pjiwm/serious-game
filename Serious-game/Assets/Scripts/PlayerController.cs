@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput playerInput;
     [SerializeField] private float interactDistance;
     [SerializeField] private GameStateManager gameStateManager;
-    
+    [SerializeField] private GameObject footstepAudio;
+
     private SpriteRenderer _spriteRenderer;
     private MoveController _moveController;
     private Rigidbody2D _rigidBody2D;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private bool _isMovingUp;
     private bool _isMovingDown;
+    private bool _canMove = true;
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int IsFacingUp = Animator.StringToHash("IsFacingUp");
     private static readonly int IsFacingDown = Animator.StringToHash("IsFacingDown");
@@ -29,12 +31,13 @@ public class PlayerController : MonoBehaviour
         _moveController = GetComponent<MoveController>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
-        
+
         playerInput.OnInteract += OnInteract;
         gameStateManager.OnRoaming += ActivatePlayerInputs;
         gameStateManager.OnInDialog += DeActivatePlayerInputs;
         gameStateManager.OnMinigame += DeActivatePlayerInputs;
         _interactablesLayer = LayerMask.GetMask("Interactables");
+        StopFootsteps();
     }
 
     public void ActivatePlayerInputs()
@@ -53,9 +56,12 @@ public class PlayerController : MonoBehaviour
         if (gameStateManager.State != GameState.Roaming) return;
         
         var inputVector = playerInput.GetMovementVectorNormalized();
-        if (inputVector != Vector2.zero)
+        if (inputVector != Vector2.zero && _canMove)
         {
             _moveDir = inputVector;
+            _isMovingDown = false;
+            _isMovingUp = false;
+            
             if (inputVector.x < 0)
             {
                 _spriteRenderer.flipX = true;
@@ -68,27 +74,23 @@ public class PlayerController : MonoBehaviour
             if (inputVector.y > 0 && inputVector.x == 0)
             {
                 _isMovingUp = true;
-                _isMovingDown = false;
             }
             else if (inputVector.y < 0 && inputVector.x == 0)
             {
                 _isMovingDown = true;
-                _isMovingUp = false;
             }
-            else
-            {
-                _isMovingUp = false;
-                _isMovingDown = false;
-            }
+            
             _animator.SetBool(IsFacingUp, _isMovingUp);
             _animator.SetBool(IsFacingDown, _isMovingDown);
             _animator.SetBool(IsMoving, true);
+            
             _moveController.HandleMovement(_moveDir);
+            StartFootsteps();
         } else {
             _animator.SetBool(IsMoving, false);
+            StopFootsteps();
         }
         
-
         HandleSelections();
     }
 
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
             }
             currentlySelectedInteractables = closestObject.GetComponents<IInteractable>();
         }
-        
+
         if (currentlySelectedInteractables != _selectedInteractables)
         {
             SetSelectedInteractables(currentlySelectedInteractables);
@@ -133,14 +135,25 @@ public class PlayerController : MonoBehaviour
 
     private void SetSelectedInteractables(IInteractable[] selectedInteractables)
     {
-        _selectedInteractables = selectedInteractables;
         
-        if (selectedInteractables == null) return;
-        
-        foreach (var interactable in _selectedInteractables)
+        if (selectedInteractables == null)
         {
-            interactable?.Select();
-        } 
+            foreach (var interactable in _selectedInteractables)
+            {
+                interactable?.Deselect();
+            }
+        }
+
+        if (selectedInteractables != null)
+        {
+            foreach (var interactable in selectedInteractables)
+            {
+                interactable?.Select();
+            }
+        }
+
+        _selectedInteractables = selectedInteractables;
+
     }
 
     private void OnDestroy()
@@ -150,4 +163,25 @@ public class PlayerController : MonoBehaviour
         gameStateManager.OnInDialog -= DeActivatePlayerInputs;
         gameStateManager.OnMinigame -= DeActivatePlayerInputs;
     }
+    
+    private void StartFootsteps()
+    {
+        footstepAudio.SetActive(true);
+    }
+    
+    private void StopFootsteps()
+    {
+        footstepAudio.SetActive(false);
+    }
+    
+    public void LockMovement()
+    {
+        _canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        _canMove = true;
+    }
+    
 }
