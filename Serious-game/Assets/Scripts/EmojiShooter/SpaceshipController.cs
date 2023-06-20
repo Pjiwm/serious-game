@@ -6,8 +6,8 @@ using UnityEngine;
 public class SpaceshipController : MonoBehaviour
 
 {
-    private Vector2 targetPos = new Vector2(-6.0f, 0.0f);
-
+    // private Vector2 targetPos = new Vector2(-6.0f, 0.0f);
+    private Vector2 targetPos = new Vector2(-1f, 0.0f);
     public float Yincrement = 1;
     public float speed = 10;
     public float maxUp = 3.5f;

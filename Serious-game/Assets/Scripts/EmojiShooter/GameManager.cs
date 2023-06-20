@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour
     public Canvas gameOverCanvas;
     public Canvas startMenuCanvas;
     public ObstacleSpawner obstacleSpawner;
+    public ObstacleSpawner backwardsObstacleSpawner;
     private bool _isMenu = true;
 
 
     public void Start()
     {
         obstacleSpawner.enabled = false;
+        backwardsObstacleSpawner.enabled = false;
         gameOverCanvas.enabled = false;
     }
 
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
         // Disable the start menu canvas and enable the obstacle spawner
         startMenuCanvas.enabled = false;
         obstacleSpawner.enabled = true;
+        backwardsObstacleSpawner.enabled = true;
         _isMenu = false;
         ScoreManager.ResetScore();
     }
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         gameOverCanvas.enabled = true;
         obstacleSpawner.enabled = false;
+        backwardsObstacleSpawner.enabled = false;
         _isMenu = true;
 
         // Play death sound
