@@ -50,7 +50,6 @@ public class BossPlayerController : MonoBehaviour
     
     public void SwordAttack()
     {
-        Debug.Log(_canAttack);
         if (_canAttack)
         {
             swingSound.Play();
