@@ -17,11 +17,11 @@ public class StatsManager : MonoBehaviour
     }
 
     void Update() {
-        friends.text = $"Vrienden git a{friendsCount}/3";
+        friends.text = $"Vrienden {friendsCount}/3";
         swordPieces.text = $"Zwaardstukken {swordPiecesCount}/3";
     }
 
-    void requestUpdate() {
+    public void requestUpdate() {
         friendsCount = PlayerPrefs.GetInt(FRIENDPREF, 0);
         swordPiecesCount = PlayerPrefs.GetInt(SWORDPREF, 0);
     }
