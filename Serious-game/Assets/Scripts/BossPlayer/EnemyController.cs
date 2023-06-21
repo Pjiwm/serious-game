@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using Pathfinding;
 
 public class EnemyController : MonoBehaviour
 {
@@ -29,6 +30,15 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Dialog winDialog;
     [SerializeField] private float knockBackForce = 3f;
     [SerializeField] private AudioSource hitSound;
+    [SerializeField] private Transform target;
+    [SerializeField] private float nextWaypointDistance = 3f;
+    
+    private Path _path;
+    private int _currentWaypoint = 0;
+    private bool _reachedEndOfPath = false;
+    private Seeker _seeker;
+    private Vector2 _direction;
+    
     private Animator _animator;
     private Rigidbody2D _rb;
     private MoveController _moveController;
@@ -41,34 +51,74 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        _seeker = GetComponentInChildren<Seeker>();
         _health = maxHealth;
         healthbar.SetMaxHealth((int)maxHealth);
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _moveController = GetComponent<MoveController>();
         _playersLayer = LayerMask.GetMask("Player");
+        
+        InvokeRepeating("UpdatePath", 0f, .5f);
+    }
+    
+    private void UpdatePath()
+    {
+        if (target != null)
+        {
+            if (_seeker.IsDone())
+            {
+                _seeker.StartPath(_rb.position, target.position, OnPathComplete);
+            }
+        }
+        
+    }
+    
+    private void OnPathComplete(Path p)
+    {
+        if (!p.error)
+        {
+            _path = p;
+            _currentWaypoint = 0;
+        }
     }
 
     private void Update()
     {
-        const float interactDistance = 10f;
+        if (_path == null)
+        {
+            return;
+        }
         
-        var collidedObject = Physics2D.OverlapCircle(_rb.position, interactDistance, _playersLayer);
-        if (!collidedObject) return;
-        
-        var nextToPlayerPosition = collidedObject.gameObject.transform.position;
-        var direction = nextToPlayerPosition - gameObject.transform.position;
-        var nextToPlayerDistance = 0.15;
-        
-        if (Math.Abs(direction.x) <= nextToPlayerDistance && Math.Abs(direction.y) <= nextToPlayerDistance) return;
+        if (_currentWaypoint >= _path.vectorPath.Count)
+        {
+            _reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            _reachedEndOfPath = false;
+        }
 
-        if (collidedObject && _canMove)
+        Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+        if (tempDir != Vector2.zero)
+        {
+            _direction = tempDir;
+        }
+        
+        Vector2 force = _direction * 300f * Time.deltaTime;
+        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
+        
+        if (distance < nextWaypointDistance)
+        {
+            _currentWaypoint++;
+        }
+
+        if (_canMove)
         {
             if (!_animator.GetBool(IsMoving)) _animator.SetBool(IsMoving, true);
-        
-            
-            
-            _moveController.HandleMovement(direction.normalized);
+            //_moveController.HandleMovement(_direction.normalized);
+            _rb.AddForce(force);
             return;
         }
         _animator.SetBool(IsMoving, false);
@@ -104,7 +154,7 @@ public class EnemyController : MonoBehaviour
         BossPlayerController player = other.gameObject.GetComponent<BossPlayerController>();
         if (player != null)
         {
-            player.OnHit(10);
+            player.OnHit(6);
             player.OnKnockBack(KnockBack(other));
         }
     }
