@@ -17,7 +17,7 @@ public class ChestInteractable : MonoBehaviour, IInteractable
     private void Start()
     {
         _anim = GetComponent<Animator>();
-        if (PlayerPrefs.HasKey(_name))
+        if(PlayerPrefs.HasKey(_name))
         {
             _anim.SetBool("IsOpened", true);
         }
@@ -35,7 +35,7 @@ public class ChestInteractable : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        if (!PlayerPrefs.HasKey(_name))
+        if(!PlayerPrefs.HasKey(_name))
         {
             _anim.SetBool("IsOpened", true);
             StartCoroutine(DialogManager.Instance.ShowDialog(SwordPieceDialog));

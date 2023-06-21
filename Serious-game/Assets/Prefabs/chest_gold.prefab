@@ -126,7 +126,7 @@ MonoBehaviour:
     - Hier heb je de hendel van het zwaard!
   interactionText: {fileID: 0}
   _statsManager: {fileID: 0}
-  _name: 
+  _name: kist
 --- !u!50 &1700650121236716216
 Rigidbody2D:
   serializedVersion: 4
