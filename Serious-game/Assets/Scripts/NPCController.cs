@@ -5,18 +5,17 @@ using UnityEngine;
 public class NPCController : MonoBehaviour, IInteractable
 {
     [SerializeField] private Dialog interactDialog;
-    [SerializeField] private GameObject interactionText;
 
     public Action OnDialogFinishedAction { get; set; }
 
     public void Select()
     {
-        interactionText.SetActive(true);
+        InteractionDialogManager.Instance.ShowInteractionDialog();
     }
 
     public void Deselect()
     {
-        interactionText.SetActive(false);
+        InteractionDialogManager.Instance.HideInteractionDialog();
     }
 
     public void Interact()
