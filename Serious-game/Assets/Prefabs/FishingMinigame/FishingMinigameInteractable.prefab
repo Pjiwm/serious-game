@@ -230,6 +230,7 @@ MonoBehaviour:
     - Gebruik daarna de spatiebalk om de groene balk omhoog te doen
     - Veel success!
   interactionText: {fileID: 0}
+  _name: fish
 --- !u!50 &4235628038124741375
 Rigidbody2D:
   serializedVersion: 4

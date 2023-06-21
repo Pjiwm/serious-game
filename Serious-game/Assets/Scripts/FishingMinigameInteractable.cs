@@ -10,10 +10,15 @@ public class FishingMinigameInteractable : MonoBehaviour,IInteractable
 {
     [SerializeField] private Dialog fishingExplanationDialog;
     [SerializeField] private GameObject interactionText;
+    [SerializeField] private string _name;
     private FishingMinigame _fishingMinigameController;
 
     private void Start()
     {
+        if(PlayerPrefs.HasKey(_name))
+        {
+            gameObject.SetActive(false);
+        }
         _fishingMinigameController = GetComponent<FishingMinigame>();
     }
 
@@ -33,8 +38,19 @@ public class FishingMinigameInteractable : MonoBehaviour,IInteractable
 
     public void Interact()
     {
-        StartCoroutine(DialogManager.Instance.ShowDialog(fishingExplanationDialog));
-        DialogManager.Instance.OnCloseDialog += StartMiniGameCoroutine;
+        if (PlayerPrefs.HasKey("fishingRod"))
+        {
+            StartCoroutine(DialogManager.Instance.ShowDialog(fishingExplanationDialog));
+            DialogManager.Instance.OnCloseDialog += StartMiniGameCoroutine;
+        }
+        else
+        {
+            var noFishingRotDialog = new Dialog()
+            {
+                lines = new List<string> { "Je kan niet vissen, want je hebt geen hengel!" }
+            };
+            StartCoroutine(DialogManager.Instance.ShowDialog(noFishingRotDialog));
+        }
     }
     private void StartMiniGameCoroutine()
     {

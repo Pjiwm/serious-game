@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         _interactablesLayer = LayerMask.GetMask("Interactables");
         StopFootsteps();
         //To revert to default player prefs
-        //PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll();
     }
 
     public void ActivatePlayerInputs()
