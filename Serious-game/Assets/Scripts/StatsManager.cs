@@ -17,8 +17,8 @@ public class StatsManager : MonoBehaviour
     }
 
     void Update() {
-        friends.text = $"Friends {friendsCount}/3";
-        swordPieces.text = $"Sword Pieces {swordPiecesCount}/3";
+        friends.text = $"Vrienden git a{friendsCount}/3";
+        swordPieces.text = $"Zwaardstukken {swordPiecesCount}/3";
     }
 
     void requestUpdate() {
