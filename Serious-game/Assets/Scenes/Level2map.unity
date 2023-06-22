@@ -53944,7 +53944,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 36, y: 26, z: 0}
@@ -54094,7 +54094,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 35, y: 30, z: 0}
@@ -54823,11 +54823,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Followable Interactable NPC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7414280219493986945, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7486506065575110577, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1223291525}
   m_SourcePrefab: {fileID: 100100000, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
+--- !u!1 &1223291524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7486506065575110577, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
+  m_PrefabInstance: {fileID: 1223291523}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1223291525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223291524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a89153318444d739f4f4dea166eead5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionDialog:
+    lines:
+    - Oh, hey!
+    - Eindelijk iemand in dit doolhof.
+    - Kan je me helpen met de uitgang vinden?
 --- !u!1 &1245911359
 GameObject:
   m_ObjectHideFlags: 0
@@ -59183,7 +59209,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 3, y: 14, z: 0}
@@ -59403,7 +59429,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 37, y: 27, z: 0}
@@ -59573,7 +59599,7 @@ Tilemap:
       - {fileID: -361085276, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -523367463, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 2132689180, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -93141,7 +93167,7 @@ Tilemap:
       - {fileID: 1216127251, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 29082283, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -800866281, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 40, y: 19, z: 0}
@@ -93229,7 +93255,7 @@ Tilemap:
       - {fileID: 503536343, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1905501517, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -195014815, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 43, y: 20, z: 0}
@@ -93405,7 +93431,7 @@ Tilemap:
       - {fileID: 503536343, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1905501517, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -195014815, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 40, y: 22, z: 0}
@@ -93900,7 +93926,7 @@ Tilemap:
       - {fileID: -398940563, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1360931709, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 679059631, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 33, y: 33, z: 0}
@@ -94109,7 +94135,7 @@ Tilemap:
       - {fileID: -855616585, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1527060211, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -1790944617, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 37, y: 35, z: 0}
@@ -95122,6 +95148,14 @@ PrefabInstance:
       propertyPath: interactDialog.lines.Array.data[3]
       value: Kan je hem naar de andere kant helpen?
       objectReference: {fileID: 0}
+    - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.15272728
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.21818182
+      objectReference: {fileID: 0}
     - target: {fileID: 6241280099283877213, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -95130,11 +95164,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Interactable NPC
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7486506065575110577, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856159029}
   m_SourcePrefab: {fileID: 100100000, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+--- !u!1 &1856159028 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7486506065575110577, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+  m_PrefabInstance: {fileID: 1856159027}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856159029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856159028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ac8e3ddce94fd48880fae5cc4f7761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDialog:
+    lines:
+    - Hey!
+    - Kan jij mij helpen?
+    - Mijn vriend is verdwaald in het doolhof.
+    - 'Kan je hem naar de andere kant helpen? '
+  _statsManager: {fileID: 2023050613}
+  friendsDialog:
+    lines:
+    - We zijn vrienden!
 --- !u!1 &1884623507
 GameObject:
   m_ObjectHideFlags: 0
