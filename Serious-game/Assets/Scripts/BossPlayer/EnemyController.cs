@@ -100,7 +100,7 @@ public class EnemyController : MonoBehaviour
             _reachedEndOfPath = false;
         }
 
-        Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+        Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position);
         if (tempDir != Vector2.zero)
         {
             _direction = tempDir;
