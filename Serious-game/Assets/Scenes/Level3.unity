@@ -5592,6 +5592,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Heb je wel is Farming simulator gespeeld? Het is net echt!
+      objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
       value: 0.18386257
@@ -16950,6 +16958,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Ik kan geen iron vinden in Minecraft...
+      objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
       value: 0.16934633
@@ -17060,6 +17076,20 @@ PrefabInstance:
     - target: {fileID: 3093466738204013507, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: "Hallo, welkom bij het internet caf\xE9! Waar kan ik je mee van dienst
+        zijn?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[1]
+      value: Je kunt hier spellen spelen op de computer of een spel kopen. Als je
+        iets nodig hebt ben ik altijd hier.
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
@@ -17256,6 +17286,19 @@ PrefabInstance:
     - target: {fileID: 3093466738204013507, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Hoi ik ben Bob. Ik heb een nieuw spel gevonden, maar ik heb niemand
+        om mee te spelen...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[1]
+      value: Zou jij met mij een spelletje willen spelen?
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
@@ -18228,6 +18271,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Hallo jongeman. Al dat computergedoe is best ingewikkeld.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[1]
+      value: Hmm, wat zei je? Of er easter eggs zijn... Is het al bijna pasen dan?
+      objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
       value: 0.19852066
@@ -18328,6 +18383,14 @@ PrefabInstance:
     - target: {fileID: 3093466738204013507, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Hoe krijg je de skeletskin in Fortnite?
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
@@ -18500,6 +18563,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 109629766}
     m_Modifications:
+    - target: {fileID: 2668710290575359289, guid: 50123d215a89e424f86c56af13525776, type: 3}
+      propertyPath: interactDialog.lines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2668710290575359289, guid: 50123d215a89e424f86c56af13525776, type: 3}
+      propertyPath: interactDialog.lines.Array.data[0]
+      value: Ewa bro Wassim hier. Heb je toevallig mijn shirt gezien?
+      objectReference: {fileID: 0}
     - target: {fileID: 4598509360920841254, guid: 50123d215a89e424f86c56af13525776, type: 3}
       propertyPath: m_RootOrder
       value: -1
