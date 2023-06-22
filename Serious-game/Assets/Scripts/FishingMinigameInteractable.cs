@@ -24,12 +24,12 @@ public class FishingMinigameInteractable : MonoBehaviour,IInteractable
 
     public void Select()
     {
-        interactionText.SetActive(true);
+        InteractionDialogManager.Instance.ShowInteractionDialog();
     }
 
     public void Deselect()
     {
-        interactionText.SetActive(false);
+        InteractionDialogManager.Instance.HideInteractionDialog();
     }
 
     //write a wait for seconds here method here
