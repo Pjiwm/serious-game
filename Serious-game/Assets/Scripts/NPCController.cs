@@ -1,11 +1,10 @@
 using System;
 using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class NPCController : MonoBehaviour, IInteractable
+public abstract class NPCController : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Dialog interactDialog;
-
     public Action OnDialogFinishedAction { get; set; }
 
     public void Select()
@@ -21,8 +20,10 @@ public class NPCController : MonoBehaviour, IInteractable
     public void Interact()
     {
         DialogManager.Instance.OnCloseDialog += OnDialogFinished;
-        StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+        OnInteract();
     }
+    
+    protected abstract void OnInteract();
 
     private void OnDialogFinished()
     {

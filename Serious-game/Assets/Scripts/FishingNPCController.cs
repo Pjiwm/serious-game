@@ -2,30 +2,15 @@ using System;
 using DefaultNamespace;
 using UnityEngine;
 
-public class NPCControllerPrefs : MonoBehaviour, IInteractable
+public class FishingNPCController : NPCController
 {
     [SerializeField] private Dialog interactDialog;
-    [SerializeField] private string _pref;
+    private readonly string _pref = "fishingRod";
     [SerializeField] private StatsManager _statsManager;
     [SerializeField] private Dialog friendsDialog;
-    [SerializeField] private string _name;
-
-
-
-
-    public Action OnDialogFinishedAction { get; set; }
-
-    public void Select()
-    {
-        InteractionDialogManager.Instance.ShowInteractionDialog();
-    }
-
-    public void Deselect()
-    {
-        InteractionDialogManager.Instance.HideInteractionDialog();
-    }
-
-    public void Interact()
+    private readonly string _name = "fish";
+    
+    protected override void OnInteract()
     {
         if (!PlayerPrefs.HasKey(_name))
         {
@@ -41,7 +26,6 @@ public class NPCControllerPrefs : MonoBehaviour, IInteractable
             }
             else
             {
-                DialogManager.Instance.OnCloseDialog += OnDialogFinished;
                 StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
                 PlayerPrefs.SetInt(_pref, 1);
                 PlayerPrefs.Save();
@@ -52,10 +36,5 @@ public class NPCControllerPrefs : MonoBehaviour, IInteractable
             StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
         }
     }
-
-    private void OnDialogFinished()
-    {
-        DialogManager.Instance.OnCloseDialog -= OnDialogFinished;
-        OnDialogFinishedAction?.Invoke();
-    }
+    
 }
