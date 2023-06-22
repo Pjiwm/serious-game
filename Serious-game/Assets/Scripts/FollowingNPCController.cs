@@ -30,7 +30,7 @@ public class FollowingNPCController : MonoBehaviour
 
     private void Start()
     {
-        _seeker = GetComponent<Seeker>();
+        _seeker = GetComponentInChildren<Seeker>();
         _npcController = GetComponent<NPCController>();
         _moveController = GetComponent<MoveController>();
         _animator = GetComponent<Animator>();
@@ -60,7 +60,6 @@ public class FollowingNPCController : MonoBehaviour
                 _seeker.StartPath(_rb.position, target.position, OnPathComplete);
             }
         }
-        
     }
     
     private void OnPathComplete(Path p)
@@ -78,18 +77,22 @@ public class FollowingNPCController : MonoBehaviour
         {
             return;
         }
-        
-        if (_currentWaypoint >= _path.vectorPath.Count - 1)
+
+        if (_currentWaypoint > _path.vectorPath.Count - 5 && _currentWaypoint == 0)
         {
+            //Debug.Log(_currentWaypoint + " " + _path.vectorPath.Count);
             _reachedEndOfPath = true;
+            _animator.SetBool(IsWalking, false);
             return;
         }
         else
         {
+            //Debug.Log("DAFUCK" + _currentWaypoint + " " + _path.vectorPath.Count);
             _reachedEndOfPath = false;
         }
 
         Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+        
         if (tempDir != Vector2.zero)
         {
             _direction = tempDir;
@@ -98,21 +101,26 @@ public class FollowingNPCController : MonoBehaviour
         Vector2 force = _direction * 300f * Time.deltaTime;
         float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
         
+        if (distance > 1f)
+        {
+            return;
+        }
+        
         if (distance < nextWaypointDistance)
         {
             _currentWaypoint++;
         }
-        if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
         
+        //Debug.Log(_direction);
         _rb.AddForce(force);
         
         if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
-        HandleAnimation(_direction.normalized);
+        HandleAnimation();
     }
 
-    private void HandleAnimation(Vector2 inputVector)
+    private void HandleAnimation()
     {
-        if (inputVector == Vector2.zero)
+        if (_rb.velocity == Vector2.zero)
         {
             _animator.SetBool(IsWalking, false);
             _animator.SetBool(IsWalkingRight, false);
@@ -127,9 +135,9 @@ public class FollowingNPCController : MonoBehaviour
         var walkLeft = false;
         var walkDown = false;
 
-        if (inputVector.x > 0 && Math.Abs(inputVector.x) > Math.Abs(inputVector.y)) walkRight = true;
-        if (inputVector.x < 0 && Math.Abs(inputVector.x) > Math.Abs(inputVector.y)) walkLeft = true;
-        if (inputVector.y < 0 && Math.Abs(inputVector.y) > Math.Abs(inputVector.x)) walkDown = true;
+        if (_rb.velocity.x > 0 && Math.Abs(_rb.velocity.x) > Math.Abs(_rb.velocity.y)) walkRight = true;
+        if (_rb.velocity.x < 0 && Math.Abs(_rb.velocity.x) > Math.Abs(_rb.velocity.y)) walkLeft = true;
+        if (_rb.velocity.y < 0 && Math.Abs(_rb.velocity.y) > Math.Abs(_rb.velocity.x)) walkDown = true;
         
         _animator.SetBool(IsWalkingRight, walkRight);
         _animator.SetBool(IsWalkingLeft, walkLeft);
