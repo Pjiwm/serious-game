@@ -53,7 +53,7 @@ public class FollowingNPCController : MonoBehaviour
 
         var nextToPlayerPosition = playerLocation.position;
 
-        var normalizedDirection = nextToPlayerPosition - _npcController.transform.position;
+        var normalizedDirection = nextToPlayerPosition - gameObject.transform.position;
 
         HandleAnimation(normalizedDirection);
         _moveController.HandleMovement(normalizedDirection);
