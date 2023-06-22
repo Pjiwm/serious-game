@@ -16,8 +16,8 @@ public class DiggerNPCController : NPCController
         {
             if(PlayerPrefs.HasKey("canPass"))
             {
-
                 StartCoroutine(DialogManager.Instance.ShowDialog(new Dialog() { lines = new List<string> { canAlreadyPassDialog.lines[UnityEngine.Random.Range(0, 3)] } }));
+                DisableCones();
                 return;
             }
 
@@ -26,6 +26,7 @@ public class DiggerNPCController : NPCController
                 StartCoroutine(DialogManager.Instance.ShowDialog(allowedToPassDialog));
                 PlayerPrefs.SetInt("canPass", 1);
                 PlayerPrefs.Save();
+                DisableCones();
             }
             else
             {
@@ -35,6 +36,15 @@ public class DiggerNPCController : NPCController
         else
         {
             StartCoroutine(DialogManager.Instance.ShowDialog(friendsNotMadeDialog));
+        }
+    }
+
+    void DisableCones()
+    {
+        GameObject[] cones = GameObject.FindGameObjectsWithTag("Cone");
+        foreach (GameObject cone in cones)
+        {
+            cone.SetActive(false);
         }
     }
 }

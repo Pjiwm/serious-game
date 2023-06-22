@@ -12,7 +12,7 @@ public static class SceneLoader
         Level3,
         EndBoss,
         Loading,
-        Level2map
+        Level2
     }
 
     private static Action _onLoaderCallback;
