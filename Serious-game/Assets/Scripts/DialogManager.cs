@@ -85,7 +85,7 @@ public class DialogManager : Singleton<DialogManager>
         foreach (var letter in text.ToCharArray())
         {
             _dialogText.text += letter;
-            yield return new WaitForSeconds(1f / lettersPerSecond);
+            yield return new WaitForSecondsRealtime(1f / lettersPerSecond);
         }
         
         _isTyping = false;
