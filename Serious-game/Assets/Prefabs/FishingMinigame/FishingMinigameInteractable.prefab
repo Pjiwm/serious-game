@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6722454701836065961}
   - component: {fileID: 4235628038124741375}
   - component: {fileID: 2918531688259222570}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: FishingMinigameInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
