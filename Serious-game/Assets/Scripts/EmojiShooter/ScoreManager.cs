@@ -55,7 +55,7 @@ public class ScoreManager : MonoBehaviour
             int completedMissions = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
             completedMissions++;
             StatsManager.UpdatePref(PlayerPrefKeys.Friends, completedMissions);
-            PlayerPrefs.SetInt("EmojiShooter", 1);
+            PlayerPrefs.SetInt(PlayerPrefKeys.EmojiShooter, 1);
             PlayerPrefs.Save();
         }
     }
