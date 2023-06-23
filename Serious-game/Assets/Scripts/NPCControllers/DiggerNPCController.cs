@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class DiggerNPCController : NPCController
 {
-    [SerializeField] private StatsManager _statsManager;
-    [SerializeField] private readonly string _name = "sword";
     [SerializeField] private Dialog allowedToPassDialog;
     [SerializeField] private Dialog friendsWithoutSwordDialog;
     [SerializeField] private Dialog friendsNotMadeDialog;
@@ -12,19 +10,19 @@ public class DiggerNPCController : NPCController
 
     protected override void OnInteract()
     {
-        if (PlayerPrefs.GetInt(StatsManager.FRIENDPREF, 0) == 3)
+        if (PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0) == 3)
         {
-            if(PlayerPrefs.HasKey("canPass"))
+            if(PlayerPrefs.HasKey(PlayerPrefKeys.CanPass))
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(new Dialog() { lines = new List<string> { canAlreadyPassDialog.lines[UnityEngine.Random.Range(0, 3)] } }));
                 DisableCones();
                 return;
             }
 
-            if (PlayerPrefs.HasKey(_name))
+            if (PlayerPrefs.HasKey(PlayerPrefKeys.CanPass))
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(allowedToPassDialog));
-                PlayerPrefs.SetInt("canPass", 1);
+                PlayerPrefs.SetInt(PlayerPrefKeys.CanPass, 1);
                 PlayerPrefs.Save();
                 DisableCones();
             }
@@ -41,8 +39,8 @@ public class DiggerNPCController : NPCController
 
     void DisableCones()
     {
-        GameObject[] cones = GameObject.FindGameObjectsWithTag("Cone");
-        foreach (GameObject cone in cones)
+        var cones = GameObject.FindGameObjectsWithTag("Cone");
+        foreach (var cone in cones)
         {
             cone.SetActive(false);
         }
