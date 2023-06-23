@@ -10,5 +10,5 @@ public static class PlayerPrefKeys
     public const string FishingRod = "fishingRod";
     public const string EmojiShooter = "emojiShooter";
     public const string EmojiShooterHighscore = "emojiShooterHighscore";
-
+    public const string MalonFriendMade = "malonFriendMade";
 }

@@ -40,7 +40,8 @@ namespace PlayerAndMovement
             gameStateManager.OnMinigame += DeActivatePlayerInputs;
             _interactablesLayer = LayerMask.GetMask("Interactables");
             StopFootsteps();
-            PlayerPrefs.DeleteAll();
+            //To revert to default player prefs
+            //PlayerPrefs.DeleteAll();
         }
 
         public void ActivatePlayerInputs()

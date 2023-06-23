@@ -336,7 +336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02c16f052f3edd4b89f842337164147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statsManager: {fileID: 1619897438}
   swordAlreadyAcquiredDialog:
     lines:
     - 'Smid: Je hebt het vriendschapszwaard al!'
@@ -893,7 +892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e37f0da02d9a9547a0a65f4dbbd3768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _statsManager: {fileID: 1619897438}
   allowedToPassDialog:
     lines:
     - 'Graver: Jou ken ik! Je hebt veel vrienden gemaakt en je hebt iets om jezelf
@@ -7235,7 +7233,6 @@ MonoBehaviour:
     lines:
     - 'Jeff: Hmm, dicht. Ik zal maar aan iemand moeten vragen wat er aan de hand
       is...'
-  interactionText: {fileID: 183258057}
 --- !u!58 &798588499
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9689,6 +9686,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2036609677}
+    - target: {fileID: -3547618804271476510, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
+      propertyPath: _isMalonLevel1
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -3547618804271476510, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
       propertyPath: playerLocation
       value: 
@@ -62930,7 +62931,6 @@ MonoBehaviour:
   internetCafeDialog:
     lines:
     - 'Bord: Internetcafe (Geopend)'
-  interactionText: {fileID: 183258057}
 --- !u!1001 &1276892951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85263,7 +85263,7 @@ Tilemap:
       - {fileID: -1616401170, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -415185015, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: -1692517177, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 2, y: 5, z: 0}
@@ -85731,7 +85731,7 @@ Tilemap:
       - {fileID: -1616401170, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -415185015, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: -1692517177, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: 12, z: 0}
@@ -85900,7 +85900,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -13, y: 13, z: 0}
@@ -85952,7 +85952,7 @@ Tilemap:
       - {fileID: -22124037, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -1499263775, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: -1358802464, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -19, y: 14, z: 0}
@@ -86043,7 +86043,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -12, y: 14, z: 0}
@@ -86095,7 +86095,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -18, y: 15, z: 0}
@@ -86251,7 +86251,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: 16, z: 0}
@@ -86329,7 +86329,7 @@ Tilemap:
       - {fileID: 1368470755, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: 1582091470, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 728078534, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -20, y: 17, z: 0}
@@ -86680,7 +86680,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -13, y: 19, z: 0}
@@ -87083,7 +87083,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 51, y: 32, z: 0}
@@ -87590,7 +87590,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 46, y: 36, z: 0}
@@ -87850,7 +87850,7 @@ Tilemap:
       - {fileID: 1368470755, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: 1582091470, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 728078534, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 44, y: 38, z: 0}
@@ -88933,6 +88933,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2927790445926699869, guid: 70b48064b0044de499698fdc4cb8f6f5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2927790445926699869, guid: 70b48064b0044de499698fdc4cb8f6f5, type: 3}
       propertyPath: m_SortingLayerID
       value: 1970198977
       objectReference: {fileID: 0}
@@ -89084,11 +89088,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactDialog:
     lines:
-    - Hier heb je een vishengel!
-  _statsManager: {fileID: 1619897438}
+    - "Malon: H\xE9 jij daar! Wil jij met me vissen?"
+    - 'Jeff: Ja hoor. Lijkt me leuk!'
+    - 'Malon: Laten we in drie vijvers vissen. Als je klaar bent, kom dan met me
+      praten. '
+  statsManager: {fileID: 1619897438}
   friendsDialog:
     lines:
-    - We zijn vrienden!
+    - Dankjewel voor het samen vissen, het was gezellig! We zijn vrienden!
 --- !u!4 &1517575658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3093466738204013507, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
@@ -89924,6 +89931,10 @@ PrefabInstance:
       value: kist1
       objectReference: {fileID: 0}
     - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
+      propertyPath: statsManager
+      value: 
+      objectReference: {fileID: 1619897438}
+    - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: _statsManager
       value: 
       objectReference: {fileID: 1619897438}
@@ -89931,6 +89942,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 183258057}
+    - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
+      propertyPath: swordPieceDialog.lines.Array.data[0]
+      value: Hier heb je de hendel van het vriendschapszwaard!
+      objectReference: {fileID: 0}
     - target: {fileID: 1700650121236716216, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: m_BodyType
       value: 2
