@@ -169,10 +169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactDialog:
     lines:
-    - Je bent aangekomen bij het Eenzaamheidsmonster
-    - Probeer hem te verslaan met je zwaard door te klikken.
-    - Maar pas op dat het monster jou niet verslaat!
-    - Trekt ten strijde tegen het beest!
+    - 'Jeff: Oh, is dit waar het wezen zou kunnen zijn? Ik heb dit zwaard nu, die
+      ik met [spatie] of door te klikken kan gebruiken.'
+    - 'Jeff: Ten strijde!'
 --- !u!1 &64745948
 GameObject:
   m_ObjectHideFlags: 0
@@ -23258,7 +23257,6 @@ MonoBehaviour:
   maxHealth: 100
   swingSound: {fileID: 857690137}
   hitSound: {fileID: 857690138}
-  cooldownSeconds: 0.5
 --- !u!82 &857690137 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5545009321390665368, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}

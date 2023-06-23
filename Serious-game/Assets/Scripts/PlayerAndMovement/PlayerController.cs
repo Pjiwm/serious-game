@@ -19,6 +19,7 @@ namespace PlayerAndMovement
         private Vector2 _moveDir;
         private IInteractable[] _selectedInteractables;
         private int _interactablesLayer;
+        private int _minigameLayer;
         private Animator _animator;
         private bool _isMovingUp;
         private bool _isMovingDown;
@@ -39,6 +40,7 @@ namespace PlayerAndMovement
             gameStateManager.OnInDialog += DeActivatePlayerInputs;
             gameStateManager.OnMinigame += DeActivatePlayerInputs;
             _interactablesLayer = LayerMask.GetMask("Interactables");
+            _minigameLayer = LayerMask.GetMask("Minigame");
             StopFootsteps();
             //To revert to default player prefs
             //PlayerPrefs.DeleteAll();
@@ -110,24 +112,29 @@ namespace PlayerAndMovement
         private void HandleSelections()
         {
             IInteractable[] currentlySelectedInteractables = null;
-
-
-            var collidedObjects = Physics2D.OverlapCircleAll(_rigidBody2D.position, interactDistance, _interactablesLayer);
-            if (collidedObjects.Length != 0)
+            
+            var collidedInteractables = Physics2D.OverlapCircleAll(_rigidBody2D.position, interactDistance, _interactablesLayer);
+            var collidedMinigames = Physics2D.OverlapCircleAll(_rigidBody2D.position, interactDistance, _minigameLayer);
+            
+            var minigames = collidedMinigames.Select(ob =>
             {
-                //https://stackoverflow.com/questions/914109/how-to-use-linq-to-select-object-with-minimum-or-maximum-property-value
-                Collider2D closestObject;
-                if (collidedObjects.Length == 1)
-                {
-                    closestObject = collidedObjects.First();
-                }
-                else
-                {
-                    closestObject =
-                        collidedObjects.Select(
-                            ob => (HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position), ob)
-                        ).Min().Item2;
-                }
+                var distance =
+                    HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position);
+                return (distance, ob);
+            });
+            
+            var interactables = collidedInteractables.Select(ob =>
+            {
+                //Interactables are "further away" than minigames.
+                var distance =
+                    HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position) + 0.1f;
+                return (distance, ob);
+            });
+            
+            var allObjects = interactables.Concat(minigames).ToArray();
+            if (allObjects.Length != 0)
+            {
+                var closestObject = allObjects.Length == 1 ? allObjects.First().ob : allObjects.Min().ob;
                 currentlySelectedInteractables = closestObject.GetComponents<IInteractable>();
             }
 
