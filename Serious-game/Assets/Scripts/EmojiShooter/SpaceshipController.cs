@@ -2,95 +2,88 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpaceshipController : MonoBehaviour
 
 {
-    // private Vector2 targetPos = new Vector2(-6.0f, 0.0f);
     private Vector2 targetPos = new Vector2(-1f, 0.0f);
-    public float Yincrement = 1;
-    public float speed = 10;
-    public float maxUp = 3.5f;
-    public float maxDown = -3.5f;
+    [SerializeField] private float yIncrement = 1;
+    [SerializeField] private float speed = 10;
+    [SerializeField] private float maxUp = 3.5f;
+    [SerializeField] private float maxDown = -3.5f;
 
-    public short health = 2;
+    [SerializeField] private short health = 2;
 
-    public GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
-    public GameObject destroyedObject;
+    [SerializeField] private GameObject destroyedObject;
 
-    public float invincibilityDuration = 2f; // Duration of invincibility frames
-    private bool isInvincible = false; // Flag to indicate if the spaceship is invincible
-    private float invincibilityTimer = 0f;
+    [SerializeField] private float invincibilityDuration = 2f; // Duration of invincibility frames
+    
+    [SerializeField] private Sprite damagedSprite;
+    
+    private bool _isInvincible; // Flag to indicate if the spaceship is invincible
+    private float _invincibilityTimer;
 
-    public Sprite damagedSprite;
-    private Sprite normalSprite;
-    private SpriteRenderer spriteRenderer;
+    
+    private Sprite _normalSprite;
+    private SpriteRenderer _spriteRenderer;
 
-    // public GameManager gameManager;
-
-    // public GameObject gameOverCanvas;
-    // public TMP_Text healthText;
-
-    void Start()
+    private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        normalSprite = spriteRenderer.sprite;
-        // healthText.text = health.ToString();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _normalSprite = _spriteRenderer.sprite;
     }
 
-    void Update()
+    private void Update()
     {
-        if (isInvincible)
+        if (_isInvincible)
         {
-            invincibilityTimer += Time.deltaTime;
+            _invincibilityTimer += Time.deltaTime;
 
-            if (invincibilityTimer >= invincibilityDuration)
+            if (_invincibilityTimer >= invincibilityDuration)
             {
-                isInvincible = false;
-                spriteRenderer.sprite = normalSprite;
-                invincibilityTimer = 0f;
+                _isInvincible = false;
+                _spriteRenderer.sprite = _normalSprite;
+                _invincibilityTimer = 0f;
             }
         }
 
         if (health <= 0)
         {
-            // ScoreManager.score = 0;
-            // gameOverCanvas.SetActive(true);
             gameManager.GameOver();
             Destroy(gameObject);
-            GameObject instantiatedObject = Instantiate(destroyedObject, transform.position, Quaternion.identity);
+            var instantiatedObject = Instantiate(destroyedObject, transform.position, Quaternion.identity);
             instantiatedObject.transform.localScale = new Vector3(4f, 4f, 1f);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        var position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
 
         if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > maxDown)
         {
-            Debug.Log("Down");
-            targetPos = new Vector2(transform.position.x, transform.position.y - Yincrement);
+            
+            targetPos = new Vector2(position.x, position.y - yIncrement);
         }
         else if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < maxUp)
         {
-            Debug.Log("Up");
-            targetPos = new Vector2(transform.position.x, transform.position.y + Yincrement);
+            targetPos = new Vector2(transform.position.x, position.y + yIncrement);
         }
+
+        transform.position = position;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Obstacle"))
+        if (!other.CompareTag("Obstacle")) return;
+
+        if (!_isInvincible)
         {
-            Debug.Log("Spaceship hit!");
-            if (!isInvincible)
-            {
-                health -= 1;
-                isInvincible = true;
-                spriteRenderer.sprite = damagedSprite;
-            }
-            // healthText.text = health.ToString();
-            Destroy(other.gameObject);
-            Instantiate(destroyedObject, other.transform.position, Quaternion.identity);
+            health -= 1;
+            _isInvincible = true;
+            _spriteRenderer.sprite = damagedSprite;
         }
+        Destroy(other.gameObject);
+        Instantiate(destroyedObject, other.transform.position, Quaternion.identity);
     }
 }

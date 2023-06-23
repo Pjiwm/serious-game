@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class BasicNPCController : NPCController
+namespace NPCControllers
 {
-    [SerializeField] private Dialog interactDialog;
-    protected override void OnInteract()
+    public class BasicNPCController : NPCController
     {
-        StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+        [SerializeField] private Dialog.Dialog interactDialog;
+        protected override void OnInteract()
+        {
+            StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+        }
     }
 }

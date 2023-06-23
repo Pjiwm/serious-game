@@ -1,15 +1,19 @@
 using UnityEngine;
-public class InteractionDialogManager : Singleton<InteractionDialogManager>
+
+namespace Interactables
 {
-    [SerializeField] private GameObject interactionDialogBox;
-
-    public void ShowInteractionDialog()
+    public class InteractionDialogManager : Singleton<InteractionDialogManager>
     {
-        interactionDialogBox.SetActive(true);
-    }
+        [SerializeField] private GameObject interactionDialogBox;
 
-    public void HideInteractionDialog()
-    {
-        interactionDialogBox.SetActive(false);
+        public void ShowInteractionDialog()
+        {
+            interactionDialogBox.SetActive(true);
+        }
+
+        public void HideInteractionDialog()
+        {
+            interactionDialogBox.SetActive(false);
+        }
     }
 }

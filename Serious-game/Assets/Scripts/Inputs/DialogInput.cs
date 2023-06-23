@@ -2,20 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(fileName = "DialogInput", menuName = "ScriptableObjects/DialogInput", order = 1)]
-public class DialogInput : ScriptableObject
+namespace Inputs
 {
-    private PlayerInputActions _playerInputActions;
-    public event EventHandler OnSkip;
-    private void OnEnable()
+    [CreateAssetMenu(fileName = "DialogInput", menuName = "ScriptableObjects/DialogInput", order = 1)]
+    public class DialogInput : ScriptableObject
     {
-        _playerInputActions = new PlayerInputActions();
-        _playerInputActions.Dialog.Enable();
-        _playerInputActions.Dialog.Skip.performed += OnSkipPerformed;
-    }
+        private PlayerInputActions _playerInputActions;
+        public event EventHandler OnSkip;
+        private void OnEnable()
+        {
+            _playerInputActions = new PlayerInputActions();
+            _playerInputActions.Dialog.Enable();
+            _playerInputActions.Dialog.Skip.performed += OnSkipPerformed;
+        }
 
-    private void OnSkipPerformed(InputAction.CallbackContext obj)
-    {
-        OnSkip?.Invoke(this, EventArgs.Empty);
+        private void OnSkipPerformed(InputAction.CallbackContext obj)
+        {
+            OnSkip?.Invoke(this, EventArgs.Empty);
+        }
     }
 }
