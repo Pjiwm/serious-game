@@ -4,7 +4,7 @@ namespace BossPlayer
 {
     public class ExplanationDialog : MonoBehaviour
     {
-        [SerializeField] private Dialog interactDialog;
+        [SerializeField] private Dialog.Dialog interactDialog;
         private void Start()
         {
             PauseGame();

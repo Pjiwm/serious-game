@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using BossPlayer;
 using UnityEditor.Rendering;
 using UnityEngine;
 using Pathfinding;
+using PlayerAndMovement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -27,24 +29,21 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField] private float maxHealth = 100;
     [SerializeField] private Healthbar healthbar;
-    [SerializeField] private Dialog winDialog;
+    [SerializeField] private Dialog.Dialog winDialog;
     [SerializeField] private float knockBackForce = 3f;
     [SerializeField] private AudioSource hitSound;
     [SerializeField] private Transform target;
     [SerializeField] private float nextWaypointDistance = 3f;
     
     private Path _path;
-    private int _currentWaypoint = 0;
-    private bool _reachedEndOfPath = false;
+    private int _currentWaypoint;
     private Seeker _seeker;
     private Vector2 _direction;
     
     private Animator _animator;
     private Rigidbody2D _rb;
-    private MoveController _moveController;
     private bool _canMove = true;
-    private int _playersLayer;
-    
+
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int IsAlive = Animator.StringToHash("IsAlive");
     private static readonly int Hit = Animator.StringToHash("Hit");
@@ -56,9 +55,7 @@ public class EnemyController : MonoBehaviour
         healthbar.SetMaxHealth((int)maxHealth);
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-        _moveController = GetComponent<MoveController>();
-        _playersLayer = LayerMask.GetMask("Player");
-        
+
         InvokeRepeating("UpdatePath", 0f, .5f);
     }
     
@@ -76,11 +73,10 @@ public class EnemyController : MonoBehaviour
     
     private void OnPathComplete(Path p)
     {
-        if (!p.error)
-        {
-            _path = p;
-            _currentWaypoint = 0;
-        }
+        if (p.error) return;
+        
+        _path = p;
+        _currentWaypoint = 0;
     }
 
     private void Update()
@@ -92,12 +88,7 @@ public class EnemyController : MonoBehaviour
         
         if (_currentWaypoint >= _path.vectorPath.Count)
         {
-            _reachedEndOfPath = true;
             return;
-        }
-        else
-        {
-            _reachedEndOfPath = false;
         }
 
         Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position);
@@ -106,8 +97,8 @@ public class EnemyController : MonoBehaviour
             _direction = tempDir;
         }
         
-        Vector2 force = _direction * 300f * Time.deltaTime;
-        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
+        var force = _direction * 300f * Time.deltaTime;
+        var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
         
         if (distance < nextWaypointDistance)
         {
@@ -117,7 +108,6 @@ public class EnemyController : MonoBehaviour
         if (_canMove)
         {
             if (!_animator.GetBool(IsMoving)) _animator.SetBool(IsMoving, true);
-            //_moveController.HandleMovement(_direction.normalized);
             _rb.AddForce(force);
             return;
         }
@@ -151,12 +141,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        BossPlayerController player = other.gameObject.GetComponent<BossPlayerController>();
-        if (player != null)
-        {
-            player.OnHit(6);
-            player.OnKnockBack(KnockBack(other));
-        }
+        var player = other.gameObject.GetComponent<BossPlayerController>();
+        if (player == null) return;
+        player.OnHit(6);
+        player.OnKnockBack(KnockBack(other));
     }
     
     public void LockMovement()

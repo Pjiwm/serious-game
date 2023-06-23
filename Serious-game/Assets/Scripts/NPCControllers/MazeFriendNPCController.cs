@@ -1,37 +1,39 @@
-using System;
-using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class MazeFriendNPCController : NPCController
+namespace NPCControllers
 {
-    [SerializeField] private Dialog interactDialog;
-    [SerializeField] private StatsManager _statsManager;
-    [SerializeField] private Dialog friendsDialog;
-
-
-    protected override void OnInteract()
+    public class MazeFriendNPCController : NPCController
     {
-        if (!PlayerPrefs.HasKey(PlayerPrefKeys.Maze))
+        [SerializeField] private Dialog.Dialog interactDialog;
+        [FormerlySerializedAs("_statsManager")] [SerializeField] private StatsManager statsManager;
+        [SerializeField] private Dialog.Dialog friendsDialog;
+
+
+        protected override void OnInteract()
         {
-            StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
-        }
-        else
-        {
-            if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriend))
+            if (!PlayerPrefs.HasKey(PlayerPrefKeys.Maze))
             {
-                StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
             }
             else
             {
-                int friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
-                friends++;
-                StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
-                _statsManager.RequestUpdate();
-                PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriend, 1);
-                PlayerPrefs.Save();
-                StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriend))
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                }
+                else
+                {
+                    var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
+                    friends++;
+                    StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
+                    statsManager.RequestUpdate();
+                    PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriend, 1);
+                    PlayerPrefs.Save();
+                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                }
             }
         }
-    }
     
+    }
 }

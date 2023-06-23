@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static int score = 0;
+    public static int Score;
     public TMP_Text scoreText;
 
     public TMP_Text victoryText;
@@ -12,45 +12,45 @@ public class ScoreManager : MonoBehaviour
 
     public int highScore = 0;
 
-    void Start()
+    private void Start()
     {
-        highScore = PlayerPrefs.GetInt("EmojiShooterHighScore", 0);
-        string formattedScore = highScore.ToString("D4");
+        highScore = PlayerPrefs.GetInt(PlayerPrefKeys.EmojiShooterHighscore, 0);
+        var formattedScore = highScore.ToString("D4");
         highScoreText.text = $"HI {formattedScore}";
     }
 
     void Update()
     {
-        string formattedScore = score.ToString("D4");
+        var formattedScore = Score.ToString("D4");
         scoreText.text = $"{formattedScore}";
-        if (score == 1500)
+        if (Score == 1500)
         {
-            win();
+            Win();
             victoryText.gameObject.SetActive(true);
         }
 
-        if (score > highScore) {
-            highScore = score;
-            PlayerPrefs.SetInt("EmojiShooterHighScore", highScore);
+        if (Score > highScore) {
+            highScore = Score;
+            PlayerPrefs.SetInt(PlayerPrefKeys.EmojiShooterHighscore, highScore);
             PlayerPrefs.Save();
-            string formattedHighScore = highScore.ToString("D4");
+            var formattedHighScore = highScore.ToString("D4");
             highScoreText.text = $"HI {formattedHighScore}";
         }
     }
 
     public static void AddScore()
     {
-        score += 25;
+        Score += 25;
     }
 
     public static void ResetScore()
     {
-        score = 0;
+        Score = 0;
     }
 
-    public void win()
+    public static void Win()
     {
-        if (!checkIfAlreadyWon())
+        if (!CheckIfAlreadyWon())
         {
             int completedMissions = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
             completedMissions++;
@@ -60,8 +60,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public bool checkIfAlreadyWon()
+    public static bool CheckIfAlreadyWon()
     {
-        return PlayerPrefs.HasKey("EmojiShooter");
+        return PlayerPrefs.HasKey(PlayerPrefKeys.EmojiShooter);
     }
 }

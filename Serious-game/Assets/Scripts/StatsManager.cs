@@ -9,7 +9,7 @@ public class StatsManager : MonoBehaviour
     private int _swordPiecesCount = 0;
 
 
-    void Start() {
+    private void Start() {
         _friendsCount = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
         _swordPiecesCount = PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0);
     }

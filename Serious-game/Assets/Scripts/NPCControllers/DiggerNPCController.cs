@@ -1,23 +1,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiggerNPCController : NPCController
+namespace NPCControllers
 {
-    [SerializeField] private Dialog allowedToPassDialog;
-    [SerializeField] private Dialog friendsWithoutSwordDialog;
-    [SerializeField] private Dialog friendsNotMadeDialog;
-    [SerializeField] private Dialog canAlreadyPassDialog;
-
-    protected override void OnInteract()
+    public class DiggerNPCController : NPCController
     {
-        if (PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0) == 3)
+        [SerializeField] private Dialog.Dialog allowedToPassDialog;
+        [SerializeField] private Dialog.Dialog friendsWithoutSwordDialog;
+        [SerializeField] private Dialog.Dialog friendsNotMadeDialog;
+        [SerializeField] private Dialog.Dialog canAlreadyPassDialog;
+
+        protected override void OnInteract()
         {
-            if(PlayerPrefs.HasKey(PlayerPrefKeys.CanPass))
+            if (PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0) == 3)
             {
-                StartCoroutine(DialogManager.Instance.ShowDialog(new Dialog() { lines = new List<string> { canAlreadyPassDialog.lines[UnityEngine.Random.Range(0, 3)] } }));
-                DisableCones();
-                return;
-            }
+                if(PlayerPrefs.HasKey(PlayerPrefKeys.CanPass))
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(new Dialog.Dialog() { lines = new List<string> { canAlreadyPassDialog.lines[UnityEngine.Random.Range(0, 3)] } }));
+                    DisableCones();
+                    return;
+                }
 
             if (PlayerPrefs.HasKey(PlayerPrefKeys.Sword))
             {
@@ -37,12 +39,13 @@ public class DiggerNPCController : NPCController
         }
     }
 
-    void DisableCones()
-    {
-        var cones = GameObject.FindGameObjectsWithTag("Cone");
-        foreach (var cone in cones)
+        private static void DisableCones()
         {
-            cone.SetActive(false);
+            var cones = GameObject.FindGameObjectsWithTag("Cone");
+            foreach (var cone in cones)
+            {
+                cone.SetActive(false);
+            }
         }
     }
 }

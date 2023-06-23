@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FishingMinigame;
 using UnityEngine;
 
 public class FishingMinigameFishTrigger : MonoBehaviour
@@ -11,10 +12,10 @@ public class FishingMinigameFishTrigger : MonoBehaviour
    /// </summary>
    
    public bool beingCaught = false;
-   private FishingMinigame _minigameController;
-   private FishingMinigame[] _minigameControllers;
+   private FishingMinigameController _minigameController;
+   private FishingMinigameController[] _minigameControllers;
    private void Start() {
-      _minigameControllers = FindObjectsOfType<FishingMinigame>();
+      _minigameControllers = FindObjectsOfType<FishingMinigameController>();
       foreach (var minigameController in _minigameControllers) {
          if (minigameController.ReelingFishState) {
             _minigameController = minigameController;
@@ -29,19 +30,20 @@ public class FishingMinigameFishTrigger : MonoBehaviour
       }
    }
 
-   private void OnTriggerEnter2D(Collider2D other) {
-      if (_minigameController.ReelingFishState) {
-         if (other.CompareTag("CatchingBar") && !beingCaught) {
-            beingCaught = true;
-            _minigameController.FishInBar();
-         }
-      }
+   private void OnTriggerEnter2D(Collider2D other)
+   {
+      if (!_minigameController.ReelingFishState) return;
+      if (!other.CompareTag("CatchingBar") || beingCaught) return;
+      
+      beingCaught = true;
+      _minigameController.FishInBar();
    }
 
-   private void OnTriggerExit2D(Collider2D other) {
-      if (other.CompareTag("CatchingBar") && beingCaught) {
-         beingCaught = false;
-         _minigameController.FishOutOfBar();
-      }
+   private void OnTriggerExit2D(Collider2D other)
+   {
+      if (!other.CompareTag("CatchingBar") || !beingCaught) return;
+      
+      beingCaught = false;
+      _minigameController.FishOutOfBar();
    }
 }

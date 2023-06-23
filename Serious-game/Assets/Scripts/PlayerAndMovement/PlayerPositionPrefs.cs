@@ -1,5 +1,8 @@
-public static class PlayerPositionPrefs
+namespace PlayerAndMovement
 {
-    public const string X = "PlayerPositionX";
-    public const string Y = "PlayerPositionY";
+    public static class PlayerPositionPrefs
+    {
+        public const string X = "PlayerPositionX";
+        public const string Y = "PlayerPositionY";
+    }
 }

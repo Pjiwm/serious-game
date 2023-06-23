@@ -1,23 +1,24 @@
-using System;
-using DefaultNamespace;
 using UnityEngine;
 
-public class LostFriendNPCController : NPCController
+namespace NPCControllers
 {
-    [SerializeField] private Dialog interactionDialog;
-
-    private void Start()
+    public class LostFriendNPCController : NPCController
     {
-        if(PlayerPrefs.HasKey(PlayerPrefKeys.Maze)) {
-            gameObject.SetActive(false);
+        [SerializeField] private Dialog.Dialog interactionDialog;
+
+        private void Start()
+        {
+            if(PlayerPrefs.HasKey(PlayerPrefKeys.Maze)) {
+                gameObject.SetActive(false);
+            }
         }
-    }
 
-    protected override void OnInteract()
-    {
-        StartCoroutine(DialogManager.Instance.ShowDialog(interactionDialog));
-        PlayerPrefs.SetInt(PlayerPrefKeys.Maze, 1);
-        PlayerPrefs.Save();
-    }
+        protected override void OnInteract()
+        {
+            StartCoroutine(DialogManager.Instance.ShowDialog(interactionDialog));
+            PlayerPrefs.SetInt(PlayerPrefKeys.Maze, 1);
+            PlayerPrefs.Save();
+        }
     
+    }
 }
