@@ -15,6 +15,7 @@ namespace SceneLoading
             PlayerPrefs.SetFloat(PlayerPositionPrefs.X, toXPos);
             PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, toYPos);
             PlayerPrefs.Save();
+            Debug.Log("Saved player position to " + toXPos + ", " + toYPos);
             SceneLoader.LoadScene(sceneToLoad);
         }
 
