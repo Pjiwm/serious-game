@@ -17827,7 +17827,7 @@ PrefabInstance:
       objectReference: {fileID: 779045400}
     - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: swordPieceDialog.lines.Array.data[0]
-      value: Hier heb je het bovenstuk van het zwaard!
+      value: Hier heb je het bovenstuk van het vriendschapszwaard!
       objectReference: {fileID: 0}
     - target: {fileID: 4800696674102899698, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: m_Name

@@ -1,6 +1,7 @@
 using Interactables;
 using SceneLoading;
 using UnityEngine;
+using PlayerAndMovement;
 
 namespace TeleportingAndSpawning
 {
@@ -26,6 +27,8 @@ namespace TeleportingAndSpawning
         }
         private static void LoadLevel2()
         {
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.X, 0.17f);
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, -0.87f);
             DialogManager.Instance.OnCloseDialog -= LoadLevel2;
             SceneLoader.LoadScene(SceneLoader.Scenes.Level3);
         }

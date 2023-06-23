@@ -40,6 +40,7 @@ namespace PlayerAndMovement
             gameStateManager.OnMinigame += DeActivatePlayerInputs;
             _interactablesLayer = LayerMask.GetMask("Interactables");
             StopFootsteps();
+            PlayerPrefs.DeleteAll();
         }
 
         public void ActivatePlayerInputs()
@@ -56,14 +57,14 @@ namespace PlayerAndMovement
         public void FixedUpdate()
         {
             if (gameStateManager.State != GameState.Roaming) return;
-        
+
             var inputVector = playerInput.GetMovementVectorNormalized();
             if (inputVector != Vector2.zero && _canMove)
             {
                 _moveDir = inputVector;
                 _isMovingDown = false;
                 _isMovingUp = false;
-            
+
                 if (inputVector.x < 0)
                 {
                     _spriteRenderer.flipX = true;
@@ -81,18 +82,18 @@ namespace PlayerAndMovement
                 {
                     _isMovingDown = true;
                 }
-            
+
                 _animator.SetBool(IsFacingUp, _isMovingUp);
                 _animator.SetBool(IsFacingDown, _isMovingDown);
                 _animator.SetBool(IsMoving, true);
-            
+
                 _moveController.HandleMovement(_moveDir);
                 StartFootsteps();
             } else {
                 _animator.SetBool(IsMoving, false);
                 StopFootsteps();
             }
-        
+
             HandleSelections();
         }
 
@@ -121,7 +122,7 @@ namespace PlayerAndMovement
                 }
                 else
                 {
-                    closestObject = 
+                    closestObject =
                         collidedObjects.Select(
                             ob => (HelperFunctions.GetDistanceToVector(gameObject.transform.position, ob.transform.position), ob)
                         ).Min().Item2;
@@ -137,7 +138,7 @@ namespace PlayerAndMovement
 
         private void SetSelectedInteractables(IInteractable[] selectedInteractables)
         {
-        
+
             if (selectedInteractables == null)
             {
                 foreach (var interactable in _selectedInteractables)
@@ -165,17 +166,17 @@ namespace PlayerAndMovement
             gameStateManager.OnInDialog -= DeActivatePlayerInputs;
             gameStateManager.OnMinigame -= DeActivatePlayerInputs;
         }
-    
+
         private void StartFootsteps()
         {
             footstepAudio.SetActive(true);
         }
-    
+
         private void StopFootsteps()
         {
             footstepAudio.SetActive(false);
         }
-    
+
         public void LockMovement()
         {
             _canMove = false;
@@ -185,6 +186,6 @@ namespace PlayerAndMovement
         {
             _canMove = true;
         }
-    
+
     }
 }

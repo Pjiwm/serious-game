@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
             PlayerPrefs.SetFloat(PlayerPositionPrefs.X, 0.33f);
             PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, 0.45f);
             PlayerPrefs.Save();
+            Debug.Log("Saved player position to " + 0.33f + ", " + 0.45f);
             SceneLoader.LoadScene(SceneLoader.Scenes.Level3);
         }
     }
