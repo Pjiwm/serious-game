@@ -19,7 +19,7 @@ public class DiggerNPCController : NPCController
                 return;
             }
 
-            if (PlayerPrefs.HasKey(PlayerPrefKeys.CanPass))
+            if (PlayerPrefs.HasKey(PlayerPrefKeys.Sword))
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(allowedToPassDialog));
                 PlayerPrefs.SetInt(PlayerPrefKeys.CanPass, 1);
