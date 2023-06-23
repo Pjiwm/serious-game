@@ -1,4 +1,4 @@
-namespace DefaultNamespace
+namespace Interactables
 {
     public interface IInteractable
     {

@@ -1,25 +1,27 @@
 using System.Collections;
-using System.Collections.Generic;
+using SceneLoading;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour
+namespace Menu
 {
-    [SerializeField] private AudioSource audioSource;
-    public void StartGame()
+    public class MenuController : MonoBehaviour
     {
-        audioSource.Play();
-        StartCoroutine(StartGameCoroutine());
-    }
+        [SerializeField] private AudioSource audioSource;
+        public void StartGame()
+        {
+            audioSource.Play();
+            StartCoroutine(StartGameCoroutine());
+        }
 
-    public void Quit()
-    {
-        Application.Quit();
-    }
+        public void Quit()
+        {
+            Application.Quit();
+        }
         
-    private IEnumerator StartGameCoroutine()
-    {
-        yield return new WaitForSeconds(2);
-        SceneLoader.LoadScene(SceneLoader.Scenes.Level1);
+        private static IEnumerator StartGameCoroutine()
+        {
+            yield return new WaitForSeconds(2);
+            SceneLoader.LoadScene(SceneLoader.Scenes.Level1);
+        }
     }
 }

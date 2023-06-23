@@ -1,23 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DefaultNamespace;
+using PlayerAndMovement;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class SceneLoaderTrigger : MonoBehaviour
+namespace SceneLoading
 {
-    [SerializeField] private SceneLoader.Scenes sceneToLoad;
-
-    public float toXPos = 0;
-    public float toYPos = 0;
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public class SceneLoaderTrigger : MonoBehaviour
     {
-        PlayerPrefs.SetFloat(PlayerPositionPrefs.X, toXPos);
-        PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, toYPos);
-        PlayerPrefs.Save();
-        SceneLoader.LoadScene(sceneToLoad);
-    }
+        [SerializeField] private SceneLoader.Scenes sceneToLoad;
 
+        public float toXPos;
+        public float toYPos;
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.X, toXPos);
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, toYPos);
+            PlayerPrefs.Save();
+            SceneLoader.LoadScene(sceneToLoad);
+        }
+
+    }
 }

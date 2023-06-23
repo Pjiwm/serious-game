@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace DefaultNamespace.SceneLoading
+namespace SceneLoading
 {
     /// <summary>
     /// This callback is used by the "Loader" Scene (which is a loader scene), and is called when the scene is loaded.

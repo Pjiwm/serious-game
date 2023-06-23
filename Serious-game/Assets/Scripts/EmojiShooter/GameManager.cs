@@ -1,12 +1,13 @@
+using SceneLoading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Canvas gameOverCanvas;
-    public Canvas startMenuCanvas;
-    public ObstacleSpawner obstacleSpawner;
-    public ObstacleSpawner backwardsObstacleSpawner;
+    [SerializeField] private Canvas gameOverCanvas;
+    [SerializeField] private Canvas startMenuCanvas;
+    [SerializeField] private ObstacleSpawner obstacleSpawner;
+    [SerializeField] private ObstacleSpawner backwardsObstacleSpawner;
     private bool _isMenu = true;
 
 
@@ -25,7 +26,6 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Loading computer scene");
             SceneLoader.LoadScene(SceneLoader.Scenes.Level3);
         }
     }
@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Start Game");
         // Disable the start menu canvas and enable the obstacle spawner
         startMenuCanvas.enabled = false;
         obstacleSpawner.enabled = true;
@@ -45,14 +44,13 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         // Enable the game over canvas and disable the obstacle spawner
-        Debug.Log("Game Over");
         gameOverCanvas.enabled = true;
         obstacleSpawner.enabled = false;
         backwardsObstacleSpawner.enabled = false;
         _isMenu = true;
 
         // Play death sound
-        AudioSource audioSource = GetComponent<AudioSource>();
+        var audioSource = GetComponent<AudioSource>();
         audioSource.Play();
     }
 

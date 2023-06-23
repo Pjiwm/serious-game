@@ -8,5 +8,7 @@ public static class PlayerPrefKeys
     public const string Sword = "sword";
     public const string Fish = "fish";
     public const string FishingRod = "fishingRod";
+    public const string EmojiShooter = "emojiShooter";
+    public const string EmojiShooterHighscore = "emojiShooterHighscore";
     
 }

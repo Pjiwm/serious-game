@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DefaultNamespace;
+using Inputs;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class DialogManager : Singleton<DialogManager>
 {
@@ -21,7 +18,7 @@ public class DialogManager : Singleton<DialogManager>
     public Action OnCloseDialog;
     
     private TMPro.TextMeshProUGUI _dialogText;
-    private Dialog _dialog;
+    private Dialog.Dialog _dialog;
     private int _currentLine = 0;
     private bool _isTyping;
 
@@ -62,7 +59,7 @@ public class DialogManager : Singleton<DialogManager>
         }
     }
 
-    public IEnumerator ShowDialog(Dialog dialog)
+    public IEnumerator ShowDialog(Dialog.Dialog dialog)
     {
         if (dialog.lines == null || dialog.lines.Count <= 0)
         {

@@ -1,33 +1,35 @@
 using System;
-using DefaultNamespace;
+using Interactables;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public abstract class NPCController : MonoBehaviour, IInteractable
+namespace NPCControllers
 {
-    public Action OnDialogFinishedAction { get; set; }
-
-    public void Select()
+    public abstract class NPCController : MonoBehaviour, IInteractable
     {
-        InteractionDialogManager.Instance.ShowInteractionDialog();
-    }
+        public Action OnDialogFinishedAction { get; set; }
 
-    public void Deselect()
-    {
-        InteractionDialogManager.Instance.HideInteractionDialog();
-    }
+        public void Select()
+        {
+            InteractionDialogManager.Instance.ShowInteractionDialog();
+        }
 
-    public void Interact()
-    {
-        DialogManager.Instance.OnCloseDialog += OnDialogFinished;
-        OnInteract();
-    }
+        public void Deselect()
+        {
+            InteractionDialogManager.Instance.HideInteractionDialog();
+        }
+
+        public void Interact()
+        {
+            DialogManager.Instance.OnCloseDialog += OnDialogFinished;
+            OnInteract();
+        }
     
-    protected abstract void OnInteract();
+        protected abstract void OnInteract();
 
-    private void OnDialogFinished()
-    {
-        DialogManager.Instance.OnCloseDialog -= OnDialogFinished;
-        OnDialogFinishedAction?.Invoke();
+        private void OnDialogFinished()
+        {
+            DialogManager.Instance.OnCloseDialog -= OnDialogFinished;
+            OnDialogFinishedAction?.Invoke();
+        }
     }
 }

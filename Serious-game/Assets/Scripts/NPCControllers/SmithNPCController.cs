@@ -1,30 +1,32 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SmithNPCController : NPCController
+namespace NPCControllers
 {
-    [SerializeField] private Dialog swordAlreadyAcquiredDialog;
-    [SerializeField] private Dialog swordPiecesFoundDialog;
-    [SerializeField] private Dialog swordPiecesNotFoundDialog;
-
-    protected override void OnInteract()
+    public class SmithNPCController : NPCController
     {
-        if (PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0) == 3)
+        [SerializeField] private Dialog.Dialog swordAlreadyAcquiredDialog;
+        [SerializeField] private Dialog.Dialog swordPiecesFoundDialog;
+        [SerializeField] private Dialog.Dialog swordPiecesNotFoundDialog;
+
+        protected override void OnInteract()
         {
-            if (PlayerPrefs.HasKey(PlayerPrefKeys.Sword))
+            if (PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0) == 3)
             {
-                StartCoroutine(DialogManager.Instance.ShowDialog(swordAlreadyAcquiredDialog));
+                if (PlayerPrefs.HasKey(PlayerPrefKeys.Sword))
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(swordAlreadyAcquiredDialog));
+                }
+                else
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(swordPiecesFoundDialog));
+                    PlayerPrefs.SetInt(PlayerPrefKeys.Sword, 1);
+                    PlayerPrefs.Save();
+                }
             }
             else
             {
-                StartCoroutine(DialogManager.Instance.ShowDialog(swordPiecesFoundDialog));
-                PlayerPrefs.SetInt(PlayerPrefKeys.Sword, 1);
-                PlayerPrefs.Save();
+                StartCoroutine(DialogManager.Instance.ShowDialog(swordPiecesNotFoundDialog));
             }
-        }
-        else
-        {
-            StartCoroutine(DialogManager.Instance.ShowDialog(swordPiecesNotFoundDialog));
         }
     }
 }

@@ -1,13 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BeamController : MonoBehaviour
+namespace EmojiShooter
 {
-    public float speed = 50;
-
-    void Update()
+    public class BeamController : MonoBehaviour
     {
-        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        public float speed = 50;
+
+        private void Update()
+        {
+            transform.Translate(Vector2.right * (speed * Time.deltaTime));
+        }
     }
 }
