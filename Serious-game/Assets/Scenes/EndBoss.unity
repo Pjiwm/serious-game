@@ -171,7 +171,8 @@ MonoBehaviour:
     lines:
     - 'Jeff: Oh, is dit waar het wezen zou kunnen zijn? Ik heb dit zwaard nu.'
     - 'Jeff: Ten strijde tegen het beest!'
-    - Gebruik [Spatie] of [Linkermuisklik]
+    - Probeer het beest te verslaan met je zwaard door te klikken of de spatiebalk
+      in te drukken.
 --- !u!1 &64745948
 GameObject:
   m_ObjectHideFlags: 0
