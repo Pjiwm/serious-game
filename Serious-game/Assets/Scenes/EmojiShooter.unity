@@ -755,6 +755,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 2021153011}
   startMenuCanvas: {fileID: 1734155303}
   obstacleSpawner: {fileID: 1847477608}
+  beamSpawner: {fileID: 1226523868}
   backwardsObstacleSpawner: {fileID: 1899471331}
 --- !u!4 &999723499
 Transform:
@@ -2331,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad89141973ea9cd49bd56e38ccb9ef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 3282242733907383480, guid: 3b8aa71e2e5263b44a6839bbfcb2f72a, type: 3}
+  obstacle: {fileID: 3282242733907383480, guid: 3b8aa71e2e5263b44a6839bbfcb2f72a, type: 3}
   spawnTime: 1
   spawnRange: 4
 --- !u!4 &1847477609
@@ -2378,7 +2379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad89141973ea9cd49bd56e38ccb9ef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 4637133787625595966, guid: 44789c4273d39c848b365f57cb1380b8, type: 3}
+  obstacle: {fileID: 4637133787625595966, guid: 44789c4273d39c848b365f57cb1380b8, type: 3}
   spawnTime: 3
   spawnRange: 2
 --- !u!4 &1899471332

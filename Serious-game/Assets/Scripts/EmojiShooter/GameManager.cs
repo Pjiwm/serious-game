@@ -1,12 +1,14 @@
 using SceneLoading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Canvas gameOverCanvas;
     [SerializeField] private Canvas startMenuCanvas;
     [SerializeField] private ObstacleSpawner obstacleSpawner;
+    [SerializeField] private BeamSpawner beamSpawner;
     [SerializeField] private ObstacleSpawner backwardsObstacleSpawner;
     private bool _isMenu = true;
 
@@ -45,9 +47,11 @@ public class GameManager : MonoBehaviour
     {
         // Enable the game over canvas and disable the obstacle spawner
         gameOverCanvas.enabled = true;
-        obstacleSpawner.enabled = false;
-        backwardsObstacleSpawner.enabled = false;
         _isMenu = true;
+        
+        obstacleSpawner.enabled = false;
+        beamSpawner.enabled = false;
+        backwardsObstacleSpawner.enabled = false;
 
         // Play death sound
         var audioSource = GetComponent<AudioSource>();
