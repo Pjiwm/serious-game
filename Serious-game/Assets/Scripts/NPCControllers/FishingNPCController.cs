@@ -22,6 +22,7 @@ namespace NPCControllers
                     StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
                     statsManager.RequestUpdate();
                     PlayerPrefs.SetInt(PlayerPrefKeys.Fish, 1);
+                    PlayerPrefs.SetInt(PlayerPrefKeys.MalonFriendMade, 1);
                     PlayerPrefs.Save();
                 }
                 else

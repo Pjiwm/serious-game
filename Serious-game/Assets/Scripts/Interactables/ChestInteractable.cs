@@ -7,7 +7,6 @@ namespace Interactables
     public class ChestInteractable : MonoBehaviour, IInteractable
     {
         [FormerlySerializedAs("SwordPieceDialog")] [SerializeField] private Dialog.Dialog swordPieceDialog;
-        [SerializeField] private GameObject interactionText;
         [FormerlySerializedAs("_statsManager")] [SerializeField] private StatsManager statsManager;
         [SerializeField] private string _name;
 
@@ -27,12 +26,12 @@ namespace Interactables
 
         public void Select()
         {
-            interactionText.SetActive(true);
+            InteractionDialogManager.Instance.ShowInteractionDialog();
         }
 
         public void Deselect()
         {
-            interactionText.SetActive(false);
+            InteractionDialogManager.Instance.HideInteractionDialog();
         }
 
         public void Interact()
