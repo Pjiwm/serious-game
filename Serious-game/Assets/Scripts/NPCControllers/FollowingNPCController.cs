@@ -48,7 +48,7 @@ namespace NPCControllers
 
         private void Update()
         {
-            if (_isFollowingPlayer)
+            if (_isFollowingPlayer && !PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
             {
                 FollowPlayer();
             }

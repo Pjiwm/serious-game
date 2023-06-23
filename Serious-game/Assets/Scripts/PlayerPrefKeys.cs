@@ -1,8 +1,8 @@
 public static class PlayerPrefKeys
 {
     public const string CanPass = "canPass";
-    public const string MazeStarted = "mazeStarted";
-    public const string MazeFriend = "mazeFriend";
+    public const string MazeFriendSpokenTo = "mazeFriendSpokenTo";
+    public const string MazeFriendMade = "mazeFriendMade";
     public const string Friends = "friends";
     public const string SwordPieces = "swordPieces";
     public const string Sword = "sword";
