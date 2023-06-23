@@ -6,19 +6,19 @@ namespace Interactables
 {
     public class ChestInteractable : MonoBehaviour, IInteractable
     {
-        [FormerlySerializedAs("SwordPieceDialog")] [SerializeField] private Dialog.Dialog swordPieceDialog;
-        [FormerlySerializedAs("_statsManager")] [SerializeField] private StatsManager statsManager;
+        [FormerlySerializedAs("SwordPieceDialog")][SerializeField] private Dialog.Dialog swordPieceDialog;
+        [FormerlySerializedAs("_statsManager")][SerializeField] private StatsManager statsManager;
         [SerializeField] private string _name;
 
 
         private Animator _anim;
-    
+
         private static readonly int IsOpened = Animator.StringToHash("IsOpened");
 
         private void Start()
         {
             _anim = GetComponent<Animator>();
-            if(PlayerPrefs.HasKey(_name))
+            if (PlayerPrefs.HasKey(_name))
             {
                 _anim.SetBool(IsOpened, true);
             }
@@ -36,13 +36,15 @@ namespace Interactables
 
         public void Interact()
         {
-            if(!PlayerPrefs.HasKey(_name))
+            if (!PlayerPrefs.HasKey(_name))
             {
                 _anim.SetBool(IsOpened, true);
+                var audioSource = GetComponent<AudioSource>();
+                audioSource.Play();
                 StartCoroutine(DialogManager.Instance.ShowDialog(swordPieceDialog));
-                var swordPieces = PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces,0);
+                var swordPieces = PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0);
                 swordPieces++;
-                StatsManager.UpdatePref(PlayerPrefKeys.SwordPieces,swordPieces);
+                StatsManager.UpdatePref(PlayerPrefKeys.SwordPieces, swordPieces);
                 statsManager.RequestUpdate();
                 PlayerPrefs.SetInt(_name, 1);
                 PlayerPrefs.Save();
