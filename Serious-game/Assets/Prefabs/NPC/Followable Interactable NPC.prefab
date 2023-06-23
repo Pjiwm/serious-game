@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerLocation: {fileID: 0}
   stopFollowingAtDistance: 0.5
+  target: {fileID: 0}
+  nextWaypointDistance: 0.3
 --- !u!114 &9201822642106678404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbe5b154b584d0682732d78953d45e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 0.4
 --- !u!114 &7414280219493986945
 MonoBehaviour:
   m_ObjectHideFlags: 0

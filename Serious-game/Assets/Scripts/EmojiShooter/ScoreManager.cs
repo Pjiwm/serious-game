@@ -52,9 +52,9 @@ public class ScoreManager : MonoBehaviour
     {
         if (!checkIfAlreadyWon())
         {
-            int completedMissions = PlayerPrefs.GetInt(StatsManager.FRIENDPREF, 0);
+            int completedMissions = PlayerPrefs.GetInt(StatsManager.Friendpref, 0);
             completedMissions++;
-            StatsManager.updatePref(StatsManager.FRIENDPREF, completedMissions);
+            StatsManager.UpdatePref(StatsManager.Friendpref, completedMissions);
             PlayerPrefs.SetInt("EmojiShooter", 1);
             PlayerPrefs.Save();
         }

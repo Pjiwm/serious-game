@@ -7,12 +7,10 @@ public class FollowingNPCController : MonoBehaviour
 {
     [SerializeField] private Transform playerLocation;
     [SerializeField] private float stopFollowingAtDistance;
-    [SerializeField] private Transform target;
     [SerializeField] private float nextWaypointDistance = 0.3f;
     
     private Path _path;
-    private int _currentWaypoint = 0;
-    private bool _reachedEndOfPath = false;
+    private int _currentWaypoint;
     private Seeker _seeker;
     private Vector2 _direction;
     
@@ -22,11 +20,11 @@ public class FollowingNPCController : MonoBehaviour
 
     private bool _isFollowingPlayer;
     private Animator _animator;
+    
     private static readonly int IsWalking = Animator.StringToHash("isWalking");
     private static readonly int IsWalkingDown = Animator.StringToHash("isWalkingDown");
     private static readonly int IsWalkingLeft = Animator.StringToHash("isWalkingLeft");
     private static readonly int IsWalkingRight = Animator.StringToHash("isWalkingRight");
-    private int _playersLayer;
 
     private void Start()
     {
@@ -35,8 +33,6 @@ public class FollowingNPCController : MonoBehaviour
         _moveController = GetComponent<MoveController>();
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
-
-        _playersLayer = LayerMask.GetMask("Player");
 
         _animator.SetBool(IsWalking, false);
         _npcController.OnDialogFinishedAction += () => { _isFollowingPlayer = true; };
@@ -53,74 +49,49 @@ public class FollowingNPCController : MonoBehaviour
     
     private void UpdatePath()
     {
-        if (target != null)
+        if (_seeker.IsDone())
         {
-            if (_seeker.IsDone())
-            {
-                _seeker.StartPath(_rb.position, target.position, OnPathComplete);
-            }
+            _seeker.StartPath(_rb.position, playerLocation.position, OnPathComplete);
         }
     }
     
     private void OnPathComplete(Path p)
     {
-        if (!p.error)
-        {
-            _path = p;
-            _currentWaypoint = 0;
-        }
+        if (p.error) return;
+        
+        _path = p;
+        _currentWaypoint = 0;
     }
 
     private void FollowPlayer()
     {
-        if (_path == null)
-        {
-            return;
-        }
+        if (_path == null) return;
 
         if (_currentWaypoint > _path.vectorPath.Count - 5 && _currentWaypoint == 0)
         {
-            //Debug.Log(_currentWaypoint + " " + _path.vectorPath.Count);
-            _reachedEndOfPath = true;
             _animator.SetBool(IsWalking, false);
             return;
         }
-        else
-        {
-            //Debug.Log("DAFUCK" + _currentWaypoint + " " + _path.vectorPath.Count);
-            _reachedEndOfPath = false;
-        }
 
-        Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+        _direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
         
-        if (tempDir != Vector2.zero)
-        {
-            _direction = tempDir;
-        }
+        var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
         
-        Vector2 force = _direction * 300f * Time.deltaTime;
-        float distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
-        
-        if (distance > 1f)
-        {
-            return;
-        }
-        
-        if (distance < nextWaypointDistance)
-        {
-            _currentWaypoint++;
-        }
-        
-        //Debug.Log(_direction);
-        _rb.AddForce(force);
-        
+        if (distance > stopFollowingAtDistance) return;
+
+        if (distance < nextWaypointDistance) _currentWaypoint++;
+
+
         if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
-        HandleAnimation();
+        
+        HandleAnimation(_direction);
+        
+        _moveController.HandleMovement(_direction);
     }
 
-    private void HandleAnimation()
+    private void HandleAnimation(Vector2 direction)
     {
-        if (_rb.velocity == Vector2.zero)
+        if (direction == Vector2.zero)
         {
             _animator.SetBool(IsWalking, false);
             _animator.SetBool(IsWalkingRight, false);
@@ -135,9 +106,9 @@ public class FollowingNPCController : MonoBehaviour
         var walkLeft = false;
         var walkDown = false;
 
-        if (_rb.velocity.x > 0 && Math.Abs(_rb.velocity.x) > Math.Abs(_rb.velocity.y)) walkRight = true;
-        if (_rb.velocity.x < 0 && Math.Abs(_rb.velocity.x) > Math.Abs(_rb.velocity.y)) walkLeft = true;
-        if (_rb.velocity.y < 0 && Math.Abs(_rb.velocity.y) > Math.Abs(_rb.velocity.x)) walkDown = true;
+        if (direction.x > 0 && Math.Abs(direction.x) > Math.Abs(direction.y)) walkRight = true;
+        if (direction.x < 0 && Math.Abs(direction.x) > Math.Abs(direction.y)) walkLeft = true;
+        if (direction.y < 0 && Math.Abs(direction.y) > Math.Abs(direction.x)) walkDown = true;
         
         _animator.SetBool(IsWalkingRight, walkRight);
         _animator.SetBool(IsWalkingLeft, walkLeft);

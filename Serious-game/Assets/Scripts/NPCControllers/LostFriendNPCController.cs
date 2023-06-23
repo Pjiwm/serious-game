@@ -5,11 +5,10 @@ using UnityEngine;
 public class LostFriendNPCController : NPCController
 {
     [SerializeField] private Dialog interactionDialog;
-    private readonly string _name = "maze";
 
     private void Start()
     {
-        if(PlayerPrefs.HasKey(_name)) {
+        if(PlayerPrefs.HasKey(PlayerPrefKeys.Maze)) {
             gameObject.SetActive(false);
         }
     }
@@ -17,7 +16,7 @@ public class LostFriendNPCController : NPCController
     protected override void OnInteract()
     {
         StartCoroutine(DialogManager.Instance.ShowDialog(interactionDialog));
-        PlayerPrefs.SetInt(_name, 1);
+        PlayerPrefs.SetInt(PlayerPrefKeys.Maze, 1);
         PlayerPrefs.Save();
     }
     

@@ -7,29 +7,27 @@ public class MazeFriendNPCController : NPCController
     [SerializeField] private Dialog interactDialog;
     [SerializeField] private StatsManager _statsManager;
     [SerializeField] private Dialog friendsDialog;
-    private readonly string _name = "maze";
-    private readonly string _pref = "mazeFriend";
 
-    
+
     protected override void OnInteract()
     {
-        if (!PlayerPrefs.HasKey(_name))
+        if (!PlayerPrefs.HasKey(PlayerPrefKeys.Maze))
         {
             StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
         }
         else
         {
-            if (PlayerPrefs.HasKey(_pref))
+            if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriend))
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
             }
             else
             {
-                int friends = PlayerPrefs.GetInt(StatsManager.FRIENDPREF, 0);
+                int friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
                 friends++;
-                StatsManager.updatePref(StatsManager.FRIENDPREF, friends);
-                _statsManager.requestUpdate();
-                PlayerPrefs.SetInt(_pref, 1);
+                StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
+                _statsManager.RequestUpdate();
+                PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriend, 1);
                 PlayerPrefs.Save();
                 StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
             }
