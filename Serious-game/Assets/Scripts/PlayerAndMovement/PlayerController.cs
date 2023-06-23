@@ -180,7 +180,7 @@ namespace PlayerAndMovement
             footstepAudio.SetActive(true);
         }
 
-        private void StopFootsteps()
+        public void StopFootsteps()
         {
             footstepAudio.SetActive(false);
         }
