@@ -17760,6 +17760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_gold
       objectReference: {fileID: 0}
+    - target: {fileID: 4800696674102899698, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4905751983804841587, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: m_RootOrder
       value: 13
