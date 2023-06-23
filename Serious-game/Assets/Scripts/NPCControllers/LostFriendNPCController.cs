@@ -1,3 +1,4 @@
+using PlayerAndMovement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,6 +28,9 @@ namespace NPCControllers
             {
                 PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriendMade, 1);
                 PlayerPrefs.Save();
+
+                GetComponent<FollowingNPCController>().enabled = false;
+                GameObject.FindWithTag("Player").GetComponent<PlayerController>().StopFootsteps();
 
                 StartCoroutine(DialogManager.Instance.ShowDialog(friendMadeDialog));
             }
