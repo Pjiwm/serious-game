@@ -12,7 +12,7 @@ namespace NPCControllers
 
         protected override void OnInteract()
         {
-            if (!PlayerPrefs.HasKey(PlayerPrefKeys.Maze))
+            if (!PlayerPrefs.HasKey(PlayerPrefKeys.MazeStarted))
             {
                 StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
             }
@@ -28,8 +28,6 @@ namespace NPCControllers
                     friends++;
                     StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
                     statsManager.RequestUpdate();
-                    PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriend, 1);
-                    PlayerPrefs.Save();
                     StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
                 }
             }

@@ -8,7 +8,7 @@ namespace NPCControllers
 
         private void Start()
         {
-            if(PlayerPrefs.HasKey(PlayerPrefKeys.Maze)) {
+            if(PlayerPrefs.HasKey(PlayerPrefKeys.MazeStarted)) {
                 gameObject.SetActive(false);
             }
         }
@@ -16,7 +16,8 @@ namespace NPCControllers
         protected override void OnInteract()
         {
             StartCoroutine(DialogManager.Instance.ShowDialog(interactionDialog));
-            PlayerPrefs.SetInt(PlayerPrefKeys.Maze, 1);
+            PlayerPrefs.SetInt(PlayerPrefKeys.MazeStarted, 1);
+            PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriend, 1);
             PlayerPrefs.Save();
         }
     
