@@ -2,6 +2,7 @@ using SceneLoading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using PlayerAndMovement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class GameManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Escape))
         {
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.X, 0.33f);
+            PlayerPrefs.SetFloat(PlayerPositionPrefs.Y, 0.45f);
+            PlayerPrefs.Save();
             SceneLoader.LoadScene(SceneLoader.Scenes.Level3);
         }
     }
@@ -48,7 +52,7 @@ public class GameManager : MonoBehaviour
         // Enable the game over canvas and disable the obstacle spawner
         gameOverCanvas.enabled = true;
         _isMenu = true;
-        
+
         obstacleSpawner.enabled = false;
         beamSpawner.enabled = false;
         backwardsObstacleSpawner.enabled = false;
