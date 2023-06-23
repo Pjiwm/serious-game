@@ -5,33 +5,33 @@ namespace NPCControllers
 {
     public class MazeFriendNPCController : NPCController
     {
+        [FormerlySerializedAs("_statsManager")][SerializeField] private StatsManager statsManager;
         [SerializeField] private Dialog.Dialog interactDialog;
-        [FormerlySerializedAs("_statsManager")] [SerializeField] private StatsManager statsManager;
         [SerializeField] private Dialog.Dialog friendsDialog;
+        [SerializeField] private Dialog.Dialog alreadySpokenToDialog;
 
 
         protected override void OnInteract()
         {
-            if (!PlayerPrefs.HasKey(PlayerPrefKeys.MazeStarted))
+            if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
             {
-                StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+                var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
+                friends++;
+                StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
+                statsManager.RequestUpdate();
+
+                StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+            }
+            else if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendSpokenTo))
+            {
+                StartCoroutine(DialogManager.Instance.ShowDialog(alreadySpokenToDialog));
             }
             else
             {
-                if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriend))
-                {
-                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
-                }
-                else
-                {
-                    var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
-                    friends++;
-                    StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
-                    statsManager.RequestUpdate();
-                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
-                }
+                PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriendSpokenTo, 1);
+                PlayerPrefs.Save();
+                StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
             }
         }
-    
     }
 }
