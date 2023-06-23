@@ -170,7 +170,8 @@ MonoBehaviour:
   interactDialog:
     lines:
     - Je bent aangekomen bij het Eenzaamheidsmonster
-    - Probeer hem te verslaan met je zwaard door te klikken.
+    - Probeer hem te verslaan met je zwaard door te klikken of de spatiebalk in te
+      drukken.
     - Maar pas op dat het monster jou niet verslaat!
     - Trekt ten strijde tegen het beest!
 --- !u!1 &64745948
@@ -23258,7 +23259,6 @@ MonoBehaviour:
   maxHealth: 100
   swingSound: {fileID: 857690137}
   hitSound: {fileID: 857690138}
-  cooldownSeconds: 0.5
 --- !u!82 &857690137 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5545009321390665368, guid: ef15efe49b115dfdc8b0029afcaba3d8, type: 3}
@@ -31481,66 +31481,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1022567293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1022567294}
-  - component: {fileID: 1022567295}
-  m_Layer: 8
-  m_Name: Seeker
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1022567294
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022567293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.051, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1590381917}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1022567295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1022567293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 0
-    exactEndPoint: 0
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!1 &1249275020
 GameObject:
   m_ObjectHideFlags: 0
@@ -32730,11 +32670,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!4 &1590381917 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7021906088948442302, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
-  m_PrefabInstance: {fileID: 2705760716481133333}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1591856049
 GameObject:
   m_ObjectHideFlags: 0
@@ -42559,7 +42494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIewGE5dibQIAACgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzoXxAxLorQVCeiBhQju5+CKsNdYgSx5J5pEM/70r2cYumfpi+dtvd799yJ+ES1NCapVeac7WigH5PiDuTL4NOuMznOleyS3/gJbzzpnNHYl6zhu1XCEeOjejCrCapz/kXjhygGAleaZ0sWR7mCtjDcIZFQbQpJV13hKhzwE542s4cy4XPEWP7vSBp1kwuOIxBWlBd9SW2NJqViVTQYsSmJPckaejcYBP2Pg8eq7EihpaMIpcCiUEN40gYi+lL3hb5qDBVcw4xfq8iNA75MD3uXVq+96vWWbANtI0vSy4xkbVYclPVXevoOZQ6ztSUblEYRCNva466voLYRh6c6ZV8dwmDgOXxOY8PbzRS0qN7fW3Dy962n2fTlQc6E7Aew7yRa20qiRDo9WVc60MRIvu81bbPIf00OG11DuwKr9OKRrF03E4fVgOg8dmYK6cq+/EeS54sfNjGNfAVijffL8OoHFQv1C7XxbTREXUCfpj4Dfd97eqMTxxbSyamoKlU7pTlXZUsvTtc4VVdq60BN2PUIKkwl42GMfez/PO9n+vJ+ouUJO9sbX34s7Fwx0/CO5MG3W6Dc7k6rQGk79WVnAJXded4QUbNVdS1uvWL6l121Y6o2nPbV9x9u+aEZhNYxZNwlm2yx6m6Xg4ieI4ToMszoIwZuMJ8XvIJdZJxaYW2rQHxya74BJ3rv2vDFaaln71maanFf8oVF8gl5naphpAvtYhbspBYxa8pmzJOHZoC9Zy6SdOPhMiVHoAltxyJr7U5dlqmnRRElLyo7IOScjc/0kS4uDbYm80HDmcXPI22JVc/wJQSwMEFAAACAgAAAgh7HGjchdtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqpYVxipGpoWVaUpqZRbKJrqmRsbFxskGacZqBoXGKialSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7AYTl2JtAgAAKAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7HGjchdtAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIezRa6+DbQIAACcFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VEtz2jAQ/iuMzoXxAxLorQVCeiBhQju5+CKsNdYgSx5J5pEM/70r2cYumfpi+dtvd799yJ+ES1NCapVeac7WigH5PiDuTL4NOuMznOleyS3/gJbzzpnNHYl6zhu1XCEeOjejCrCapz/kXjhygGAleaZ0sWR7mCtjDcIZFQbQpJV13hKhzwE542s4cy4XPEWP7vSBp1kwuOIxBWlBd9SW2NJqViVTQYsSmJPckaejcYBP2Pg8eq7EihpaMIpcCiUEN40gYi+lL3hb5qDBVcw4xfq8iNA75MD3uXVq+96vWWbANtI0vSy4xkbVYclPVXevoOZQ6ztSUblEYRCNva466voLYRh6c6ZV8dwmDgOXxOY8PbzRS0qN7fW3Dy962n2fTlQc6E7Aew7yRa20qiRDo9WVc60MRIvu81bbPIf00OG11DuwKr9OKRrF03E4fVgOg8dmYK6cq+/EeS54sfNjGNfAVijffL8OoHFQv1C7XxbTREXUCfpj4Dfd97eqMTxxbSyamoKlU7pTlXZUsvTtc4VVdq60BN2PUIKkwl42GMfez/PO9n+vJ+ouUJO9sbX34s7Fwx0/CO5MG3W6Dc7k6rQGk79WVnAJXded4QUbNVdS1uvWL6l121Y6o2nPbV9x9u+aEZhNYxZNwlm2yx6m6Xg4ieI4ToMszoIwZuMJ8XvIJdZJxaYW2rQHxya74BJ3rv2vDFaaln71maanFf8olOmYXGZqm2oA+VpHuAkHjUnwlrIl49igLVjLpR84+UyIUOkBWHILlPhKl2eradJFSUjJj8o6JCFz/yNJiINve73RcORwcsnbYFdy/QtQSwMEFAAACAgAAAgh7HGjchdtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqpYVxipGpoWVaUpqZRbKJrqmRsbFxskGacZqBoXGKialSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7NFrr4NtAgAAJwUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7HGjchdtAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -42707,6 +42642,10 @@ PrefabInstance:
       propertyPath: speed
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6547290429869099295, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7021906088948442302, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -42769,10 +42708,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7021906088948442302, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1022567294}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 163462724516686497, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       insertIndex: -1
