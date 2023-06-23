@@ -50,7 +50,7 @@ public class ChestInteractable : MonoBehaviour, IInteractable
         {
             var ChestEmptyDialog = new Dialog()
             {
-                lines = new List<string> { "Hmmm deze kist is leeg" }
+                lines = new List<string> { "Jeff: Hmmm... Deze kist is leeg. Laat ik maar opzoek gaan naar een andere kist." }
             };
             StartCoroutine(DialogManager.Instance.ShowDialog(ChestEmptyDialog));
         }
