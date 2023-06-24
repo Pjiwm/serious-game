@@ -204,7 +204,7 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   winDialog:
     lines: []
-  knockBackForce: 3
+  knockBackForce: 75
   hitSound: {fileID: 0}
   target: {fileID: 0}
   nextWaypointDistance: 3

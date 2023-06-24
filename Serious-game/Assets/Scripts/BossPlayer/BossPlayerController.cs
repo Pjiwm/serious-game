@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using Inputs;
 using PlayerAndMovement;
+using SceneLoading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace BossPlayer
 {
@@ -55,7 +57,7 @@ namespace BossPlayer
             
             swingSound.Play();
             _playerController.DeActivatePlayerInputs();
-            if (_spriteRenderer.flipX == true)
+            if (_spriteRenderer.flipX)
             {
                 _swordAttack.AttackLeft();
             }
@@ -95,6 +97,7 @@ namespace BossPlayer
         public void RemovePlayer()
         {
             Destroy(gameObject);
+            SceneLoader.LoadScene(SceneLoader.Scenes.Level1);
         }
     
         private void Cooldown()
