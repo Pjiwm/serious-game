@@ -38,8 +38,7 @@ public class EnemyController : MonoBehaviour
     private Path _path;
     private int _currentWaypoint;
     private Seeker _seeker;
-    private Vector2 _direction;
-    
+
     private Animator _animator;
     private Rigidbody2D _rb;
     private bool _canMove = true;
@@ -50,25 +49,25 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        _seeker = GetComponentInChildren<Seeker>();
-        _health = maxHealth;
-        healthbar.SetMaxHealth((int)maxHealth);
         _animator = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
 
-        InvokeRepeating("UpdatePath", 0f, .5f);
+        _seeker = GetComponentInChildren<Seeker>();
+        
+        _health = maxHealth;
+        healthbar.SetMaxHealth((int)maxHealth);
+        
+        InvokeRepeating(nameof(UpdatePath), 0f, .5f);
     }
     
     private void UpdatePath()
     {
-        if (target != null)
+        if (target == null) return;
+        if (_seeker.IsDone())
         {
-            if (_seeker.IsDone())
-            {
-                _seeker.StartPath(_rb.position, target.position, OnPathComplete);
-            }
+            _seeker.StartPath(_rb.position, target.position, OnPathComplete);
         }
-        
+
     }
     
     private void OnPathComplete(Path p)
@@ -81,37 +80,26 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (_path == null)
+        if (_path == null) return;
+        if (_currentWaypoint >= _path.vectorPath.Count) return;
+        
+        if (!_canMove)
         {
+            _animator.SetBool(IsMoving, false);
             return;
         }
         
-        if (_currentWaypoint >= _path.vectorPath.Count)
-        {
-            return;
-        }
+        var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position);
+        if (direction == Vector2.zero) return;
 
-        Vector2 tempDir = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position);
-        if (tempDir != Vector2.zero)
-        {
-            _direction = tempDir;
-        }
+        var force = direction.normalized * (300f * Time.deltaTime);
         
-        var force = _direction * 300f * Time.deltaTime;
         var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
+        if (distance < nextWaypointDistance) _currentWaypoint++;
         
-        if (distance < nextWaypointDistance)
-        {
-            _currentWaypoint++;
-        }
+        if (!_animator.GetBool(IsMoving)) _animator.SetBool(IsMoving, true);
+        _rb.AddForce(force);
 
-        if (_canMove)
-        {
-            if (!_animator.GetBool(IsMoving)) _animator.SetBool(IsMoving, true);
-            _rb.AddForce(force);
-            return;
-        }
-        _animator.SetBool(IsMoving, false);
     }
 
     public void Defeated()
