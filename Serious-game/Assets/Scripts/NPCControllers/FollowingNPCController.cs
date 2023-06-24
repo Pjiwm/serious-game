@@ -80,6 +80,9 @@ namespace NPCControllers
                 return;
             }
 
+            if (_currentWaypoint == 1) _currentWaypoint++;
+            if (_currentWaypoint <= 0) _currentWaypoint = 2;
+
             _direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
 
             var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
@@ -90,7 +93,7 @@ namespace NPCControllers
 
 
             if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
-
+            Debug.Log(_currentWaypoint);
             HandleAnimation(_direction);
 
             _moveController.HandleMovement(_direction);
