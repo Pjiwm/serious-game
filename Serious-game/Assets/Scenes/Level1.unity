@@ -349,6 +349,8 @@ MonoBehaviour:
     lines:
     - 'Smid: Hoi! Ik ben de smid. Ik kan alles voor je maken, als je me eerst natuurlijk
       alle onderdelen kunt geven.'
+    - 'Smid:  Het vriendschapszwaard vereist 3 onderdelen: de kling, de grip en de
+      pareerstang '
     - 'Jeff: Oh ja? Mooi! Ik ben benieuwd wat ik kan vinden!'
     - 'Smid: Kom maar terug als ik iets voor je kan maken! Succes met je zoektocht!'
 --- !u!1 &354472254
@@ -890,11 +892,13 @@ MonoBehaviour:
   allowedToPassDialog:
     lines:
     - 'Graver: Jou ken ik! Je hebt veel vrienden gemaakt en je hebt iets om jezelf
-      mee te verdedigen! Je mag van mij door de tunnel!'
+      mee te verdedigen!'
+    - 'Graver: Je mag van mij door de tunnel om het eenzaamheidsmonster te bevechten!'
   friendsWithoutSwordDialog:
     lines:
     - "Graver: H\xE9 Jeff! Ik hoorde dat je vrienden gemaakt hebt, maar ik kan je
-      helaas nog niet doorlaten. Vind iets om jezelf mee te kunnen verdedigen."
+      helaas nog niet doorlaten zonder het vriendschapszwaard."
+    - 'Graver: Ga eens praten met de smid.'
   friendsNotMadeDialog:
     lines:
     - "Graver: H\xE9. Je mag hier niet door."
@@ -905,9 +909,8 @@ MonoBehaviour:
     - 'Graver: Nee, het is niet veilig en ik ken je niet!'
   canAlreadyPassDialog:
     lines:
-    - 'Graver: Veel succes!'
-    - 'Graver: Je kunt al gaan hoor!'
     - 'Graver: Voorzichtig in de tunnel!'
+    - 'Graver: Veel succes met bevechten van het eenzaamheidsmonster!!'
 --- !u!1001 &581942865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9751,7 +9754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
       propertyPath: m_Size.y
-      value: 0.057414398
+      value: 0.031766206
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
       propertyPath: m_Offset.x
@@ -9759,7 +9762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
       propertyPath: m_Offset.y
-      value: -0.050713457
+      value: -0.03788936
       objectReference: {fileID: 0}
     - target: {fileID: 7486506065575110577, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
       propertyPath: m_Name
@@ -85982,7 +85985,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: 14, z: 0}
@@ -86151,7 +86154,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -13, y: 15, z: 0}
@@ -86190,7 +86193,7 @@ Tilemap:
       - {fileID: 1368470755, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: 1582091470, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 728078534, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -20, y: 16, z: 0}
@@ -86294,7 +86297,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -12, y: 16, z: 0}
@@ -86372,7 +86375,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -16, y: 17, z: 0}
@@ -86450,7 +86453,7 @@ Tilemap:
       - {fileID: 1368470755, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: 1582091470, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 728078534, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -20, y: 18, z: 0}
@@ -86788,7 +86791,7 @@ Tilemap:
       - {fileID: -781810716, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -1549656487, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: -296440725, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -14, y: 20, z: 0}
@@ -87165,7 +87168,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 47, y: 33, z: 0}
@@ -87568,7 +87571,7 @@ Tilemap:
       - {fileID: -22124037, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -1499263775, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: -1358802464, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 45, y: 36, z: 0}
@@ -87724,7 +87727,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 46, y: 37, z: 0}
@@ -87932,7 +87935,7 @@ Tilemap:
       - {fileID: -986535476, guid: 3a901fd8c61b0194d8e731af587d3b37, type: 3}
       - {fileID: -953011284, guid: ea19f0538ac2be145b109887e7d8056e, type: 3}
       - {fileID: 1409999984, guid: 56b8e968f8fdd8548ab783c70394a4c2, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 51, y: 38, z: 0}
@@ -89075,12 +89078,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactDialog:
     lines:
-    - Hier heb je een vishengel!
+    - 'Jeff: Kijk naar die serene wateren... Het is bijna magisch, maar toch voel
+      ik me eenzaam. Ik wou dat ik iemand had om dit moment mee te delen.'
+    - 'Manon: Hallo daar! Wat een prachtige dag om te vissen, nietwaar?'
+    - 'Jeff: Ja, inderdaad. Het lijkt alsof de wereld even tot rust komt hier aan
+      de waterkant. Maar het voelt een beetje leeg zonder iemand om mee te genieten.'
+    - 'Manon:  Nou, ik ben hier toevallig om te vissen. Misschien kunnen we samen
+      een hengel uitgooien? Delen in de rust en het plezier?'
+    - 'Jeff: Echt? Dat zou geweldig zijn! Ik zou graag wat gezelschap hebben. Ik
+      heb eigenlijk nog nooit eerder gevist, maar ik sta open voor nieuwe ervaringen.'
+    - 'Manon:  Geweldig! Geen zorgen, ik heb alleen geen hengel bij.'
+    - 'Manon: Geen probleem! hierzo!'
+    - 'Manon: Zullen we samen in alle 3 de vijvers een vis vangen?'
+    - Spreek mij hierna aan om door te gaan.
   statsManager: {fileID: 1619897438}
   friendsDialog:
     lines:
-    - 'Malon: Dankjewel voor het samen vissen, het was gezellig! We zijn vrienden!'
-    - We zijn vrienden!
+    - 'Manon: Ik waardeer je geduld. Dit is eigenlijk best rustgevend. Het geluid
+      van het kabbelende water en de zachte bries...'
+    - 'Manon: Het helpt me om mijn eenzaamheid een beetje te vergeten.'
+    - 'Jeff: Dat is precies waarom ik zo van vissen hou. Het geeft je de tijd om
+      tot jezelf te komen en te genieten van de kleine dingen in het leven.'
+    - 'Jeff: Het is ook een geweldige gelegenheid om te praten en te luisteren. Dus,
+      vertel me, wat houdt jou bezig?  '
+    - "Manon: Nou, eigenlijk voel ik me de laatste tijd behoorlijk ge\xEFsoleerd. "
+    - 'Manon: Ik heb veel tijd alleen doorgebracht en soms voelt het alsof niemand
+      begrijpt wat ik doormaak.'
+    - 'Jeff: Ik begrijp dat gevoel. Eenzaamheid kan erg overweldigend zijn. Maar
+      weet je, je bent niet alleen. Er zijn mensen die om je geven en er voor je
+      willen zijn.'
+    - 'Jeff: Soms moeten we gewoon een stap zetten en verbinding maken met anderen.'
+    - 'Manon: Het is moeilijk voor me om die stap te zetten. Ik ben bang voor afwijzing,
+      begrijp je?'
+    - 'Jeff: Ik begrijp die angst, maar bedenk dat iedereen verlangt naar menselijke
+      verbinding.'
+    - 'Jeff:  Soms moeten we de moed vinden om ons kwetsbaar op te stellen en anderen
+      toe te laten in ons leven.'
+    - 'Jeff: Het kan eng zijn, maar de beloningen kunnen ongelooflijk zijn. En vandaag,
+      hier aan het water, hebben we elkaar gevonden.'
+    - 'Jeff:  Misschien is dit het begin van een mooie vriendschap.'
+    - 'Manon: Misschien heb je gelijk. Het voelt al anders nu ik iemand naast me
+      heb. Dank je wel dat je me dit hebt laten ervaren.'
+    - 'Jeff: Graag gedaan! Het is een plezier om je gezelschap te hebben.'
 --- !u!4 &1517575658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3093466738204013507, guid: 51355aab3888bbd44a8eddd235b400d2, type: 3}
@@ -89785,6 +89824,10 @@ PrefabInstance:
       value: kist1
       objectReference: {fileID: 0}
     - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
+      propertyPath: statsManager
+      value: 
+      objectReference: {fileID: 1619897438}
+    - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: _statsManager
       value: 
       objectReference: {fileID: 1619897438}
@@ -89792,6 +89835,10 @@ PrefabInstance:
       propertyPath: interactionText
       value: 
       objectReference: {fileID: 183258057}
+    - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
+      propertyPath: swordPieceDialog.lines.Array.data[0]
+      value: Hier heb je de  kling van het vriendschapszwaard!
+      objectReference: {fileID: 0}
     - target: {fileID: 1700650121236716216, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: m_BodyType
       value: 2

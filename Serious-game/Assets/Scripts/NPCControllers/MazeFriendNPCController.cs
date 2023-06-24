@@ -13,24 +13,26 @@ namespace NPCControllers
 
         protected override void OnInteract()
         {
-            if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
+            if (!PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendSpokenTo))
             {
-                var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
-                friends++;
-                StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
-                statsManager.RequestUpdate();
-
-                StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
-            }
-            else if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendSpokenTo))
-            {
-                StartCoroutine(DialogManager.Instance.ShowDialog(alreadySpokenToDialog));
+                StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
             }
             else
             {
-                PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriendSpokenTo, 1);
-                PlayerPrefs.Save();
-                StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
+                if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                    StatsManager.UpdatePref(PlayerPrefKeys.Friends, 3);
+                    statsManager.RequestUpdate();
+                }
+                else
+                {
+                    var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
+                    friends++;
+                    StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
+                    statsManager.RequestUpdate();
+                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                }
             }
         }
     }
