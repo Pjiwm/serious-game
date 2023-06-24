@@ -17354,16 +17354,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: interactDialog.lines.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: interactDialog.lines.Array.data[0]
-      value: Hoi ik ben Bob. Ik heb een nieuw spel gevonden, maar ik heb niemand
-        om mee te spelen...
+      value: 'Bob: Ik ben echt eenzaam en op zoek naar wat afleiding. Zou je samen
+        met mij een game willen spelen?'
       objectReference: {fileID: 0}
     - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: interactDialog.lines.Array.data[1]
-      value: Zou jij met mij een spelletje willen spelen?
+      value: 'Jeff: Natuurlijk! Ik ben hier om te helpen en ik zou het geweldig vinden
+        om een game met je te spelen. Welk spel wil je spelen?'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[2]
+      value: 'Bob: Laten we een online space shooter spelen waar we samen kunnen
+        strijden en teamwork kunnen laten zien. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 3474023137579909852, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
+      propertyPath: interactDialog.lines.Array.data[3]
+      value: 'Bob: Laten we beginnen!'
       objectReference: {fileID: 0}
     - target: {fileID: 4786826362395521780, guid: 47d5a67a08d4f9e66bd4e0ff95f2e6a5, type: 3}
       propertyPath: m_Size.x
@@ -17827,7 +17837,7 @@ PrefabInstance:
       objectReference: {fileID: 779045400}
     - target: {fileID: 1554782207227416484, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: swordPieceDialog.lines.Array.data[0]
-      value: Hier heb je het bovenstuk van het vriendschapszwaard!
+      value: Hier heb je de pareerstang van het vriendschapszwaard!
       objectReference: {fileID: 0}
     - target: {fileID: 4800696674102899698, guid: c40cff08c0ee39b4183f221ee498231e, type: 3}
       propertyPath: m_Name

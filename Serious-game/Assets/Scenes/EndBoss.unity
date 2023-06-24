@@ -173,6 +173,7 @@ MonoBehaviour:
     - 'Jeff: Ten strijde tegen het beest!'
     - Probeer het beest te verslaan met je zwaard door te klikken of de spatiebalk
       in te drukken.
+  healthBar: {fileID: 710394656}
 --- !u!1 &64745948
 GameObject:
   m_ObjectHideFlags: 0
@@ -49422,6 +49423,14 @@ PrefabInstance:
     - target: {fileID: 3913417628608505217, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990181904833409031, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3990181904833409031, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7183518082682940852, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
       propertyPath: m_Name

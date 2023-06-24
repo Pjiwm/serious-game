@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace BossPlayer
@@ -5,6 +6,8 @@ namespace BossPlayer
     public class ExplanationDialog : MonoBehaviour
     {
         [SerializeField] private Dialog.Dialog interactDialog;
+        public Healthbar healthBar;
+
         private void Start()
         {
             PauseGame();
@@ -22,6 +25,7 @@ namespace BossPlayer
         {
             Time.timeScale = 0;
         }
+        
         private static void ResumeGame ()
         {
             Time.timeScale = 1;
