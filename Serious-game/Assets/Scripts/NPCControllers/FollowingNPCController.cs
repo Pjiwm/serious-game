@@ -43,7 +43,7 @@ namespace NPCControllers
                 if (_isMalonLevel1 && PlayerPrefs.HasKey(PlayerPrefKeys.MalonFriendMade)) _isFollowingPlayer = false;
                 else _isFollowingPlayer = true;
             };
-            InvokeRepeating("UpdatePath", 0f, .5f);
+            InvokeRepeating(nameof(UpdatePath), 0f, .5f);
         }
 
         private void Update()
@@ -93,7 +93,6 @@ namespace NPCControllers
 
 
             if (!_animator.GetBool(IsWalking)) _animator.SetBool(IsWalking, true);
-            Debug.Log(_currentWaypoint);
             HandleAnimation(_direction);
 
             _moveController.HandleMovement(_direction);
