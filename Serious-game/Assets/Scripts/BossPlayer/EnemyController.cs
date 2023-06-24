@@ -6,6 +6,7 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using Pathfinding;
 using PlayerAndMovement;
+using SceneLoading;
 
 public class EnemyController : MonoBehaviour
 {
@@ -106,12 +107,12 @@ public class EnemyController : MonoBehaviour
     {
         _animator.SetBool(IsAlive, false);
         healthbar.bar.gameObject.SetActive(false);
-        StartCoroutine(DialogManager.Instance.ShowDialog(winDialog));
     }
 
     public void RemoveEnemy()
     {
         Destroy(gameObject);
+        SceneLoader.LoadScene(SceneLoader.Scenes.Endscreen);
     }
 
     public void OnHit(float damage)

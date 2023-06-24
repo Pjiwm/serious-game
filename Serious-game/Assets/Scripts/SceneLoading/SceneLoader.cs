@@ -11,7 +11,9 @@ namespace SceneLoading
             Level3,
             EndBoss,
             Loading,
-            Level2
+            Level2,
+            Endscreen,
+            StartMenu
         }
 
         private static Action _onLoaderCallback;

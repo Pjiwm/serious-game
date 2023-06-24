@@ -17,6 +17,13 @@ namespace Menu
         {
             Application.Quit();
         }
+
+        public void NewGame()
+        {
+            PlayerPrefs.DeleteAll();
+            audioSource.Play();
+            StartCoroutine(StartGameCoroutine());
+        }
         
         private static IEnumerator StartGameCoroutine()
         {

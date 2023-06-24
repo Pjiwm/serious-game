@@ -49717,7 +49717,7 @@ PrefabInstance:
       objectReference: {fileID: 710394656}
     - target: {fileID: 1909662027038518282, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: knockBackForce
-      value: 150
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1909662027038518282, guid: fe67bb0c57a9d2a4a834e397badfb3d5, type: 3}
       propertyPath: winDialog.lines.Array.size
