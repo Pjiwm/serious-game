@@ -42,8 +42,8 @@ namespace PlayerAndMovement
             _interactablesLayer = LayerMask.GetMask("Interactables");
             _minigameLayer = LayerMask.GetMask("Minigame");
             StopFootsteps();
-            //To revert to default player prefs
-            PlayerPrefs.DeleteAll();
+            //FOR TESTING: To revert to default player prefs
+            //PlayerPrefs.DeleteAll();
         }
 
         public void ActivatePlayerInputs()
