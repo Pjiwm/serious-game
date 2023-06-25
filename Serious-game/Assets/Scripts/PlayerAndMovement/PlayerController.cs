@@ -43,7 +43,9 @@ namespace PlayerAndMovement
             _minigameLayer = LayerMask.GetMask("Minigame");
             StopFootsteps();
             //To revert to default player prefs
-            PlayerPrefs.DeleteAll();
+            //PlayerPrefs.DeleteAll();
+            StatsManager.UpdatePref(PlayerPrefKeys.SwordPieces, 3);
+            StatsManager.UpdatePref(PlayerPrefKeys.Friends, 3);
         }
 
         public void ActivatePlayerInputs()
