@@ -44,6 +44,8 @@ namespace PlayerAndMovement
             StopFootsteps();
             //FOR TESTING: To revert to default player prefs
             //PlayerPrefs.DeleteAll();
+            //StatsManager.UpdatePref(PlayerPrefKeys.SwordPieces, 3);
+            //StatsManager.UpdatePref(PlayerPrefKeys.Friends, 3);
         }
 
         public void ActivatePlayerInputs()
