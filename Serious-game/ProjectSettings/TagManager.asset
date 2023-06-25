@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CatchingBar
   - Enemy
+  - Obstacle
+  - Cone
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,8 @@ TagManager:
   - Interactables
   - Solid objects
   - Enemies
-  - 
-  - 
-  - 
+  - Collisionable
+  - Minigame
   - 
   - 
   - 

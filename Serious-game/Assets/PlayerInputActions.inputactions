@@ -177,6 +177,17 @@
                 },
                 {
                     "name": "",
+                    "id": "0e932155-edf9-4892-b609-cfe364809f3b",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "deb07226-4f28-4e9c-a3b1-4714a2151bce",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -189,7 +200,7 @@
             ]
         },
         {
-            "name": "Dialogue",
+            "name": "Dialog",
             "id": "141056b9-6ee0-430c-9b99-9a381f57e296",
             "actions": [
                 {

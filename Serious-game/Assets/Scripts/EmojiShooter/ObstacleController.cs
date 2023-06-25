@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    public Sprite[] spriteOptions;
-    public float speed = 5;
-    public GameObject destroyedObject;
+    [SerializeField] private Sprite[] spriteOptions;
+    [SerializeField] private float speed = 5;
+    [SerializeField] private GameObject destroyedObject;
 
-    public float xDir = -1;
+    [SerializeField] private float xDir = -1;
 
-    void Start()
+    private void Start()
     {
         if (spriteOptions.Length > 0)
         {
-            int randomIndex = Random.Range(0, spriteOptions.Length);
-            Sprite randomSprite = spriteOptions[randomIndex];
+            var randomIndex = Random.Range(0, spriteOptions.Length);
+            var randomSprite = spriteOptions[randomIndex];
 
             // Set the sprite of the object
-            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            var spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = randomSprite;
         }
         else
@@ -27,23 +27,20 @@ public class ObstacleController : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
-        transform.Translate(xDir * Vector2.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * (xDir * speed * Time.deltaTime));
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Triggered");
-        if (other.CompareTag("Beam"))
-        {
-            Debug.Log("Beam hit");
-            Destroy(gameObject);
-            Destroy(other.gameObject);
-            Instantiate(destroyedObject, transform.position, Quaternion.identity);
-            // ScoreManager.score += 1;
-            ScoreManager.AddScore();
-        }
+        if (!other.CompareTag("Beam")) return;
+        
+        Destroy(gameObject);
+        Destroy(other.gameObject);
+        Instantiate(destroyedObject, transform.position, Quaternion.identity);
+        // ScoreManager.score += 1;
+        ScoreManager.AddScore();
     }
 
 }

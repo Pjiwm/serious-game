@@ -20,8 +20,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
             }
             lock (Lock)
             {
-                if (_instances == null)
-                    _instances = new Dictionary<System.Type, Singleton<T>>();
+                _instances ??= new Dictionary<System.Type, Singleton<T>>();
 
                 if (_instances.ContainsKey(typeof(T)))
                     return (T)_instances[typeof(T)];
@@ -36,30 +35,27 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     #region  Methods
     private void OnEnable()
     {
-        if (!Quitting)
+        if (Quitting) return;
+        var iAmSingleton = false;
+
+        lock (Lock)
         {
-            bool iAmSingleton = false;
+            _instances ??= new Dictionary<System.Type, Singleton<T>>();
 
-            lock (Lock)
+            if (_instances.ContainsKey(this.GetType()))
+                Destroy(this.gameObject);
+            else
             {
-                if (_instances == null)
-                    _instances = new Dictionary<System.Type, Singleton<T>>();
+                iAmSingleton = true;
 
-                if (_instances.ContainsKey(this.GetType()))
-                    Destroy(this.gameObject);
-                else
-                {
-                    iAmSingleton = true;
+                _instances.Add(this.GetType(), this);
 
-                    _instances.Add(this.GetType(), this);
-
-                    DontDestroyOnLoad(gameObject);
-                }
+                DontDestroyOnLoad(gameObject);
             }
-
-            if(iAmSingleton)
-                OnEnableCallback();
         }
+
+        if(iAmSingleton)
+            OnEnableCallback();
     }
 
     private void OnApplicationQuit()

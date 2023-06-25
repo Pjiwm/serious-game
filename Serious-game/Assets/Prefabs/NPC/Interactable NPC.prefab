@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4361193622758366032, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,14 +63,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8182275797453475618, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -3520173088034491625}
+      addedObject: {fileID: 3474023137579909852}
   m_SourcePrefab: {fileID: 100100000, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
 --- !u!1 &7486506065575110577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8182275797453475618, guid: 4fd044695eb805181b98907a3ad49579, type: 3}
   m_PrefabInstance: {fileID: 1614577736227285139}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-3520173088034491625
+--- !u!114 &3474023137579909852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,9 +79,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7486506065575110577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e912e15f485538748b4f40733949d4e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1be9a8c1b4304cbfa8a18710e82fc0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interactDialog:
-    lines:
-    - Hello world
+    lines: []

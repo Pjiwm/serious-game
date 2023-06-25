@@ -123,6 +123,67 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &12604428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7183518082682940852, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_Name
+      value: DialogSystemSingleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.964602
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 100.73525
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.17429803
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478872734982570762, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2d7263770bfa03171b2278615d3df176, type: 3}
 --- !u!1 &57886150
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +816,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 2021153011}
   startMenuCanvas: {fileID: 1734155303}
   obstacleSpawner: {fileID: 1847477608}
+  beamSpawner: {fileID: 1226523868}
   backwardsObstacleSpawner: {fileID: 1899471331}
 --- !u!4 &999723499
 Transform:
@@ -1667,7 +1729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6c4e8dc22c24e498879377134df403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Yincrement: 0.5
+  yIncrement: 0.5
   speed: 6.5
   maxUp: 2.85
   maxDown: -2.85
@@ -2331,7 +2393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad89141973ea9cd49bd56e38ccb9ef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 3282242733907383480, guid: 3b8aa71e2e5263b44a6839bbfcb2f72a, type: 3}
+  obstacle: {fileID: 3282242733907383480, guid: 3b8aa71e2e5263b44a6839bbfcb2f72a, type: 3}
   spawnTime: 1
   spawnRange: 4
 --- !u!4 &1847477609
@@ -2378,7 +2440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad89141973ea9cd49bd56e38ccb9ef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Obstacle: {fileID: 4637133787625595966, guid: 44789c4273d39c848b365f57cb1380b8, type: 3}
+  obstacle: {fileID: 4637133787625595966, guid: 44789c4273d39c848b365f57cb1380b8, type: 3}
   spawnTime: 3
   spawnRange: 2
 --- !u!4 &1899471332

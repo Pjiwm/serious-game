@@ -2,31 +2,29 @@ using UnityEngine;
 using TMPro;
 public class StatsManager : MonoBehaviour
 {
-    public static string FRIENDPREF = "friends";
-    public static string SWORDPREF = "swordPieces";
     public TMP_Text friends;
     public TMP_Text swordPieces;
 
-    private int friendsCount = 0;
-    private int swordPiecesCount = 0;
+    private int _friendsCount = 0;
+    private int _swordPiecesCount = 0;
 
 
-    void Start() {
-        friendsCount = PlayerPrefs.GetInt(FRIENDPREF, 0);
-        swordPiecesCount = PlayerPrefs.GetInt(SWORDPREF, 0);
+    private void Start() {
+        _friendsCount = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
+        _swordPiecesCount = PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0);
     }
 
-    void Update() {
-        friends.text = $"Friends {friendsCount}/3";
-        swordPieces.text = $"Sword Pieces {swordPiecesCount}/3";
+    private void Update() {
+        friends.text = $"Vrienden {_friendsCount}/3";
+        swordPieces.text = $"Zwaardstukken {_swordPiecesCount}/3";
     }
 
-    void requestUpdate() {
-        friendsCount = PlayerPrefs.GetInt(FRIENDPREF, 0);
-        swordPiecesCount = PlayerPrefs.GetInt(SWORDPREF, 0);
+    public void RequestUpdate() {
+        _friendsCount = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
+        _swordPiecesCount = PlayerPrefs.GetInt(PlayerPrefKeys.SwordPieces, 0);
     }
 
-    public static void updatePref(string pref, int value) {
+    public static void UpdatePref(string pref, int value) {
         PlayerPrefs.SetInt(pref, value);
         PlayerPrefs.Save();
     }
