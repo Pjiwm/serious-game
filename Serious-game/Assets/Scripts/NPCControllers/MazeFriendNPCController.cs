@@ -15,23 +15,31 @@ namespace NPCControllers
         {
             if (!PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendSpokenTo))
             {
+                PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriendSpokenTo, 1);
+                PlayerPrefs.Save();
                 StartCoroutine(DialogManager.Instance.ShowDialog(interactDialog));
             }
             else
             {
-                if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
-                {
-                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
-                    StatsManager.UpdatePref(PlayerPrefKeys.Friends, 3);
-                    statsManager.RequestUpdate();
-                }
-                else
+                if (PlayerPrefs.HasKey(PlayerPrefKeys.LostMazeFriendDelivered) && !PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
                 {
                     var friends = PlayerPrefs.GetInt(PlayerPrefKeys.Friends, 0);
                     friends++;
                     StatsManager.UpdatePref(PlayerPrefKeys.Friends, friends);
                     statsManager.RequestUpdate();
+
+                    PlayerPrefs.SetInt(PlayerPrefKeys.MazeFriendMade, 1);
+                    PlayerPrefs.Save();
+
                     StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                }
+                else if (PlayerPrefs.HasKey(PlayerPrefKeys.MazeFriendMade))
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(friendsDialog));
+                }
+                else
+                {
+                    StartCoroutine(DialogManager.Instance.ShowDialog(alreadySpokenToDialog));
                 }
             }
         }
