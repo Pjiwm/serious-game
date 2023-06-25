@@ -40322,7 +40322,7 @@ Tilemap:
       - {fileID: -361085276, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -523367463, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 2132689180, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: -7, z: 0}
@@ -54111,7 +54111,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 35, y: 28, z: 0}
@@ -54985,12 +54985,15 @@ MonoBehaviour:
     - 'Mia: Je hebt gelijk. Het lijkt erop dat deze uitdaging me niet alleen heeft
       gebracht, maar ook een kans biedt om te groeien.'
     - 'Mia: Ik ben dankbaar dat je mijn pad hebt gekruist.'
-    - 'Jeff: Het is een eer om je te helpen. Samen zullen we deze doolhof overwinnen
-      en een weg naar vrijheid en verbinding vinden.'
+    - 'Jeff: Het is een eer om je te helpen. Samen zullen we deze eenzaamheidsdoolhof
+      overwinnen en een weg naar vrijheid en verbinding vinden.'
     - 'Jeff: Vergeet niet, zelfs in de donkerste tijden zijn er altijd mensen bereid
       om te helpen.'
     - 'Mia: Dankjewel! Dit is waar ik woon. Achter het kasteel ligt een kist met
       een cadeutje voor je. Vergeet niet naar Eva te gaan!'
+  alreadySpokenToDialog:
+    lines:
+    - 'Mia: Vooruit! Ik volg je naar mijn kasteel!'
 --- !u!1 &1245911359
 GameObject:
   m_ObjectHideFlags: 0
@@ -59142,7 +59145,7 @@ Tilemap:
       - {fileID: -1684254108, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -410339458, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1396704108, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 7, z: 0}
@@ -59262,7 +59265,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 11, z: 0}
@@ -59622,7 +59625,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 35, y: 29, z: 0}
@@ -59632,7 +59635,7 @@ Tilemap:
       - {fileID: -1840887687, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 507231478, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1146981712, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 36, y: 29, z: 0}
@@ -93048,7 +93051,7 @@ Tilemap:
       - {fileID: -1625657839, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1030478486, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -262373122, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 16, z: 0}
@@ -93543,7 +93546,7 @@ Tilemap:
       - {fileID: 503536343, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1905501517, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -195014815, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 37, y: 22, z: 0}
@@ -93741,7 +93744,7 @@ Tilemap:
       - {fileID: 503536343, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1905501517, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -195014815, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 42, y: 23, z: 0}
@@ -94016,7 +94019,7 @@ Tilemap:
       - {fileID: -1625657839, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1030478486, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -262373122, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 36, y: 32, z: 0}
@@ -94258,7 +94261,7 @@ Tilemap:
       - {fileID: -855616585, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 1527060211, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -1790944617, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 35, y: 35, z: 0}
@@ -94423,7 +94426,7 @@ Tilemap:
       - {fileID: -1498007164, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: -734693871, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
       - {fileID: 762882989, guid: 63e2a9e8cc1f2b346acfa8753c84bb30, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 35, y: 43, z: 0}
