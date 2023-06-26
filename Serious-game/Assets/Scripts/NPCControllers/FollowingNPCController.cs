@@ -83,6 +83,7 @@ namespace NPCControllers
             if (_currentWaypoint == 1) _currentWaypoint++;
             if (_currentWaypoint <= 0) _currentWaypoint = 2;
 
+            if(_currentWaypoint >= _path.vectorPath.Count || _currentWaypoint < 0) return;
             _direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
 
             var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
